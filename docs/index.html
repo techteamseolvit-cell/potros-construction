@@ -91,6 +91,7 @@
         <a href="landscaping-winchester-va/">Landscaping</a>
       </div>
     </div>
+    <a href="#work">Work</a>
     <a href="#process">Process</a>
     <a href="#area">Service Area</a>
     <a href="about-us/">About</a>
@@ -103,7 +104,7 @@
 </header>
 
 <div class="drawer" id="drawer">
-  <a href="#services">Services</a><a href="#process">Process</a><a href="#area">Service Area</a>
+  <a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#area">Service Area</a>
   <a href="about-us/">About</a><a href="reviews/">Reviews</a><a href="blog/">Blog</a><a href="#contact">Contact</a>
   <a class="drawer__tel" href="tel:+15405148725">(540) 514-8725</a>
 </div>
@@ -114,6 +115,7 @@
 <section class="hero" id="hero" aria-label="Potros Construction, custom outdoor living">
   <div class="hero__pin">
     <div class="hero__poster" aria-hidden="true"></div>
+    <video class="hero__video" id="heroVideo" muted loop playsinline preload="none" aria-hidden="true"></video>
     <canvas id="hero3d" class="hero__canvas" aria-hidden="true"></canvas>
     <div class="hero__vignette" aria-hidden="true"></div>
 
@@ -126,7 +128,7 @@
       <p class="hero__sub reveal-up">Hardscapes, patios, decks, porches, fireplaces and landscaping, designed in 3D before we ever break ground.</p>
       <div class="hero__cta reveal-up">
         <a class="btn magnetic" href="#contact"><span>Get a free estimate</span></a>
-        <a class="btn btn--ghost magnetic" href="#film" data-cursor="Play"><span>Watch the film</span></a>
+        <a class="btn btn--ghost magnetic" href="#work" data-cursor="View"><span>See our work</span></a>
       </div>
     </div>
 
@@ -213,23 +215,23 @@
   </div>
 </section>
 
-<!-- ANATOMY OF A BUILD -->
-<section class="anatomy" id="work" aria-labelledby="anatomy-title">
-  <div class="wrap anatomy__grid">
-    <div class="anatomy__copy">
-      <p class="eyebrow"><span class="dot"></span> Featured project spec</p>
-      <h2 id="anatomy-title" class="h2">Anatomy of <em>one backyard.</em></h2>
-      <p class="lede">Every build starts with exact measurements. This is what one complete outdoor living space is made of: no guesswork, every square foot accounted for.</p>
-      <a class="btn btn--ghost magnetic" href="#contact"><span>Plan yours</span></a>
+<!-- WORK: renders gallery -->
+<section class="work" id="work" aria-labelledby="work-title">
+  <div class="wrap work__head">
+    <div>
+      <p class="eyebrow"><span class="dot"></span> Selected work</p>
+      <h2 id="work-title" class="h2">Our work, <em>rendered.</em></h2>
     </div>
-    <ul class="spec">
-      <li><b data-count="961" data-suffix=" ft²">0</b><span>Stamped concrete</span></li>
-      <li><b data-count="1291" data-suffix=" ft²">0</b><span>Pavers</span></li>
-      <li><b data-count="218" data-suffix=" ft²">0</b><span>Pergola coverage</span></li>
-      <li><b data-count="11">0</b><span>Structural columns</span></li>
-      <li><b data-count="72" data-suffix=" ft">0</b><span>Sunken fire-pit seating</span></li>
-      <li><b data-count="36" data-suffix=" ft">0</b><span>Kitchen &amp; stool bar</span></li>
-    </ul>
+    <p class="lede">Every space is designed in 3D before we build it. Explore the renders and images from our latest projects.</p>
+  </div>
+  <div class="work__grid wrap" id="workGrid">
+    <!-- Replace images in assets/work/ (work-01.webp ... work-08.webp). Missing files show an elegant placeholder. -->
+    <figure class="work__item w1" data-i="0"><div class="work__img"><img src="assets/work/work-01.webp" alt="Potros Construction outdoor living render 1" loading="lazy" decoding="async"></div><figcaption><span>01</span> Outdoor living</figcaption></figure>
+    <figure class="work__item w2" data-i="1"><div class="work__img"><img src="assets/work/work-02.webp" alt="Potros Construction outdoor living render 2" loading="lazy" decoding="async"></div><figcaption><span>02</span> Patio &amp; pergola</figcaption></figure>
+    <figure class="work__item w3" data-i="2"><div class="work__img"><img src="assets/work/work-03.webp" alt="Potros Construction outdoor living render 3" loading="lazy" decoding="async"></div><figcaption><span>03</span> Fire feature</figcaption></figure>
+    <figure class="work__item w4" data-i="3"><div class="work__img"><img src="assets/work/work-04.webp" alt="Potros Construction outdoor living render 4" loading="lazy" decoding="async"></div><figcaption><span>04</span> Hardscape</figcaption></figure>
+    <figure class="work__item w5" data-i="4"><div class="work__img"><img src="assets/work/work-05.webp" alt="Potros Construction outdoor living render 5" loading="lazy" decoding="async"></div><figcaption><span>05</span> Outdoor kitchen</figcaption></figure>
+    <figure class="work__item w6" data-i="5"><div class="work__img"><img src="assets/work/work-06.webp" alt="Potros Construction outdoor living render 6" loading="lazy" decoding="async"></div><figcaption><span>06</span> Landscape</figcaption></figure>
   </div>
 </section>
 
@@ -251,19 +253,6 @@
         <div class="iso__tag"><span id="isoTag">Site plan</span></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- FILM: existing YouTube video preserved -->
-<section class="film" id="film" aria-labelledby="film-title">
-  <div class="wrap">
-    <p class="eyebrow"><span class="dot"></span> The film</p>
-    <h2 id="film-title" class="h2">See Potros <em>in motion.</em></h2>
-  </div>
-  <div class="film__frame" id="filmFrame" data-yt="MiFIxfJCo3g" data-cursor="Play">
-    <div class="film__thumb" aria-hidden="true"></div>
-    <button class="film__play" id="filmPlay" aria-label="Play the Potros Construction video"><i></i></button>
-    <span class="film__cap">Current home-page video, preserved as requested</span>
   </div>
 </section>
 
@@ -339,6 +328,7 @@
   <div class="wrap footer__bar"><span>© 2026 Potros Construction LLC</span><span><a href="privacy-policy/">Privacy</a> · <a href="terms-and-conditions/">Terms</a></span></div>
 </footer>
 
+<div class="lb" id="lb" hidden><button class="lb__x" id="lbX" aria-label="Close">×</button><button class="lb__n lb__n--p" id="lbP" aria-label="Previous">←</button><img id="lbImg" alt=""><button class="lb__n" id="lbN" aria-label="Next">→</button></div>
 <script src="js/hero3d.js"></script>
 <script src="js/main.js"></script>
 </body>

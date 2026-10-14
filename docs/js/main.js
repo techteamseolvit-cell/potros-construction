@@ -84,7 +84,7 @@
     c += poly([P(X0, 0, Z1), P(X1, 0, Z1), P(X1, -.5, Z1), P(X0, -.5, Z1)], '#181716');
     c += poly([P(X1, 0, Z0), P(X1, 0, Z1), P(X1, -.5, Z1), P(X1, -.5, Z0)], '#0e0d0d');
     c += poly([P(-2.6, 0, -3.5), P(2.6, 0, -3.5), P(2.6, 3.2, -3.5), P(-2.6, 3.2, -3.5)], '#2b2825', 'rgba(244,239,231,.15)');
-    c += poly([P(-1.2, .3, -3.45), P(1.2, .3, -3.45), P(1.2, 1.3, -3.45), P(-1.2, 1.3, -3.45)], '#ff7a3c');
+    c += poly([P(-1.2, .3, -3.45), P(1.2, .3, -3.45), P(1.2, 1.3, -3.45), P(-1.2, 1.3, -3.45)], '#e0100f');
     c += poly(ring(1.45, 0), '#2a2420', '#3b3733', 2);
     c += poly(ring(1.0, .45), '#120d0b');
     c += '<ellipse cx="' + P(0, .6, 2.4)[0] + '" cy="' + P(0, .6, 2.4)[1] + '" rx="150" ry="80" fill="url(#gGlow)" opacity=".22"/>';
@@ -96,7 +96,7 @@
     c += poly([P(-4.9, H, -3.4), P(4.9, H, -3.4), P(4.9, H, 1.6), P(-4.9, H, 1.6)], 'rgba(20,18,17,.55)', '#c1121f', 2);
     for (i = -4.4; i <= 4.41; i += 1.1) c += '<path d="M' + pt(P(i, H + .25, -3.5)) + ' L' + pt(P(i, H + .25, 1.7)) + '" stroke="#8a6a4a" stroke-width="3"/>';
     c += '<path class="flame" d="M' + pt(P(0, .5, 2.4)) + ' c-14 -18 -6 -30 0 -48 c6 18 14 30 0 48z" fill="url(#gGlow)"/>';
-    svg.innerHTML = '<defs><linearGradient id="gGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb066"/><stop offset=".5" stop-color="#ff5a22" stop-opacity=".85"/><stop offset="1" stop-color="#c1121f" stop-opacity="0"/></linearGradient>' +
+    svg.innerHTML = '<defs><linearGradient id="gGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#e0100f" stop-opacity=".9"/><stop offset="1" stop-color="#b00000" stop-opacity="0"/></linearGradient>' +
       '<pattern id="pav" width="20" height="12" patternUnits="userSpaceOnUse"><rect width="20" height="12" fill="#2d2a27"/><path d="M0 0H20M0 6H20M10 0V6M0 6V12M20 6V12" stroke="#3f3b37" stroke-width="1"/></pattern></defs>' +
       '<g class="iso__l iso__l1" fill="none">' + a + '</g><g class="iso__l iso__l2" fill="none">' + b + '</g><g class="iso__l iso__l3">' + c + '</g>';
     svg.setAttribute('class', 'iso s0');
@@ -112,34 +112,18 @@
     if (isoTag) isoTag.textContent = tags[i];
   }
 
-  /* ---------- counters ---------- */
-  var counters = $$('[data-count]');
-  function runCount(el) {
-    if (el._done) return; el._done = true;
-    var to = +el.getAttribute('data-count'), suf = el.getAttribute('data-suffix') || '', t0 = performance.now(), dur = 2200;
-    if (reduce) { el.textContent = to.toLocaleString('en-US') + suf; return; }
-    (function f(now) {
-      var p = clamp((now - t0) / dur, 0, 1), e = 1 - Math.pow(1 - p, 4);
-      el.textContent = Math.round(to * e).toLocaleString('en-US') + suf;
-      if (p < 1) requestAnimationFrame(f);
-    })(t0);
-  }
-
   /* ---------- reveals ---------- */
-  var revealTargets = $$('.h2,.lede,.anatomy .btn,.spec li,.tile,.area__list,.area__map,.cta__title,.cta__row,.footer__grid>div,.why .eyebrow,.film .eyebrow');
+  var revealTargets = $$('.h2,.lede,.tile,.area__list,.area__map,.cta__title,.cta__row,.footer__grid>div,.why .eyebrow,.work__head>*');
   revealTargets.forEach(function (el, i) { el.classList.add('rv'); el.style.setProperty('--d', (i % 6 * .07) + 's'); });
   var io = 'IntersectionObserver' in w ? new IntersectionObserver(function (en) {
     en.forEach(function (e) {
       if (!e.isIntersecting) return;
       var el = e.target; el.classList.add('in');
-      if (el.hasAttribute && el.hasAttribute('data-count')) runCount(el);
-      if (el.classList.contains('film__frame')) el.classList.add('in');
       if (el.classList.contains('area__map')) el.querySelector('svg').classList.add('m-in');
       io.unobserve(el);
     });
   }, { threshold: .15, rootMargin: '0px 0px -6% 0px' }) : null;
-  revealTargets.concat($$('[data-count]'), $$('.film__frame')).forEach(function (el) { if (io) io.observe(el); else { el.classList.add('in'); } });
-  if (!io) counters.forEach(runCount);
+  revealTargets.concat($$('.work__item')).forEach(function (el) { if (io) io.observe(el); else { el.classList.add('in'); } });
 
   /* ---------- service-area map (approx. real lon/lat) ---------- */
   (function map() {
@@ -174,17 +158,40 @@
     });
   })();
 
-  /* ---------- film facade (YouTube loads on click: no third-party weight until needed) ---------- */
-  (function film() {
-    var f = $('#filmFrame'); if (!f) return;
-    var go = function () {
-      if (f.querySelector('iframe')) return;
-      var id = f.getAttribute('data-yt'), ifr = d.createElement('iframe');
-      ifr.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
-      ifr.title = 'Potros Construction video'; ifr.allow = 'autoplay; encrypted-media; picture-in-picture'; ifr.allowFullscreen = true;
-      f.appendChild(ifr); $$('.film__thumb,.film__play,.film__cap', f).forEach(function (e) { e.style.display = 'none'; });
-    };
-    f.addEventListener('click', go);
+
+  /* ---------- work gallery: parallax, empty-state, lightbox ---------- */
+  var workItems = $$('.work__item'), lb = $('#lb'), lbImg = $('#lbImg'), lbIdx = 0;
+  workItems.forEach(function (it, i) {
+    var im = $('img', it);
+    var miss = function () { it.classList.add('empty'); };
+    if (im.complete && im.naturalWidth === 0 && im.getAttribute('src')) { /* may still be loading (lazy) */ }
+    im.addEventListener('error', miss);
+    it.addEventListener('click', function () { if (!it.classList.contains('empty')) openLb(i); });
+  });
+  function openLb(i) {
+    var avail = workItems.filter(function (x) { return !x.classList.contains('empty'); });
+    var it = workItems[i]; lbIdx = avail.indexOf(it); if (lbIdx < 0) return;
+    lbImg.src = $('img', it).currentSrc || $('img', it).src; lbImg.alt = $('img', it).alt;
+    lb.hidden = false; requestAnimationFrame(function () { lb.classList.add('on'); }); body.style.overflow = 'hidden';
+  }
+  function stepLb(dir) {
+    var avail = workItems.filter(function (x) { return !x.classList.contains('empty'); }); if (!avail.length) return;
+    lbIdx = (lbIdx + dir + avail.length) % avail.length; var im = $('img', avail[lbIdx]); lbImg.src = im.currentSrc || im.src; lbImg.alt = im.alt;
+  }
+  function closeLb() { lb.classList.remove('on'); setTimeout(function () { lb.hidden = true; }, 350); body.style.overflow = ''; }
+  if (lb) {
+    $('#lbX').addEventListener('click', closeLb); $('#lbN').addEventListener('click', function () { stepLb(1); }); $('#lbP').addEventListener('click', function () { stepLb(-1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    d.addEventListener('keydown', function (e) { if (lb.hidden) return; if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowRight') stepLb(1); if (e.key === 'ArrowLeft') stepLb(-1); });
+  }
+
+  /* ---------- optional hero video: drop assets/video/hero.mp4 and it replaces the 3D canvas ---------- */
+  (function heroVideo() {
+    var v = $('#heroVideo'); if (!v || !heroEl) return;
+    fetch('assets/video/hero.mp4', { method: 'HEAD' }).then(function (r) {
+      if (!r.ok) return; v.src = 'assets/video/hero.mp4'; v.preload = 'auto';
+      var po = v.play(); if (po && po.then) po.then(function () { heroEl.classList.add('has-video'); }).catch(function () {});
+    }).catch(function () {});
   })();
 
   /* ---------- nav + drawer ---------- */
@@ -239,6 +246,7 @@
     if (svc && track) {
       var sp = pinProgress(svc); track.style.transform = 'translate3d(' + (-sp * svcMax) + 'px,0,0)'; if (svcBar) svcBar.style.transform = 'scaleX(' + sp + ')';
     }
+    for (var wi = 0; wi < workItems.length; wi++) { var wr = workItems[wi].getBoundingClientRect(); if (wr.bottom < -50 || wr.top > w.innerHeight + 50) continue; var wp = (wr.top + wr.height / 2) / w.innerHeight - .5; workItems[wi].querySelector('img').style.setProperty('--py', (-wp * 46 - 30) + 'px'); }
     if (proc) { setStep(Math.min(2, Math.floor(pinProgress(proc) * 3 * .999))); }
   }
   var req = function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
