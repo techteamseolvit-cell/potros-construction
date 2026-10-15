@@ -146,13 +146,16 @@
     if (reduce) { rv.loop = true; rv.play().catch(function () {}); }
     else {
       rv.load();
-      (function scrub() {
+      var lastT = performance.now();
+      (function scrub(now) {
+        var dt = Math.min(.1, (now - lastT) / 1000 || .016); lastT = now;
         if (rvVisible && rv.readyState >= 2 && rv.duration) {
           var diff = rvTarget - rv.currentTime;
-          if (Math.abs(diff) > .03) rv.currentTime = clamp(rv.currentTime + diff * .2, 0, rv.duration - .05);
+          // time-based easing + speed cap (max 2.4 video-seconds per second), so fast scrolling never makes the video jump
+          if (Math.abs(diff) > .025) rv.currentTime = clamp(rv.currentTime + clamp(diff * (1 - Math.exp(-dt * 7)), -2.4 * dt, 2.4 * dt), 0, rv.duration - .05);
         }
         requestAnimationFrame(scrub);
-      })();
+      })(lastT);
     }
   }
 
@@ -227,7 +230,10 @@
     for (var wi = 0; wi < workItems.length; wi++) { var wr = workItems[wi].getBoundingClientRect(); if (wr.bottom < -50 || wr.top > w.innerHeight + 50) continue; var wp = (wr.top + wr.height / 2) / w.innerHeight - .5; workItems[wi].querySelector('img').style.setProperty('--py', (-wp * 46 - 30) + 'px'); }
     if (revealEl && rv) {
       var rr = revealEl.getBoundingClientRect(); rvVisible = rr.top < w.innerHeight && rr.bottom > 0;
-      var rp = pinProgress(revealEl); rvTarget = rp * (rv.duration || 21.4) * .985;
+      var rp = pinProgress(revealEl);
+      // hold the first/last frames (reading time), then ease the motion in and out
+      var rt = clamp((rp - .08) / .84, 0, 1); rt = .55 * rt + .45 * (rt * rt * (3 - 2 * rt));
+      rvTarget = rt * (rv.duration || 21.4) * .985;
       if (rvBar) rvBar.style.transform = 'scaleX(' + rp + ')';
       var ci = Math.min(2, Math.floor(rp * 3)); if (ci !== rvCap) { rvCap = ci; caps.forEach(function (c, k) { c.classList.toggle('on', k === ci); }); }
     }
