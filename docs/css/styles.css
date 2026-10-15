@@ -120,11 +120,11 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 
 /* manifesto */
 .manifesto{padding:var(--sec) 0}
-.manifesto__text{font-family:var(--serif);font-size:var(--h2);line-height:1.12;letter-spacing:-.015em;max-width:26ch}
+.manifesto__text{font-family:var(--serif);font-size:clamp(26px,calc(2.9vw + 2px),44px);line-height:1.22;letter-spacing:-.01em;max-width:34ch}
 .manifesto__text .w{display:inline-block;opacity:.16;transition:opacity .25s linear,color .25s}
 .manifesto__text .w.lit{opacity:1}
 .manifesto__text .w.red{color:var(--red-hot)}
-@media (min-width:900px){.manifesto__text{max-width:28ch}}
+@media (min-width:900px){.manifesto__text{max-width:36ch}}
 
 /* services horizontal scroll */
 .services{position:relative;height:420vh}
