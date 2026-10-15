@@ -42,9 +42,9 @@ Si falla la reproducción del video, el hero cae a la escena 3D de WebGL (`js/he
 - Paleta = logo de Potros: rojo, blanco y negro.
 - Las 14 páginas internas son *stubs* (`noindex`) con las mismas URLs del sitio actual; se construyen en la siguiente fase.
 - Todo lleva `noindex,nofollow` mientras sea una vista previa. **Quitarlo al lanzar.**
-- No se usa ningún video de YouTube del sitio actual; solo renders e imágenes nuevas.
+- No se usa ningún video de YouTube del sitio actual; solo fotos y videos nuevos del cliente.
 
 ## Pendientes
 
-- Renders de la carpeta *Renders II* (PNG) y los otros clips de *Images II* / *Project*: pendientes de elegir.
+- Otros clips de *Images II* / *Project* y más fotos de *Best Potros Content*: pendientes de elegir. (*Renders II* no se usa.)
 - Reseñas reales, FAQ y textos finales por página.

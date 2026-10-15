@@ -280,9 +280,8 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 .work__item figcaption{display:flex;gap:14px;align-items:baseline;padding:14px 4px 0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 .work__item figcaption span{font-family:var(--serif);font-size:22px;letter-spacing:0;color:var(--red-hot)}
 .work__item.empty .work__img{background:repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 12px,transparent 12px 24px),linear-gradient(160deg,#171717,#0c0c0c)}
-.work__item.empty .work__img::after{content:"Render coming soon";position:absolute;inset:0;display:grid;place-items:center;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 .work__item.empty img{visibility:hidden}
-.work__item.empty{cursor:default}
+.work__item.empty{display:none}
 @media (max-width:760px){.work__item,.work__item.w1,.work__item.w2,.work__item.w3,.work__item.w4,.work__item.w5,.work__item.w6{grid-column:span 12;margin-top:0}.work__item.w6 .work__img{aspect-ratio:4/3}}
 
 /* lightbox */
@@ -313,7 +312,7 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 .reveal__bar i{position:absolute;left:0;top:-1px;height:3px;width:100%;background:var(--red-hot);transform-origin:0 50%;transform:scaleX(0)}
 @media (prefers-reduced-motion:reduce){.reveal{height:auto}.reveal__pin{position:relative;height:100vh}}
 
-/* legibility over bright renders */
+/* legibility over bright video */
 .hero.has-video .hero__vignette{background:linear-gradient(90deg,rgba(5,5,7,.82),rgba(5,5,7,.45) 48%,rgba(5,5,7,.1)),linear-gradient(180deg,rgba(5,5,7,.65),transparent 28%,rgba(5,5,7,.4) 60%,rgba(5,5,7,.92))}
 .hero__title,.hero__sub{text-shadow:0 2px 30px rgba(0,0,0,.45)}
 .reveal__shade{background:linear-gradient(180deg,rgba(5,5,7,.9),rgba(5,5,7,.5) 30%,transparent 52%,transparent 58%,rgba(5,5,7,.92))}
