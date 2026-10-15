@@ -326,3 +326,8 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 .manifesto__art img{position:relative;width:84%;height:auto;opacity:.68;filter:saturate(.8) brightness(.92) blur(.6px);-webkit-mask-image:radial-gradient(closest-side,#000 78%,transparent 100%);mask-image:radial-gradient(closest-side,#000 78%,transparent 100%)}
 .manifesto__art::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 50%,rgba(0,0,0,0) 30%,rgba(0,0,0,.6) 100%);pointer-events:none}
 @media (max-width:860px){.manifesto__grid{grid-template-columns:1fr}.manifesto__art{order:-1;max-width:340px;aspect-ratio:16/11}}
+
+/* hero: content anchored just below the nav */
+.hero__content{top:max(112px,20vh);bottom:auto;max-width:980px}
+.hero__title{font-size:clamp(40px,min(6.3vw,11.2vh),110px);line-height:1}
+@media (max-width:700px){.hero__content{top:max(104px,16vh)}.hero__title{font-size:clamp(38px,11vw,60px)}}
