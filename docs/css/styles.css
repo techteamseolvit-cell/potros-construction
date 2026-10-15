@@ -325,7 +325,7 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 /* horse mark in "The Potros standard" */
 .manifesto__grid{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(24px,5vw,80px);align-items:center}
 .manifesto__text{max-width:none}
-.manifesto__art{position:relative;display:grid;place-items:center;aspect-ratio:4/5;border-radius:28px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,rgba(10,10,10,.5),rgba(110,0,0,.78)),url(../assets/work/work-05.webp) center/cover,#140404}
-.manifesto__art::before{content:"";position:absolute;inset:0;background:radial-gradient(closest-side at 50% 52%,rgba(224,16,15,.42),transparent 70%)}
-.manifesto__art img{position:relative;width:82%;height:auto;filter:drop-shadow(0 14px 40px rgba(0,0,0,.55))}
+.manifesto__art{position:relative;display:grid;place-items:center;aspect-ratio:4/5;border-radius:28px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,#0f0f0f,#060606)}
+.manifesto__art img{position:relative;width:84%;height:auto;opacity:.68;filter:saturate(.8) brightness(.92) blur(.6px);-webkit-mask-image:radial-gradient(closest-side,#000 78%,transparent 100%);mask-image:radial-gradient(closest-side,#000 78%,transparent 100%)}
+.manifesto__art::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 50%,rgba(0,0,0,0) 30%,rgba(0,0,0,.6) 100%);pointer-events:none}
 @media (max-width:860px){.manifesto__grid{grid-template-columns:1fr}.manifesto__art{order:-1;max-width:340px;aspect-ratio:16/11}}
