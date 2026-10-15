@@ -8,7 +8,7 @@ import html, json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261016k'          # cache-busting for css/js
+VERSION = '20261016l'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -110,10 +110,7 @@ def nav(current=None):
   <a class="nav__logo" href="../" aria-label="Potros Construction, home"><img src="../assets/logo.png" alt="Potros Construction LLC" width="140" height="41"></a>
   <nav class="nav__links" aria-label="Primary">
     <a href="../"{cur('home')}>Home</a>
-    <div class="nav__dd">
-      <a href="../#services"{cur('services')}>Services</a>
-      <div class="nav__menu">{''.join(f'<a href="../{s}-winchester-va/">{l}</a>' for s, l in LIVE_SERVICES)}</div>
-    </div>
+    {''.join(f'<a href="../{sl}-winchester-va/"{cur(sl)}>{l}</a>' for sl, l in LIVE_SERVICES)}
     <a href="../about-us/"{cur('about')}>About Us</a>
     <a href="../contact-us/"{cur('contact')}>Contact Us</a>
   </nav>
@@ -243,7 +240,7 @@ def render(s):
 <body class="sp">
 <a class="skip" href="#main">Skip to content</a>
 <div class="progress" id="progress" aria-hidden="true"></div>
-{nav('services')}
+{nav(s['slug'])}
 <main id="main">
 
 <!-- HERO -->
