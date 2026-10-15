@@ -8,7 +8,7 @@ import html, json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261016o'          # cache-busting for css/js
+VERSION = '20261016p'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site

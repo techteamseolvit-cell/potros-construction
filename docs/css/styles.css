@@ -418,3 +418,12 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
   .hero__pin{position:relative;top:auto;height:100vh;height:100svh;min-height:560px}
   .hero__hud,.hero__scroll{display:none}
 }
+
+/* footer, responsive: brand block on its own row; no column overlaps */
+@media (max-width:860px){
+  .footer__grid{grid-template-columns:1fr 1fr;gap:34px 28px}
+  .footer__grid>:first-child{grid-column:1 / -1}
+  .footer__grid>:nth-child(4){grid-column:1 / -1}
+  .footer__brand{align-items:center}
+}
+@media (max-width:860px){.footer__grid>:first-child{padding-bottom:14px}}
