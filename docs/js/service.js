@@ -25,7 +25,7 @@
   } else { rv.forEach(function (el) { el.classList.add('in'); }); }
 
   /* gallery lightbox */
-  var items = $$('#spGallery .sp-g'), lb = $('#lb'), lbImg = $('#lbImg'), idx = 0;
+  var items = $$('.sp-dip, #spGallery .sp-g'), lb = $('#lb'), lbImg = $('#lbImg'), idx = 0;
   function show(i) { idx = (i + items.length) % items.length; var im = $('img', items[idx]); lbImg.src = im.currentSrc || im.src; lbImg.alt = im.alt; }
   function open(i) { show(i); lb.hidden = false; requestAnimationFrame(function () { lb.classList.add('on'); }); d.body.style.overflow = 'hidden'; }
   function close() { lb.classList.remove('on'); setTimeout(function () { lb.hidden = true; }, 350); d.body.style.overflow = ''; }

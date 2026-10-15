@@ -125,7 +125,7 @@ def nav():
 def footer():
     return f'''<footer class="footer">
   <div class="wrap footer__grid">
-    <div class="footer__brand"><img class="footer__emblem" src="../assets/emblem.png" alt="" width="84" height="93"><div><p class="footer__name"><strong>POTROS</strong><span>Construction LLC</span></p><p class="footer__note">Custom hardscapes and outdoor living in Winchester, VA and surrounding communities.</p></div></div>
+    <div class="footer__brand"><img class="footer__emblem" src="../assets/emblem.png" alt="" width="84" height="93"><p class="footer__note">Custom hardscapes and outdoor living in Winchester, VA and surrounding communities.</p></div>
     <div><h3>Services</h3>{''.join(f'<a href="../{s}-winchester-va/">{l}</a>' for s, l, _, _ in SERVICE_INDEX)}</div>
     <div><h3>Company</h3><a href="../about-us/">About us</a><a href="../reviews/">Reviews</a><a href="../service-area/">Service area</a><a href="../faq/">FAQ</a><a href="../blog/">Blog</a><a href="../contact-us/">Contact</a></div>
     <div><h3>Visit</h3><address>704 Baker Ln, Suite 5<br>Winchester, VA 22603</address><a href="tel:{PHONE_HREF}">{PHONE}</a><p>Mon–Sat · 8:00 AM – 6:00 PM<br>Sunday closed</p></div>
@@ -164,7 +164,6 @@ def render(s):
     <div class="sp-block__photos rv">
       <figure class="sp-dip sp-dip--a"><img src="{img_path(p1)}" alt="{e(a1)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
       <figure class="sp-dip sp-dip--b"><img src="{img_path(p2)}" alt="{e(a2)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
-      <p class="sp-cap"><span>0{i + 1}</span><i></i>{e(b['kicker'])} · Winchester, VA</p>
     </div>
     <div class="sp-block__copy rv">
       <p class="sp-kick"><b>0{i + 1}</b><i></i>{e(b['kicker'])}</p>
@@ -184,7 +183,7 @@ def render(s):
     faqs = ''.join(f'<details class="sp-faq__i"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in s['faqs'])
     cities = ''.join(f'<li>{e(c)}</li>' for c in CITIES)
     related = ''.join(
-        f'<a class="sp-rel" href="../{sl}-winchester-va/"><img src="../assets/{ph}" alt="" loading="lazy" decoding="async" width="900" height="600"><span><b>{lb}</b><i>{ds}</i></span></a>'
+        f'<a class="sp-rel" href="../{sl}-winchester-va/"><img src="../assets/{ph}" alt="" loading="lazy" decoding="async" width="900" height="600"><span><b>{lb}</b></span></a>'
         for sl, lb, ph, ds in others)
     chips = ''.join(f'<li><b>0{i + 1}</b>{e(c)}</li>' for i, c in enumerate(s['chips']))
 

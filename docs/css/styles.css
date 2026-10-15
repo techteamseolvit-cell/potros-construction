@@ -394,7 +394,20 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 /* footer emblem */
 .footer__brand{display:flex;align-items:flex-start;gap:20px}
 .footer__emblem{width:84px;height:auto;flex:none;margin-top:2px}
-.footer .footer__name{display:flex;flex-direction:column;line-height:1;margin:6px 0 14px}
-.footer .footer__name strong{font-family:var(--serif);font-weight:600;font-size:34px;letter-spacing:.07em;color:#fff}
-.footer .footer__name span{display:block;font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--muted);margin-top:8px}
-.footer__brand .footer__note{margin-top:0}
+
+/* footer: emblem + tagline, never wider than its column */
+.footer__grid>*{min-width:0}
+.footer__brand{display:flex;align-items:center;gap:18px}
+.footer__brand .footer__note{margin:0}
+@media (max-width:860px){.footer__brand{grid-column:1 / -1}}
+
+/* centered reviews header */
+.reviews__head{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:22px}
+.reviews__head .eyebrow{justify-content:center}
+.reviews__head .h2{text-wrap:balance}
+
+/* CTA legibility over photos */
+.cta__bg::after{background:linear-gradient(180deg,rgba(5,5,7,.92),rgba(5,5,7,.8) 45%,rgba(5,5,7,.92))}
+.cta__title{text-shadow:0 2px 26px rgba(0,0,0,.7);text-wrap:balance}
+.cta__title em{color:#ff4a4a}
+.cta .eyebrow{color:#fff}
