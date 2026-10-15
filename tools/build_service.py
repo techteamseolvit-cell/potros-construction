@@ -8,7 +8,7 @@ import html, json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261015w'          # cache-busting for css/js
+VERSION = '20261015y'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -31,7 +31,7 @@ SERVICES = {
         'slug': 'hardscapes', 'name': 'Hardscapes', 'folder': 'hardscapes',
         'title': 'Hardscapes in Winchester VA | Potros Construction',
         'description': 'Custom hardscapes in Winchester, VA: patios, walkways, retaining walls and stone masonry. Free on-site estimates and 3D design from Potros Construction.',
-        'h1': 'Top Hardscape Services in Winchester, VA',
+        'h1': 'Hardscape Services in Winchester, VA',
         'lead': 'We design and build durable hardscapes, including patios, walkways, and retaining walls, creating beautiful, functional outdoor spaces that last longer.',
         'chips': ['Patios', 'Walkways', 'Retaining walls', 'Stone borders', 'Masonry'],
         'hero': [('patio-firepit-boulders', 'Paver patio with fire pit, boulders and landscaping at a Winchester VA home built by Potros Construction')],
@@ -86,7 +86,10 @@ SERVICES = {
                  ('How long do most projects take to complete?', 'Project timelines vary based on design, materials, and site conditions, but we provide a clear schedule before work begins.'),
                  ('Can you help with design ideas and material selection?', 'Absolutely. We guide you through choosing styles, colors, and materials that fit your home and budget.'),
                  ('Do your projects come with any warranties or guarantees?', 'Yes, we offer workmanship warranties on all projects and use materials backed by manufacturer guarantees.')],
-        'cta_photo': 'house-deck-stone-landscape',
+        'cta': {'eyebrow': 'Hardscapes in Winchester, VA',
+                'title': 'Ready to build your custom <em>patio, walkway or wall?</em>',
+                'button': 'Get a free hardscape estimate',
+                'photo': 'patio-firepit-chairs'},
     },
 }
 
@@ -159,8 +162,9 @@ def render(s):
 <section class="sp-block{' is-flip' if i % 2 else ''}" id="{e(b['kicker'].lower().replace(' ', '-'))}" aria-labelledby="blk{i}">
   <div class="wrap sp-block__grid">
     <div class="sp-block__photos rv">
-      <figure class="sp-arch"><img src="{img_path(p1)}" alt="{e(a1)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
-      <figure class="sp-mini"><img src="{img_path(p2)}" alt="{e(a2)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
+      <figure class="sp-dip sp-dip--a"><img src="{img_path(p1)}" alt="{e(a1)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
+      <figure class="sp-dip sp-dip--b"><img src="{img_path(p2)}" alt="{e(a2)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
+      <p class="sp-cap"><span>0{i + 1}</span><i></i>{e(b['kicker'])} · Winchester, VA</p>
     </div>
     <div class="sp-block__copy rv">
       <p class="sp-kick"><b>0{i + 1}</b><i></i>{e(b['kicker'])}</p>
@@ -312,13 +316,13 @@ def render(s):
   </div>
 </section>
 
-<!-- CTA -->
+<!-- CTA (per service) -->
 <section class="cta" aria-labelledby="cta-title">
-  <div class="cta__bg" aria-hidden="true"><img src="{img_path(s['cta_photo'])}" alt="" loading="lazy" decoding="async"></div>
+  <div class="cta__bg" aria-hidden="true"><img src="{img_path(s['cta']['photo'])}" alt="" loading="lazy" decoding="async"></div>
   <div class="wrap cta__in">
-    <p class="eyebrow"><span class="dot"></span> Let’s build</p>
-    <h2 id="cta-title" class="cta__title">Ready to take your outdoor space to the <em>next level?</em></h2>
-    <div class="cta__row"><a class="btn" href="../contact-us/">Let’s Get Started</a><a class="cta__tel" href="tel:{PHONE_HREF}">Call {PHONE}</a></div>
+    <p class="eyebrow"><span class="dot"></span> {e(s['cta']['eyebrow'])}</p>
+    <h2 id="cta-title" class="cta__title">{s['cta']['title']}</h2>
+    <div class="cta__row"><a class="btn" href="../contact-us/">{e(s['cta']['button'])}</a><a class="cta__tel" href="tel:{PHONE_HREF}">Call {PHONE}</a></div>
   </div>
 </section>
 
