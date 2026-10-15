@@ -229,7 +229,7 @@ body.sp .cta__title em{text-shadow:0 2px 18px rgba(0,0,0,.6)}
 .pg-about .sp-hero__bg img{object-position:62% 55%}
 .pg-contact-page .sp-hero__bg img{object-position:70% 50%}
 .pg-about .sp-hero__shade,.pg-contact-page .sp-hero__shade{background:linear-gradient(90deg,rgba(8,8,8,.82) 0%,rgba(8,8,8,.5) 34%,rgba(8,8,8,0) 62%),linear-gradient(180deg,rgba(8,8,8,.45),transparent 22%,transparent 62%,rgba(8,8,8,.8))}
-@media (max-width:760px){.pg-about .sp-hero__bg img,.pg-contact-page .sp-hero__bg img{object-position:68% 50%}.pg-about .sp-hero__shade,.pg-contact-page .sp-hero__shade{background:linear-gradient(90deg,rgba(8,8,8,.85),rgba(8,8,8,.55) 70%,rgba(8,8,8,.25)),linear-gradient(180deg,rgba(8,8,8,.5),transparent 25%,rgba(8,8,8,.7))}}
+@media (max-width:760px){.pg-about .sp-hero__bg img{object-position:30% 50%}.pg-contact-page .sp-hero__bg img{object-position:68% 50%}.pg-about .sp-hero__shade,.pg-contact-page .sp-hero__shade{background:linear-gradient(90deg,rgba(8,8,8,.85),rgba(8,8,8,.55) 70%,rgba(8,8,8,.25)),linear-gradient(180deg,rgba(8,8,8,.5),transparent 25%,rgba(8,8,8,.7))}}
 
 /* ───── refined estimate form ───── */
 .pg-form{border:1px solid rgba(255,255,255,.1);border-radius:20px;background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.012) 60%);box-shadow:0 40px 90px -40px rgba(176,0,0,.5);gap:26px;backdrop-filter:blur(6px)}
