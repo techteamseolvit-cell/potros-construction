@@ -411,3 +411,10 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 .cta__title{text-shadow:0 2px 26px rgba(0,0,0,.7);text-wrap:balance}
 .cta__title em{color:#ff4a4a}
 .cta .eyebrow{color:#fff}
+
+/* Responsive: no pinned/scrubbed hero, just a normal full-screen hero (effect kept on desktop) */
+@media (max-width:860px){
+  .hero{height:auto}
+  .hero__pin{position:relative;top:auto;height:100vh;height:100svh;min-height:560px}
+  .hero__hud,.hero__scroll{display:none}
+}
