@@ -390,3 +390,11 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 
 .hero__hud,.hero__hud *{text-shadow:0 1px 12px rgba(0,0,0,.75)}
 .hero__hud{color:rgba(255,255,255,.85)}
+
+/* footer emblem */
+.footer__brand{display:flex;align-items:flex-start;gap:20px}
+.footer__emblem{width:84px;height:auto;flex:none;margin-top:2px}
+.footer .footer__name{display:flex;flex-direction:column;line-height:1;margin:6px 0 14px}
+.footer .footer__name strong{font-family:var(--serif);font-weight:600;font-size:34px;letter-spacing:.07em;color:#fff}
+.footer .footer__name span{display:block;font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.footer__brand .footer__note{margin-top:0}

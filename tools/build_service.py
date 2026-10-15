@@ -8,7 +8,7 @@ import html, json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261015s'          # cache-busting for css/js
+VERSION = '20261015w'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -34,9 +34,7 @@ SERVICES = {
         'h1': 'Top Hardscape Services in Winchester, VA',
         'lead': 'We design and build durable hardscapes, including patios, walkways, and retaining walls, creating beautiful, functional outdoor spaces that last longer.',
         'chips': ['Patios', 'Walkways', 'Retaining walls', 'Stone borders', 'Masonry'],
-        'hero': [('stone-wall-lanterns', 'Natural stone retaining wall with lit lanterns and flagstone patio built by Potros Construction'),
-                 ('paver-patio-dining', 'Paver patio with outdoor dining set in Winchester, VA'),
-                 ('lit-stone-steps', 'Natural stone steps with built-in step lighting')],
+        'hero': [('patio-firepit-boulders', 'Paver patio with fire pit, boulders and landscaping at a Winchester VA home built by Potros Construction')],
         'intro': {
             'kicker': 'Winchester, VA’s Trusted Hardscape Specialists',
             'h2': 'Hardscapes in Winchester VA Designed for Beauty and Durability',
@@ -71,7 +69,8 @@ SERVICES = {
                     ('flagstone-pool-edge', 'Flagstone pool edge with river rock and plantings'),
                     ('stone-wall-lanterns', 'Stone wall with lantern posts and flagstone patio'),
                     ('lit-stone-steps', 'Natural stone steps with step lighting'),
-                    ('house-deck-stone-landscape', 'Home with deck, natural stone and landscaped yard')],
+                    ('house-deck-stone-landscape', 'Home with deck, natural stone and landscaped yard'),
+                    ('patio-firepit-chairs', 'Stamped paver patio with fire pit and Adirondack chairs')],
         'value': {'h2': 'Enhance Your Property Value With Professional Hardscaping',
                   'lead': 'High-quality hardscaping dramatically increases curb appeal, improves functionality, and boosts property value. Potros Construction delivers expert craftsmanship, premium materials, and detailed design so your investment looks great and performs for years.',
                   'points': [('Curb appeal', 'Clean lines, quality materials and finishing details that make a first impression.'),
@@ -123,8 +122,7 @@ def nav():
 def footer():
     return f'''<footer class="footer">
   <div class="wrap footer__grid">
-    <div><img class="footer__logo" src="../assets/logo.png" alt="Potros Construction LLC" width="200" height="59">
-      <p class="footer__note">Custom hardscapes and outdoor living in Winchester, VA and surrounding communities.</p></div>
+    <div class="footer__brand"><img class="footer__emblem" src="../assets/emblem.png" alt="" width="84" height="93"><div><p class="footer__name"><strong>POTROS</strong><span>Construction LLC</span></p><p class="footer__note">Custom hardscapes and outdoor living in Winchester, VA and surrounding communities.</p></div></div>
     <div><h3>Services</h3>{''.join(f'<a href="../{s}-winchester-va/">{l}</a>' for s, l, _, _ in SERVICE_INDEX)}</div>
     <div><h3>Company</h3><a href="../about-us/">About us</a><a href="../reviews/">Reviews</a><a href="../service-area/">Service area</a><a href="../faq/">FAQ</a><a href="../blog/">Blog</a><a href="../contact-us/">Contact</a></div>
     <div><h3>Visit</h3><address>704 Baker Ln, Suite 5<br>Winchester, VA 22603</address><a href="tel:{PHONE_HREF}">{PHONE}</a><p>Mon–Sat · 8:00 AM – 6:00 PM<br>Sunday closed</p></div>
@@ -158,17 +156,16 @@ def render(s):
     for i, b in enumerate(s['blocks']):
         (p1, a1), (p2, a2) = b['photos']
         blocks += f'''
-<section class="sp-block{' is-flip' if i % 2 else ''}" aria-labelledby="blk{i}">
+<section class="sp-block{' is-flip' if i % 2 else ''}" id="{e(b['kicker'].lower().replace(' ', '-'))}" aria-labelledby="blk{i}">
   <div class="wrap sp-block__grid">
     <div class="sp-block__photos rv">
-      <figure class="sp-ph sp-ph--a"><img src="{img_path(p1)}" alt="{e(a1)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
-      <figure class="sp-ph sp-ph--b"><img src="{img_path(p2)}" alt="{e(a2)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
+      <figure class="sp-arch"><img src="{img_path(p1)}" alt="{e(a1)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
+      <figure class="sp-mini"><img src="{img_path(p2)}" alt="{e(a2)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
     </div>
     <div class="sp-block__copy rv">
-      <span class="sp-num" aria-hidden="true">0{i + 1}</span>
-      <p class="eyebrow"><span class="dot"></span> {e(b['kicker'])}</p>
+      <p class="sp-kick"><b>0{i + 1}</b><i></i>{e(b['kicker'])}</p>
       <h2 id="blk{i}" class="h2">{e(b['h2'])}</h2>
-      {''.join(f'<p class="lede">{e(p)}</p>' for p in b['paras'])}
+      {''.join(f'<p class="sp-p">{e(p)}</p>' for p in b['paras'])}
       <ul class="sp-list">{''.join(f'<li>{e(x)}</li>' for x in b['bullets'])}</ul>
     </div>
   </div>
@@ -185,7 +182,7 @@ def render(s):
     related = ''.join(
         f'<a class="sp-rel" href="../{sl}-winchester-va/"><img src="../assets/{ph}" alt="" loading="lazy" decoding="async" width="900" height="600"><span><b>{lb}</b><i>{ds}</i></span></a>'
         for sl, lb, ph, ds in others)
-    chips = ''.join(f'<li>{e(c)}</li>' for c in s['chips'])
+    chips = ''.join(f'<li><b>0{i + 1}</b>{e(c)}</li>' for i, c in enumerate(s['chips']))
 
     return f'''<!doctype html>
 <html lang="en">
@@ -218,24 +215,19 @@ def render(s):
 
 <!-- HERO -->
 <section class="sp-hero" aria-labelledby="sp-h1">
-  <div class="wrap sp-hero__grid">
-    <div class="sp-hero__copy">
-      <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><a href="../#services">Services</a><span>/</span><b aria-current="page">{e(s['name'])}</b></nav>
-      <p class="eyebrow"><span class="dot"></span> {e(s['name'])} · Winchester, VA</p>
-      <h1 id="sp-h1" class="sp-h1">{e(s['h1'])}</h1>
-      <p class="sp-hero__lead">{e(s['lead'])}</p>
-      <div class="sp-hero__cta">
-        <a class="btn" href="../contact-us/">Build Your Dream Space Now!</a>
-        <a class="sp-call" href="tel:{PHONE_HREF}">Call {PHONE}</a>
-      </div>
-      <ul class="sp-chips" aria-label="What we build">{chips}</ul>
-    </div>
-    <div class="sp-hero__media">
-      <figure class="sp-hero__main"><img src="{img_path(hero[0][0])}" alt="{e(hero[0][1])}" width="1100" height="1467" fetchpriority="high" decoding="async"></figure>
-      <figure class="sp-hero__s1"><img src="{img_path(hero[1][0])}" alt="{e(hero[1][1])}" width="1100" height="1467" decoding="async"></figure>
-      <figure class="sp-hero__s2"><img src="{img_path(hero[2][0])}" alt="{e(hero[2][1])}" width="1100" height="1467" decoding="async"></figure>
+  <div class="sp-hero__bg" aria-hidden="true"><img src="{img_path(hero[0][0])}" alt="" width="1800" height="1012" fetchpriority="high" decoding="async"></div>
+  <div class="sp-hero__shade" aria-hidden="true"></div>
+  <div class="wrap sp-hero__in">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><a href="../#services">Services</a><span>/</span><b aria-current="page">{e(s['name'])}</b></nav>
+    <p class="eyebrow"><span class="dot"></span> {e(s['name'])} · Winchester, VA</p>
+    <h1 id="sp-h1" class="sp-h1">{e(s['h1'])}</h1>
+    <p class="sp-hero__lead">{e(s['lead'])}</p>
+    <div class="sp-hero__cta">
+      <a class="btn" href="../contact-us/">Build Your Dream Space Now!</a>
+      <a class="sp-call" href="tel:{PHONE_HREF}">Call {PHONE}</a>
     </div>
   </div>
+  <div class="sp-hero__strip"><ul class="wrap" aria-label="What we build">{chips}</ul></div>
 </section>
 
 <!-- INTRO -->
@@ -245,11 +237,11 @@ def render(s):
       <p class="eyebrow"><span class="dot"></span> {e(intro['kicker'])}</p>
       <h2 id="intro-h2" class="h2">{e(intro['h2'])}</h2>
     </div>
-    <div class="rv">
-      {''.join(f'<p class="lede">{e(p)}</p>' for p in intro['paras'])}
+    <div class="rv sp-intro__text">
+      <p class="sp-quote">{e(intro['paras'][0])}</p>
+      <p class="sp-p">{e(intro['paras'][1])}</p>
     </div>
   </div>
-  <div class="wrap"><figure class="sp-wide rv"><img src="{img_path(intro['photo'][0])}" alt="{e(intro['photo'][1])}" loading="lazy" decoding="async" width="1800" height="1012"></figure></div>
 </section>
 {blocks}
 
