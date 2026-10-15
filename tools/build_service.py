@@ -8,7 +8,7 @@ import html, json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261015y'          # cache-busting for css/js
+VERSION = '20261016c'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -100,24 +100,29 @@ def img_path(name):
     return f'../assets/hardscapes/{name}.webp'
 
 
-def nav():
+LIVE_SERVICES = [('hardscapes', 'Hardscapes')]   # add a service here when its page goes live
+
+
+def nav(current=None):
+    def cur(name):
+        return ' aria-current="page"' if current == name else ''
     return f'''<header class="nav" id="nav">
   <a class="nav__logo" href="../" aria-label="Potros Construction, home"><img src="../assets/logo.png" alt="Potros Construction LLC" width="140" height="41"></a>
   <nav class="nav__links" aria-label="Primary">
+    <a href="../"{cur('home')}>Home</a>
     <div class="nav__dd">
-      <a href="../#services" aria-current="page">Services</a>
-      <div class="nav__menu">{''.join(f'<a href="../{s}-winchester-va/">{l}</a>' for s, l, _, _ in SERVICE_INDEX)}</div>
+      <a href="../#services"{cur('services')}>Services</a>
+      <div class="nav__menu">{''.join(f'<a href="../{s}-winchester-va/">{l}</a>' for s, l in LIVE_SERVICES)}</div>
     </div>
-    <a href="../#work">Work</a><a href="../#process">Process</a><a href="../#area">Service Area</a>
-    <a href="../about-us/">About</a><a href="../#reviews">Reviews</a><a href="../blog/">Blog</a>
+    <a href="../about-us/"{cur('about')}>About Us</a>
+    <a href="../contact-us/"{cur('contact')}>Contact Us</a>
   </nav>
   <a class="nav__phone" href="tel:{PHONE_HREF}">{PHONE}</a>
   <a class="btn btn--sm" href="../contact-us/">Free Estimate</a>
   <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
 </header>
 <div class="drawer" id="drawer">
-  <a href="../#services">Services</a><a href="../#work">Work</a><a href="../#process">Process</a><a href="../#area">Service Area</a>
-  <a href="../about-us/">About</a><a href="../#reviews">Reviews</a><a href="../blog/">Blog</a><a href="../contact-us/">Contact</a>
+  <a href="../">Home</a>{''.join(f'<a href="../{s}-winchester-va/">{l}</a>' for s, l in LIVE_SERVICES)}<a href="../about-us/">About Us</a><a href="../contact-us/">Contact Us</a>
   <a class="drawer__tel" href="tel:{PHONE_HREF}">{PHONE}</a>
 </div>'''
 
@@ -126,12 +131,37 @@ def footer():
     return f'''<footer class="footer">
   <div class="wrap footer__grid">
     <div class="footer__brand"><img class="footer__emblem" src="../assets/emblem.png" alt="" width="84" height="93"><p class="footer__note">Custom hardscapes and outdoor living in Winchester, VA and surrounding communities.</p></div>
-    <div><h3>Services</h3>{''.join(f'<a href="../{s}-winchester-va/">{l}</a>' for s, l, _, _ in SERVICE_INDEX)}</div>
-    <div><h3>Company</h3><a href="../about-us/">About us</a><a href="../reviews/">Reviews</a><a href="../service-area/">Service area</a><a href="../faq/">FAQ</a><a href="../blog/">Blog</a><a href="../contact-us/">Contact</a></div>
+    <div><h3>Services</h3>{''.join(f'<a href="../{s}-winchester-va/">{l}</a>' for s, l in LIVE_SERVICES)}</div>
+    <div><h3>Company</h3><a href="../about-us/">About us</a><a href="../contact-us/">Contact us</a></div>
     <div><h3>Visit</h3><address>704 Baker Ln, Suite 5<br>Winchester, VA 22603</address><a href="tel:{PHONE_HREF}">{PHONE}</a><p>Mon–Sat · 8:00 AM – 6:00 PM<br>Sunday closed</p></div>
   </div>
   <div class="wrap footer__bar"><span>© 2026 Potros Construction LLC</span><span><a href="../privacy-policy/">Privacy</a> · <a href="../terms-and-conditions/">Terms</a></span></div>
 </footer>'''
+
+
+def head(title, description, canonical, og_image, schema_json):
+    return f'''<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{e(title)}</title>
+<meta name="description" content="{e(description)}">
+<!-- PREVIEW: remove noindex before launch -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="{canonical}">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:type" content="website"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:url" content="{canonical}">
+<meta property="og:image" content="{og_image}"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="../css/styles.css?v={VERSION}">
+<link rel="stylesheet" href="../css/service.css?v={VERSION}">
+<script type="application/ld+json">
+{schema_json}
+</script>
+</head>'''
 
 
 def schema(s):
@@ -213,7 +243,7 @@ def render(s):
 <body class="sp">
 <a class="skip" href="#main">Skip to content</a>
 <div class="progress" id="progress" aria-hidden="true"></div>
-{nav()}
+{nav('services')}
 <main id="main">
 
 <!-- HERO -->
@@ -222,7 +252,6 @@ def render(s):
   <div class="sp-hero__shade" aria-hidden="true"></div>
   <div class="wrap sp-hero__in">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><a href="../#services">Services</a><span>/</span><b aria-current="page">{e(s['name'])}</b></nav>
-    <p class="eyebrow"><span class="dot"></span> {e(s['name'])} · Winchester, VA</p>
     <h1 id="sp-h1" class="sp-h1">{e(s['h1'])}</h1>
     <p class="sp-hero__lead">{e(s['lead'])}</p>
     <div class="sp-hero__cta">

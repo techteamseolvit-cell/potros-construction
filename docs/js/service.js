@@ -42,4 +42,18 @@
     var load = function () { if (rw._l) return; rw._l = true; var s = d.createElement('script'); s.src = 'https://cdn.trustindex.io/loader.js?' + rw.getAttribute('data-trustindex'); s.defer = true; s.async = true; rw.appendChild(s); };
     if ('IntersectionObserver' in w) { var o = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { load(); o.disconnect(); } }, { rootMargin: '700px' }); o.observe(rw); } else { load(); }
   }
+  /* estimate form: no backend yet, opens the visitor's mail app with the request prefilled */
+  var form = $('#estimateForm');
+  if (form) {
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var f = form.elements, bad = false, note = $('#formNote');
+      ['name', 'phone', 'email', 'city', 'message'].forEach(function (k) { var ok = f[k].value.trim() && (k !== 'email' || /^\S+@\S+\.\S+$/.test(f[k].value)); f[k].classList.toggle('is-bad', !ok); if (!ok) bad = true; });
+      if (f.company.value) return;
+      if (bad) { note.textContent = 'Please complete the highlighted fields.'; return; }
+      var body = 'Name: ' + f.name.value + '\nPhone: ' + f.phone.value + '\nEmail: ' + f.email.value + '\nCommunity: ' + f.city.value + '\nService: ' + (f.service.value || 'Not sure yet') + '\n\n' + f.message.value;
+      note.textContent = 'Thank you! Your email app is opening with your request. If nothing opens, call us at (540) 514-8725.';
+      w.location.href = 'mailto:potrosconstruction@gmail.com?subject=' + encodeURIComponent('Free estimate request – ' + f.name.value) + '&body=' + encodeURIComponent(body);
+    });
+  }
 })();

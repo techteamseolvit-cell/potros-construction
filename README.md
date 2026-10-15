@@ -63,3 +63,7 @@ Si falla la reproducción del video, el hero cae a la escena 3D de WebGL (`js/he
 
 - Otros clips de *Images II* / *Project* y más fotos de *Best Potros Content*: pendientes de elegir. (*Renders II* no se usa.)
 - Reseñas reales, FAQ y textos finales por página.
+
+## About / Contact pages
+`python3 tools/build_pages.py` regenerates `docs/about-us/` and `docs/contact-us/` (shares nav/footer with `tools/build_service.py`).
+The menu only lists live pages (`LIVE_SERVICES` in `build_service.py`). The contact form has no backend yet: submit opens a prefilled `mailto:`. Connect a form service before launch. Hours in the footer/contact (Mon–Sat 8–6) differ from the old site ("Everyday 8am–5pm"); confirm with the client.
