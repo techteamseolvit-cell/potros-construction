@@ -66,7 +66,7 @@
 
 
   /* ---------- reveals ---------- */
-  var revealTargets = $$('.pstep,.h2,.lede,.tile,.area__list,.area__map,.cta__title,.cta__row,.footer__grid>div,.why .eyebrow,.work__head>*');
+  var revealTargets = $$('.pstep,.about__copy>*,.about__video,.h2,.lede,.tile,.area__list,.area__map,.cta__title,.cta__row,.footer__grid>div,.why .eyebrow,.work__head>*');
   revealTargets.forEach(function (el, i) { el.classList.add('rv'); el.style.setProperty('--d', (i % 6 * .07) + 's'); });
   var io = 'IntersectionObserver' in w ? new IntersectionObserver(function (en) {
     en.forEach(function (e) {
@@ -165,6 +165,19 @@
       var s = d.createElement('script'); s.src = 'https://cdn.trustindex.io/loader.js?' + rw.getAttribute('data-trustindex'); s.defer = true; s.async = true; rw.appendChild(s);
     };
     if ('IntersectionObserver' in w) { var o = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { load(); o.disconnect(); } }, { rootMargin: '700px' }); o.observe(rw); } else { load(); }
+  })();
+
+
+  /* ---------- about video: YouTube loads only on click (no third-party weight until needed) ---------- */
+  (function aboutVideo() {
+    var f = $('#filmFrame'); if (!f) return;
+    f.addEventListener('click', function () {
+      if (f.querySelector('iframe')) return;
+      var ifr = d.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + f.getAttribute('data-yt') + '?autoplay=1&rel=0&modestbranding=1';
+      ifr.title = 'Potros Construction video'; ifr.allow = 'autoplay; encrypted-media; picture-in-picture'; ifr.allowFullscreen = true;
+      f.appendChild(ifr); $$('.about__thumb,.about__play,.about__cap', f).forEach(function (e) { e.style.display = 'none'; });
+    });
   })();
 
   /* ---------- nav + drawer ---------- */
