@@ -108,11 +108,11 @@ def about():
 
 <section class="pg-video" aria-labelledby="vid-h2">
   <div class="wrap">
-    <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Watch</p><h2 id="vid-h2" class="h2">See how we <em>build.</em></h2></div>
+    <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Watch our story</p><h2 id="vid-h2" class="h2">Our story, <em>in our own words.</em></h2></div>
     <div class="about__video pg-video__frame rv" id="filmFrame" data-yt="MiFIxfJCo3g">
       <div class="about__thumb" aria-hidden="true"></div>
-      <button class="about__play" id="filmPlay" aria-label="Play the Potros Construction video"><i></i></button>
-      <span class="about__cap">Watch Potros Construction</span>
+      <button class="about__play" id="filmPlay" aria-label="Play the Potros Construction story video"><i></i></button>
+      <span class="about__cap">The Potros story</span>
     </div>
   </div>
 </section>

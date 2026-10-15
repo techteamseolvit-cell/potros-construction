@@ -258,3 +258,4 @@ body.sp .cta__title em{text-shadow:0 2px 18px rgba(0,0,0,.6)}
 .pg-send i{font-style:normal;transition:transform .35s var(--ease)}.pg-send:hover i{transform:translateX(5px)}
 .pg-form__note{font-size:12.5px;line-height:1.5}
 @media (max-width:560px){.dd__list{grid-template-columns:1fr;left:-8px;right:-8px;min-width:0}}
+.pg-center .eyebrow{display:flex;justify-content:center;width:100%}
