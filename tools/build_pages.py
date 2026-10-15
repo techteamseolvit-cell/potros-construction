@@ -178,12 +178,14 @@ def about():
 # ───────────────────────── CONTACT ─────────────────────────
 def contact():
     url = SITE + '/contact-us/'
-    faqs = [('Do you provide free estimates for projects?', 'Yes, we offer free on site estimates where we review your goals, materials, and project details.'),
-            ('How long do most projects take to complete?', 'Project timelines vary based on design, materials, and site conditions, but we provide a clear schedule before work begins.'),
-            ('Are you licensed and insured for residential construction?', 'Yes, Potros Construction is fully licensed and insured for all work we perform in Virginia.')]
-    faq = ''.join(f'<details class="sp-faq__i"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in faqs)
-    opts = ''.join(f'<option>{e(c)}</option>' for c in CITIES) + '<option>Other</option>'
-    svc_opts = ''.join(f'<option>{l}</option>' for s, l in bs.SERVICE_INDEX_LABELS) if hasattr(bs, 'SERVICE_INDEX_LABELS') else ''.join(f'<option>{x[1]}</option>' for x in bs.SERVICE_INDEX)
+    def dd(name, label, items, placeholder, required=False):
+        lis = ''.join(f'<li role="option" tabindex="-1" data-v="{e(v)}">{e(v)}</li>' for v in items)
+        return (f'<div class="pg-f"><span class="pg-f__l" id="l-{name}">{label}</span><div class="dd" data-dd>'
+                f'<input type="hidden" name="{name}"><button type="button" class="dd__btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="l-{name}">'
+                f'<span class="dd__v" data-ph="{placeholder}">{placeholder}</span><i aria-hidden="true"></i></button>'
+                f'<ul class="dd__list" role="listbox" aria-labelledby="l-{name}" hidden>{lis}</ul></div></div>')
+    city_dd = dd('city', 'Community', CITIES + ['Other'], 'Select your community')
+    svc_dd = dd('service', 'Service', [x[1] for x in bs.SERVICE_INDEX] + ['Not sure yet'], 'Not sure yet')
     body = f'''
 {hero('Contact Us Today', 'Tell us about your project and we will schedule a free on-site estimate. Prefer to talk? Call us, we pick up.', 'stone-wall-seating-house', 'Stone seating wall with lantern and flagstone patio in front of a farmhouse', 'Contact Us', ['Free estimates', 'On-site visit', 'Call or write'], cta=False)}
 
@@ -207,12 +209,12 @@ def contact():
       </div>
       <label><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
       <div class="pg-row">
-        <label><span>Community</span><select name="city" required><option value="">Select…</option>{opts}</select></label>
-        <label><span>Service</span><select name="service"><option value="">Not sure yet</option>{svc_opts}</select></label>
+        {city_dd}
+        {svc_dd}
       </div>
       <label><span>Tell us about your project</span><textarea name="message" rows="4" required></textarea></label>
       <input class="pg-hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="btn" type="submit">Send request</button>
+      <button class="btn pg-send" type="submit"><span>Send request</span><i aria-hidden="true">→</i></button>
       <p class="pg-form__note" id="formNote" role="status">We will get back to you as soon as we can. Your details are only used to answer your request.</p>
     </form>
   </div>
@@ -226,20 +228,12 @@ def contact():
   </div>
 </section>
 
-<section class="sp-faq" aria-labelledby="faq-h2">
-  <div class="wrap sp-faq__grid">
-    <div class="rv"><p class="eyebrow"><span class="dot"></span> FAQ</p><h2 id="faq-h2" class="h2">Before you reach out</h2></div>
-    <div class="sp-faq__list rv">{faq}</div>
-  </div>
-</section>
-
-{area('Serving Winchester, VA and the surrounding communities')}'''
+'''
     schema = {'@context': 'https://schema.org', '@graph': [
         {'@type': 'ContactPage', '@id': url + '#page', 'url': url, 'name': 'Contact Potros Construction',
          'mainEntity': {'@type': 'GeneralContractor', '@id': SITE + '/#business', 'name': 'Potros Construction LLC', 'telephone': '+1-540-514-8725', 'email': EMAIL,
                         'address': {'@type': 'PostalAddress', 'streetAddress': '704 Baker Ln, Suite 5', 'addressLocality': 'Winchester', 'addressRegion': 'VA', 'postalCode': '22603', 'addressCountry': 'US'}}},
-        crumbs_schema('Contact Us', url),
-        {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in faqs]}]}
+        crumbs_schema('Contact Us', url)]}
     return page('Contact Us | Potros Construction, Winchester VA',
                 'Contact Potros Construction in Winchester, VA for a free on-site estimate. Call (540) 514-8725 or send your project details online.',
                 url, SITE + '/assets/hardscapes/stone-wall-seating-house.webp', schema, body, 'pg-contact-page', 'contact')

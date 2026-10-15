@@ -14,8 +14,8 @@
 <link rel="icon" href="../assets/icon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="../assets/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="../css/styles.css?v=20261016h">
-<link rel="stylesheet" href="../css/service.css?v=20261016h">
+<link rel="stylesheet" href="../css/styles.css?v=20261016j">
+<link rel="stylesheet" href="../css/service.css?v=20261016j">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -55,35 +55,6 @@
      "position": 2,
      "name": "Contact Us",
      "item": "https://potrosconstruction.com/contact-us/"
-    }
-   ]
-  },
-  {
-   "@type": "FAQPage",
-   "mainEntity": [
-    {
-     "@type": "Question",
-     "name": "Do you provide free estimates for projects?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Yes, we offer free on site estimates where we review your goals, materials, and project details."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "How long do most projects take to complete?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Project timelines vary based on design, materials, and site conditions, but we provide a clear schedule before work begins."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Are you licensed and insured for residential construction?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Yes, Potros Construction is fully licensed and insured for all work we perform in Virginia."
-     }
     }
    ]
   }
@@ -147,12 +118,12 @@
       </div>
       <label><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
       <div class="pg-row">
-        <label><span>Community</span><select name="city" required><option value="">Select…</option><option>Winchester</option><option>Front Royal</option><option>Strasburg</option><option>Berryville</option><option>Stephens City</option><option>Middletown</option><option>Clear Brook</option><option>Martinsburg, WV</option><option>Charles Town, WV</option><option>Ranson, WV</option><option>Leesburg</option><option>Ashburn</option><option>Sterling</option><option>South Riding</option><option>Purcellville</option><option>Middleburg</option><option>Hamilton</option><option>Lovettsville</option><option>Manassas</option><option>Other</option></select></label>
-        <label><span>Service</span><select name="service"><option value="">Not sure yet</option><option>Hardscapes</option><option>Patios</option><option>Decks</option><option>Porches</option><option>Fireplaces</option><option>Landscaping</option></select></label>
+        <div class="pg-f"><span class="pg-f__l" id="l-city">Community</span><div class="dd" data-dd><input type="hidden" name="city"><button type="button" class="dd__btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="l-city"><span class="dd__v" data-ph="Select your community">Select your community</span><i aria-hidden="true"></i></button><ul class="dd__list" role="listbox" aria-labelledby="l-city" hidden><li role="option" tabindex="-1" data-v="Winchester">Winchester</li><li role="option" tabindex="-1" data-v="Front Royal">Front Royal</li><li role="option" tabindex="-1" data-v="Strasburg">Strasburg</li><li role="option" tabindex="-1" data-v="Berryville">Berryville</li><li role="option" tabindex="-1" data-v="Stephens City">Stephens City</li><li role="option" tabindex="-1" data-v="Middletown">Middletown</li><li role="option" tabindex="-1" data-v="Clear Brook">Clear Brook</li><li role="option" tabindex="-1" data-v="Martinsburg, WV">Martinsburg, WV</li><li role="option" tabindex="-1" data-v="Charles Town, WV">Charles Town, WV</li><li role="option" tabindex="-1" data-v="Ranson, WV">Ranson, WV</li><li role="option" tabindex="-1" data-v="Leesburg">Leesburg</li><li role="option" tabindex="-1" data-v="Ashburn">Ashburn</li><li role="option" tabindex="-1" data-v="Sterling">Sterling</li><li role="option" tabindex="-1" data-v="South Riding">South Riding</li><li role="option" tabindex="-1" data-v="Purcellville">Purcellville</li><li role="option" tabindex="-1" data-v="Middleburg">Middleburg</li><li role="option" tabindex="-1" data-v="Hamilton">Hamilton</li><li role="option" tabindex="-1" data-v="Lovettsville">Lovettsville</li><li role="option" tabindex="-1" data-v="Manassas">Manassas</li><li role="option" tabindex="-1" data-v="Other">Other</li></ul></div></div>
+        <div class="pg-f"><span class="pg-f__l" id="l-service">Service</span><div class="dd" data-dd><input type="hidden" name="service"><button type="button" class="dd__btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="l-service"><span class="dd__v" data-ph="Not sure yet">Not sure yet</span><i aria-hidden="true"></i></button><ul class="dd__list" role="listbox" aria-labelledby="l-service" hidden><li role="option" tabindex="-1" data-v="Hardscapes">Hardscapes</li><li role="option" tabindex="-1" data-v="Patios">Patios</li><li role="option" tabindex="-1" data-v="Decks">Decks</li><li role="option" tabindex="-1" data-v="Porches">Porches</li><li role="option" tabindex="-1" data-v="Fireplaces">Fireplaces</li><li role="option" tabindex="-1" data-v="Landscaping">Landscaping</li><li role="option" tabindex="-1" data-v="Not sure yet">Not sure yet</li></ul></div></div>
       </div>
       <label><span>Tell us about your project</span><textarea name="message" rows="4" required></textarea></label>
       <input class="pg-hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="btn" type="submit">Send request</button>
+      <button class="btn pg-send" type="submit"><span>Send request</span><i aria-hidden="true">→</i></button>
       <p class="pg-form__note" id="formNote" role="status">We will get back to you as soon as we can. Your details are only used to answer your request.</p>
     </form>
   </div>
@@ -166,19 +137,7 @@
   </div>
 </section>
 
-<section class="sp-faq" aria-labelledby="faq-h2">
-  <div class="wrap sp-faq__grid">
-    <div class="rv"><p class="eyebrow"><span class="dot"></span> FAQ</p><h2 id="faq-h2" class="h2">Before you reach out</h2></div>
-    <div class="sp-faq__list rv"><details class="sp-faq__i"><summary>Do you provide free estimates for projects?</summary><p>Yes, we offer free on site estimates where we review your goals, materials, and project details.</p></details><details class="sp-faq__i"><summary>How long do most projects take to complete?</summary><p>Project timelines vary based on design, materials, and site conditions, but we provide a clear schedule before work begins.</p></details><details class="sp-faq__i"><summary>Are you licensed and insured for residential construction?</summary><p>Yes, Potros Construction is fully licensed and insured for all work we perform in Virginia.</p></details></div>
-  </div>
-</section>
 
-<section class="sp-area" aria-labelledby="area-h2">
-  <div class="wrap sp-area__grid">
-    <div class="rv"><p class="eyebrow"><span class="dot"></span> Service area</p><h2 id="area-h2" class="h2">Serving Winchester, VA and the surrounding communities</h2></div>
-    <div class="rv"><ul class="area__list"><li>Winchester</li><li>Front Royal</li><li>Strasburg</li><li>Berryville</li><li>Stephens City</li><li>Middletown</li><li>Clear Brook</li><li>Martinsburg, WV</li><li>Charles Town, WV</li><li>Ranson, WV</li><li>Leesburg</li><li>Ashburn</li><li>Sterling</li><li>South Riding</li><li>Purcellville</li><li>Middleburg</li><li>Hamilton</li><li>Lovettsville</li><li>Manassas</li></ul><p class="sp-area__note">Also servicing Loudoun County, Virginia.</p></div>
-  </div>
-</section>
 </main>
 <footer class="footer">
   <div class="wrap footer__grid">
@@ -190,6 +149,6 @@
   <div class="wrap footer__bar"><span>© 2026 Potros Construction LLC</span><span><a href="../privacy-policy/">Privacy</a> · <a href="../terms-and-conditions/">Terms</a></span></div>
 </footer>
 <div class="lb" id="lb" hidden><button class="lb__x" id="lbX" aria-label="Close">×</button><button class="lb__n lb__n--p" id="lbP" aria-label="Previous">←</button><img id="lbImg" alt=""><button class="lb__n" id="lbN" aria-label="Next">→</button></div>
-<script src="../js/service.js?v=20261016h"></script>
+<script src="../js/service.js?v=20261016j"></script>
 </body>
 </html>
