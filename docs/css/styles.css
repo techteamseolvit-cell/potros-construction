@@ -348,3 +348,5 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 .about__cap{position:absolute;left:20px;bottom:16px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8)}
 .about__video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 @media (max-width:860px){.about__grid{grid-template-columns:1fr}}
+
+.hero .eyebrow{color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.5)}
