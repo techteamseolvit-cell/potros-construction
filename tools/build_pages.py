@@ -90,7 +90,7 @@ def about():
     tr = ''.join(f'<li class="rv"><h3>{e(t)}</h3><p>{e(d)}</p></li>' for t, d in trust)
     svc = ''.join(f'<a class="pg-svc" href="../{s}-winchester-va/"><span>{l}</span><i aria-hidden="true">→</i></a>' for s, l in LIVE_SERVICES)
     body = f'''
-{hero('About Us', 'A family-owned outdoor construction company in Winchester, Virginia, building patios, walkways and stone work with honesty, respect and pride.', '../assets/about/hero.webp', 'Potros Construction toolbox, tools and a paver patio under construction at a Winchester VA home', 'About Us', ['Family owned', 'Licensed & insured', 'Free estimates', 'Warranted work'])}
+{hero('About Us', 'A family-owned outdoor construction company in Winchester, Virginia, building patios, walkways and stone work with honesty, respect and pride.', '../assets/about/hero.webp', 'Potros Construction branded clipboard, blueprints, tape measure and tools on a builders workbench', 'About Us', ['Family owned', 'Licensed & insured', 'Free estimates', 'Warranted work'])}
 
 <section class="sp-intro pg-story" aria-labelledby="story-h2">
   <div class="wrap sp-intro__grid">
@@ -187,7 +187,7 @@ def contact():
     city_dd = dd('city', 'Community', CITIES + ['Other'], 'Select your community')
     svc_dd = dd('service', 'Service', [x[1] for x in bs.SERVICE_INDEX] + ['Not sure yet'], 'Not sure yet')
     body = f'''
-{hero('Contact Us Today', 'Tell us about your project and we will schedule a free on-site estimate. Prefer to talk? Call us, we pick up.', 'stone-wall-seating-house', 'Stone seating wall with lantern and flagstone patio in front of a farmhouse', 'Contact Us', ['Free estimates', 'On-site visit', 'Call or write'], cta=False)}
+{hero('Contact Us Today', 'Tell us about your project and we will schedule a free on-site estimate. Prefer to talk? Call us, we pick up.', '../assets/about/contact-hero.webp', 'Potros Construction office desk with material samples, blueprints and a branded plaque', 'Contact Us', ['Free estimates', 'On-site visit', 'Call or write'], cta=False)}
 
 <section class="pg-contact" aria-labelledby="ct-h2">
   <div class="wrap pg-contact__grid">
@@ -236,7 +236,7 @@ def contact():
         crumbs_schema('Contact Us', url)]}
     return page('Contact Us | Potros Construction, Winchester VA',
                 'Contact Potros Construction in Winchester, VA for a free on-site estimate. Call (540) 514-8725 or send your project details online.',
-                url, SITE + '/assets/hardscapes/stone-wall-seating-house.webp', schema, body, 'pg-contact-page', 'contact')
+                url, SITE + '/assets/about/contact-hero.webp', schema, body, 'pg-contact-page', 'contact')
 
 
 def main():
