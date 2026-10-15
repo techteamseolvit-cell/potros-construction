@@ -42,6 +42,16 @@
     var load = function () { if (rw._l) return; rw._l = true; var s = d.createElement('script'); s.src = 'https://cdn.trustindex.io/loader.js?' + rw.getAttribute('data-trustindex'); s.defer = true; s.async = true; rw.appendChild(s); };
     if ('IntersectionObserver' in w) { var o = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { load(); o.disconnect(); } }, { rootMargin: '700px' }); o.observe(rw); } else { load(); }
   }
+  /* YouTube facade: the video loads only on click */
+  var film = $('#filmFrame');
+  if (film) film.addEventListener('click', function () {
+    if ($('iframe', film)) return;
+    var ifr = d.createElement('iframe');
+    ifr.src = 'https://www.youtube-nocookie.com/embed/' + film.getAttribute('data-yt') + '?autoplay=1&rel=0&modestbranding=1';
+    ifr.title = 'Potros Construction video'; ifr.allow = 'autoplay; encrypted-media; picture-in-picture'; ifr.allowFullscreen = true;
+    film.appendChild(ifr); $$('.about__thumb,.about__play,.about__cap', film).forEach(function (x) { x.style.display = 'none'; });
+  });
+
   /* estimate form: no backend yet, opens the visitor's mail app with the request prefilled */
   var form = $('#estimateForm');
   if (form) {

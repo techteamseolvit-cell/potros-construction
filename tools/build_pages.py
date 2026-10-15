@@ -106,6 +106,17 @@ def about():
   </div>
 </section>
 
+<section class="pg-video" aria-labelledby="vid-h2">
+  <div class="wrap">
+    <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Watch</p><h2 id="vid-h2" class="h2">See how we <em>build.</em></h2></div>
+    <div class="about__video pg-video__frame rv" id="filmFrame" data-yt="MiFIxfJCo3g">
+      <div class="about__thumb" aria-hidden="true"></div>
+      <button class="about__play" id="filmPlay" aria-label="Play the Potros Construction video"><i></i></button>
+      <span class="about__cap">Watch Potros Construction</span>
+    </div>
+  </div>
+</section>
+
 <section class="pg-band" aria-label="Recent work">
   <div class="wrap pg-band__grid rv">
     <figure class="sp-dip sp-dip--a"><img src="{img_path('curved-stone-wall')}" alt="Curved natural stone wall over a flagstone patio built by Potros Construction" loading="lazy" decoding="async" width="1100" height="1467"></figure>
@@ -137,7 +148,8 @@ def about():
 </section>
 
 <section class="pg-svcs" aria-labelledby="svc-h2">
-  <div class="wrap sp-intro__grid">
+  <div class="pg-svcs__bg" aria-hidden="true"><img src="{img_path('pool-deck-aerial')}" alt="" loading="lazy" decoding="async"></div>
+  <div class="wrap sp-intro__grid pg-svcs__in">
     <div class="rv"><p class="eyebrow"><span class="dot"></span> What we build</p><h2 id="svc-h2" class="h2">Outdoor construction, done properly.</h2></div>
     <div class="rv">{svc}</div>
   </div>

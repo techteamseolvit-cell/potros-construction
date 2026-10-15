@@ -201,3 +201,26 @@ body.sp .cta__title em{text-shadow:0 2px 18px rgba(0,0,0,.6)}
   .pg-trust__list{grid-template-columns:1fr 1fr}.pg-trust__list li{padding:22px 14px 22px 0;border-bottom:1px solid var(--line)}.pg-trust__list li+li{padding-left:0;border-left:0}.pg-trust__list li:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}.pg-trust__list li:nth-child(n+3){border-bottom:0}
 }
 @media (max-width:560px){.pg-row{grid-template-columns:1fr}.pg-details>div{grid-template-columns:1fr;gap:4px}.pg-hero{min-height:auto}}
+
+/* ───── warmer tones: red bands + photo backgrounds on About / Contact ───── */
+.pg-about .sp-intro,.pg-contact-page .pg-contact{background:radial-gradient(900px 480px at 88% 0%,rgba(176,0,0,.32),transparent 70%),radial-gradient(700px 420px at 0% 100%,rgba(110,0,0,.28),transparent 70%)}
+.pg-video{padding:var(--sec) 0;background:linear-gradient(135deg,#4a0000 0%,#b00000 55%,#7a0000 100%);position:relative;overflow:hidden}
+.pg-video::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 400px at 15% 0%,rgba(255,255,255,.12),transparent 65%);pointer-events:none}
+.pg-video .wrap{position:relative}
+.pg-video .eyebrow{color:#fff}.pg-video .h2 em{color:#fff}
+.pg-video__frame{max-width:980px;margin:0 auto;box-shadow:0 30px 80px -20px rgba(0,0,0,.6);border-color:rgba(255,255,255,.25)}
+.pg-video__frame .about__play{background:#fff}.pg-video__frame .about__play i{border-left-color:var(--red)}
+.pg-video__frame:hover .about__play{background:#fff;box-shadow:0 10px 34px -4px rgba(0,0,0,.6)}
+.pg-values{background:linear-gradient(180deg,#140000,var(--ink) 70%)}
+.pg-svcs{position:relative;overflow:hidden;background:#1a0000}
+.pg-svcs__bg{position:absolute;inset:0}
+.pg-svcs__bg img{width:100%;height:100%;object-fit:cover;display:block}
+.pg-svcs__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(60,0,0,.93),rgba(110,0,0,.82) 55%,rgba(20,0,0,.9))}
+.pg-svcs__in{position:relative}
+.pg-svc{border-color:rgba(255,255,255,.3)}.pg-svc i{color:#fff}.pg-svc:hover{color:#fff}
+.pg-svcs .eyebrow{color:#fff}
+.pg-next{background:linear-gradient(135deg,#3a0000,#8a0000 60%,#4a0000);border-top:0}
+.pg-next .eyebrow{color:#fff}.pg-next .h2 em{color:#fff}
+.pg-next .sp-step__dot{border-color:#fff;color:#fff;background:rgba(0,0,0,.25)}
+.pg-next .sp-step p{color:rgba(255,255,255,.82)}
+.pg-form{border-top:3px solid var(--red-hot);box-shadow:0 30px 70px -30px rgba(176,0,0,.45)}
