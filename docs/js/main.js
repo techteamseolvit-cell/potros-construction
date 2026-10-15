@@ -65,64 +65,8 @@
   function measureSvc() { if (track) svcMax = Math.max(0, track.scrollWidth - w.innerWidth + (parseFloat(getComputedStyle(track).paddingInline) || 0)); }
 
 
-  /* ---------- isometric drawing generated from real-ish geometry (plan -> wireframe -> finished) ---------- */
-  (function buildIso() {
-    var svg = $('#iso'); if (!svg) return;
-    var S = 27, C = Math.cos(Math.PI / 6), Sn = .5;
-    var P = function (x, y, z) { return [(300 + (x - z) * C * S).toFixed(1), (255 + (x + z) * Sn * S - y * S).toFixed(1)]; };
-    var pt = function (a) { return a[0] + ' ' + a[1]; };
-    var line = function (pts, cls, extra) { return '<path pathLength="1" class="draw ' + (cls || '') + '" ' + (extra || '') + ' d="M' + pts.map(pt).join(' L') + '"/>'; };
-    var poly = function (pts, fill, st, sw) { return '<path d="M' + pts.map(pt).join(' L') + ' Z" fill="' + fill + '"' + (st ? ' stroke="' + st + '" stroke-width="' + (sw || 1) + '"' : '') + '/>'; };
-    var X0 = -5, X1 = 5, Z0 = -3.6, Z1 = 3.6, H = 3.4, cols = [[-4.4, -3], [0, -3], [4.4, -3], [-4.4, 1.2], [0, 1.2], [4.4, 1.2]];
-    var i, k, a = '', b = '', c = '';
-    // layer 1: site plan (grid + patio outline + fire pit + kitchen strip)
-    for (i = -7; i <= 7; i++) { a += line([P(i, 0, -6), P(i, 0, 6)], 'g'); a += line([P(-7, 0, i), P(7, 0, i)], 'g'); }
-    a += line([P(X0, 0, Z0), P(X1, 0, Z0), P(X1, 0, Z1), P(X0, 0, Z1), P(X0, 0, Z0)], 'p');
-    a += line([P(-4.6, 0, -3.3), P(4.6, 0, -3.3), P(4.6, 0, -2.2), P(-4.6, 0, -2.2), P(-4.6, 0, -3.3)], 'p');
-    var ring = function (r, y) { var o = []; for (k = 0; k <= 36; k++) { o.push(P(Math.cos(k / 36 * 6.2832) * r, y, 2.4 + Math.sin(k / 36 * 6.2832) * r)); } return o; };
-    a += line(ring(1.25, 0), 'p') + line(ring(.55, 0), 'p');
-    // layer 2: 3D wireframe (columns, beams, rafters, fireplace wall)
-    cols.forEach(function (q) { b += line([P(q[0], 0, q[1]), P(q[0], H, q[1])], 'w'); });
-    b += line([P(-4.4, H, -3), P(4.4, H, -3), P(4.4, H, 1.2), P(-4.4, H, 1.2), P(-4.4, H, -3)], 'w');
-    b += line([P(0, H, -3), P(0, H, 1.2)], 'w');
-    for (i = -4.4; i <= 4.41; i += 1.1) b += line([P(i, H + .25, -3.5), P(i, H + .25, 1.7)], 'w2');
-    b += line([P(-2.6, 0, -3.5), P(-2.6, 3.2, -3.5), P(2.6, 3.2, -3.5), P(2.6, 0, -3.5)], 'w');
-    b += line(ring(1.25, .45), 'w');
-    // layer 3: finished build
-    c += poly([P(X0, 0, Z0), P(X1, 0, Z0), P(X1, 0, Z1), P(X0, 0, Z1)], 'url(#pav)', 'rgba(244,239,231,.35)');
-    c += poly([P(X0, 0, Z1), P(X1, 0, Z1), P(X1, -.5, Z1), P(X0, -.5, Z1)], '#181716');
-    c += poly([P(X1, 0, Z0), P(X1, 0, Z1), P(X1, -.5, Z1), P(X1, -.5, Z0)], '#0e0d0d');
-    c += poly([P(-2.6, 0, -3.5), P(2.6, 0, -3.5), P(2.6, 3.2, -3.5), P(-2.6, 3.2, -3.5)], '#2b2825', 'rgba(244,239,231,.15)');
-    c += poly([P(-1.2, .3, -3.45), P(1.2, .3, -3.45), P(1.2, 1.3, -3.45), P(-1.2, 1.3, -3.45)], '#e0100f');
-    c += poly(ring(1.45, 0), '#2a2420', '#3b3733', 2);
-    c += poly(ring(1.0, .45), '#120d0b');
-    c += '<ellipse cx="' + P(0, .6, 2.4)[0] + '" cy="' + P(0, .6, 2.4)[1] + '" rx="150" ry="80" fill="url(#gGlow)" opacity=".22"/>';
-    cols.forEach(function (q) {
-      var x = q[0], z = q[1], w = .26;
-      c += poly([P(x - w, H, z + w), P(x + w, H, z + w), P(x + w, 0, z + w), P(x - w, 0, z + w)], '#3a3632');
-      c += poly([P(x + w, H, z + w), P(x + w, H, z - w), P(x + w, 0, z - w), P(x + w, 0, z + w)], '#242220');
-    });
-    c += poly([P(-4.9, H, -3.4), P(4.9, H, -3.4), P(4.9, H, 1.6), P(-4.9, H, 1.6)], 'rgba(20,18,17,.55)', '#c1121f', 2);
-    for (i = -4.4; i <= 4.41; i += 1.1) c += '<path d="M' + pt(P(i, H + .25, -3.5)) + ' L' + pt(P(i, H + .25, 1.7)) + '" stroke="#8a6a4a" stroke-width="3"/>';
-    c += '<path class="flame" d="M' + pt(P(0, .5, 2.4)) + ' c-14 -18 -6 -30 0 -48 c6 18 14 30 0 48z" fill="url(#gGlow)"/>';
-    svg.innerHTML = '<defs><linearGradient id="gGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#e0100f" stop-opacity=".9"/><stop offset="1" stop-color="#b00000" stop-opacity="0"/></linearGradient>' +
-      '<pattern id="pav" width="20" height="12" patternUnits="userSpaceOnUse"><rect width="20" height="12" fill="#2d2a27"/><path d="M0 0H20M0 6H20M10 0V6M0 6V12M20 6V12" stroke="#3f3b37" stroke-width="1"/></pattern></defs>' +
-      '<g class="iso__l iso__l1" fill="none">' + a + '</g><g class="iso__l iso__l2" fill="none">' + b + '</g><g class="iso__l iso__l3">' + c + '</g>';
-    svg.setAttribute('class', 'iso s0');
-  })();
-
-  /* ---------- process ---------- */
-  var proc = $('.process'), steps = $$('.step'), iso = $('#iso'), isoTag = $('#isoTag'), curStep = -1;
-  var tags = ['Site plan', '3D virtual design', 'Built & enjoyed'];
-  function setStep(i) {
-    if (i === curStep) return; curStep = i;
-    steps.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
-    if (iso) { iso.setAttribute('class', 'iso s' + i); }
-    if (isoTag) isoTag.textContent = tags[i];
-  }
-
   /* ---------- reveals ---------- */
-  var revealTargets = $$('.h2,.lede,.tile,.area__list,.area__map,.cta__title,.cta__row,.footer__grid>div,.why .eyebrow,.work__head>*');
+  var revealTargets = $$('.pstep,.h2,.lede,.tile,.area__list,.area__map,.cta__title,.cta__row,.footer__grid>div,.why .eyebrow,.work__head>*');
   revealTargets.forEach(function (el, i) { el.classList.add('rv'); el.style.setProperty('--d', (i % 6 * .07) + 's'); });
   var io = 'IntersectionObserver' in w ? new IntersectionObserver(function (en) {
     en.forEach(function (e) {
@@ -212,6 +156,17 @@
     }
   }
 
+
+  /* ---------- reviews widget (Trustindex): loaded only when near the viewport ---------- */
+  (function reviews() {
+    var rw = $('#reviewsWidget'); if (!rw) return;
+    var load = function () {
+      if (rw._l) return; rw._l = true;
+      var s = d.createElement('script'); s.src = 'https://cdn.trustindex.io/loader.js?' + rw.getAttribute('data-trustindex'); s.defer = true; s.async = true; rw.appendChild(s);
+    };
+    if ('IntersectionObserver' in w) { var o = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { load(); o.disconnect(); } }, { rootMargin: '700px' }); o.observe(rw); } else { load(); }
+  })();
+
   /* ---------- nav + drawer ---------- */
   var nav = $('#nav'), burger = $('#burger'), drawer = $('#drawer'), lastY = 0;
   if (burger) burger.addEventListener('click', function () {
@@ -227,14 +182,6 @@
     $$('[data-cursor]').forEach(function (el) {
       el.addEventListener('mouseenter', function () { lab.textContent = el.getAttribute('data-cursor'); cur.classList.add('big'); });
       el.addEventListener('mouseleave', function () { cur.classList.remove('big'); });
-    });
-    $$('.magnetic').forEach(function (el) {
-      el.addEventListener('mousemove', function (e) { var r = el.getBoundingClientRect(); el.style.setProperty('--bx', ((e.clientX - r.left - r.width / 2) * .25) + 'px'); el.style.setProperty('--by', ((e.clientY - r.top - r.height / 2) * .35) + 'px'); });
-      el.addEventListener('mouseleave', function () { el.style.setProperty('--bx', '0px'); el.style.setProperty('--by', '0px'); });
-    });
-    $$('.card').forEach(function (c) {
-      c.addEventListener('mousemove', function (e) { var r = c.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5; c.style.transform = 'perspective(900px) rotateY(' + px * 8 + 'deg) rotateX(' + -py * 8 + 'deg) translateZ(0)'; });
-      c.addEventListener('mouseleave', function () { c.style.transform = ''; });
     });
     w.addEventListener('mousemove', function (e) { if (hero3d) hero3d.setPointer(e.clientX / w.innerWidth * 2 - 1, e.clientY / w.innerHeight * 2 - 1); }, { passive: true });
   }
@@ -272,7 +219,6 @@
       var ci = Math.min(2, Math.floor(rp * 3)); if (ci !== rvCap) { rvCap = ci; caps.forEach(function (c, k) { c.classList.toggle('on', k === ci); }); }
     }
     if (hv && heroEl.classList.contains('has-video')) { hv.style.transform = 'scale(' + (1 + pinProgress(heroEl) * .14) + ')'; }
-    if (proc) { setStep(Math.min(2, Math.floor(pinProgress(proc) * 3 * .999))); }
   }
   var req = function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
   w.addEventListener('scroll', req, { passive: true });

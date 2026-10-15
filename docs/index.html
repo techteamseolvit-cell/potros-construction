@@ -96,17 +96,17 @@
     <a href="#process">Process</a>
     <a href="#area">Service Area</a>
     <a href="about-us/">About</a>
-    <a href="reviews/">Reviews</a>
+    <a href="#reviews">Reviews</a>
     <a href="blog/">Blog</a>
   </nav>
   <a class="nav__phone" href="tel:+15405148725">(540) 514-8725</a>
-  <a class="btn btn--sm magnetic" href="#contact"><span>Free Estimate</span></a>
+  <a class="btn btn--sm" href="#contact"><span>Free Estimate</span></a>
   <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
 </header>
 
 <div class="drawer" id="drawer">
   <a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#area">Service Area</a>
-  <a href="about-us/">About</a><a href="reviews/">Reviews</a><a href="blog/">Blog</a><a href="#contact">Contact</a>
+  <a href="about-us/">About</a><a href="#reviews">Reviews</a><a href="blog/">Blog</a><a href="#contact">Contact</a>
   <a class="drawer__tel" href="tel:+15405148725">(540) 514-8725</a>
 </div>
 
@@ -128,8 +128,8 @@
       </h1>
       <p class="hero__sub reveal-up">Hardscapes, patios, decks, porches, fireplaces and landscaping, designed in 3D before we ever break ground.</p>
       <div class="hero__cta reveal-up">
-        <a class="btn magnetic" href="#contact"><span>Get a free estimate</span></a>
-        <a class="btn btn--ghost magnetic" href="#work" data-cursor="View"><span>See our work</span></a>
+        <a class="btn" href="#contact"><span>Get a free estimate</span></a>
+        <a class="btn btn--ghost" href="#work" data-cursor="View"><span>See our work</span></a>
       </div>
     </div>
 
@@ -254,24 +254,18 @@
   </div>
 </section>
 
-<!-- PROCESS -->
+<!-- PROCESS: simple static layout -->
 <section class="process" id="process" aria-labelledby="process-title">
-  <div class="process__pin">
-    <div class="wrap process__grid">
-      <div class="process__left">
-        <p class="eyebrow"><span class="dot"></span> Our process</p>
-        <h2 id="process-title" class="h2">From idea to <em>finished space.</em></h2>
-        <ol class="steps" id="steps">
-          <li class="step is-active" data-step="0"><span class="step__no">01</span><div><h3>In-person estimate</h3><p>We walk your property with you, measure, listen and understand how you want to live outside.</p></div></li>
-          <li class="step" data-step="1"><span class="step__no">02</span><div><h3>3D virtual design</h3><p>You see your new space in 3D before a single shovel hits the ground, and refine it until it’s right.</p></div></li>
-          <li class="step" data-step="2"><span class="step__no">03</span><div><h3>Build &amp; enjoy</h3><p>Our crew builds it with premium materials and meticulous craftsmanship. You enjoy the result.</p></div></li>
-        </ol>
-      </div>
-      <div class="process__right" aria-hidden="true">
-        <svg class="iso" id="iso" viewBox="0 0 600 460" role="img" aria-label="Isometric drawing of a pergola, patio and fire pit going from site plan to 3D design to finished build"></svg>
-        <div class="iso__tag"><span id="isoTag">Site plan</span></div>
-      </div>
+  <div class="wrap">
+    <div class="process__head">
+      <p class="eyebrow"><span class="dot"></span> Our process</p>
+      <h2 id="process-title" class="h2">From idea to <em>finished space.</em></h2>
     </div>
+    <ol class="psteps">
+      <li class="pstep"><span class="pstep__no">01</span><h3>In-person estimate</h3><p>We walk your property with you, measure, listen and understand how you want to live outside.</p></li>
+      <li class="pstep"><span class="pstep__no">02</span><h3>3D virtual design</h3><p>You see your new space in 3D before a single shovel hits the ground, and we refine it until it’s right.</p></li>
+      <li class="pstep"><span class="pstep__no">03</span><h3>Build &amp; enjoy</h3><p>Our crew builds it with premium materials and meticulous craftsmanship. You enjoy the result.</p></li>
+    </ol>
   </div>
 </section>
 
@@ -285,6 +279,22 @@
       <article class="tile"><span>02</span><h3>Designed in 3D</h3><p>See your space before we build it. Adjust materials, layout and lighting until it’s exactly right.</p></article>
       <article class="tile"><span>03</span><h3>Premium materials</h3><p>Natural stone, quality pavers, composite decking and finishes selected for performance and presence.</p></article>
       <article class="tile"><span>04</span><h3>Locally owned</h3><p>Fair pricing, honest communication and free on-site estimates from a team that lives where you live.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS: Trustindex widget (same one used on the current site) -->
+<section class="reviews" id="reviews" aria-labelledby="reviews-title">
+  <div class="wrap">
+    <div class="reviews__head">
+      <div>
+        <p class="eyebrow"><span class="dot"></span> Reviews</p>
+        <h2 id="reviews-title" class="h2">What our clients <em>say about us.</em></h2>
+      </div>
+      <a class="btn" href="reviews/">Read all reviews</a>
+    </div>
+    <div class="reviews__widget" id="reviewsWidget" data-trustindex="585d188595d53198d00608bfd4f">
+      <noscript><p>Our customer reviews are shown here. Enable JavaScript to view them, or visit our <a href="reviews/">reviews page</a>.</p></noscript>
     </div>
   </div>
 </section>
@@ -309,12 +319,12 @@
 
 <!-- CTA -->
 <section class="cta" id="contact" aria-labelledby="cta-title">
-  <div class="cta__glow" aria-hidden="true"></div>
+  <div class="cta__bg" aria-hidden="true"><img src="assets/work/work-01.webp" alt="" loading="lazy" decoding="async"></div>
   <div class="wrap cta__in">
     <p class="eyebrow"><span class="dot"></span> Let’s build</p>
     <h2 id="cta-title" class="cta__title">Ready to take your outdoor space to the <em>next level?</em></h2>
     <div class="cta__row">
-      <a class="btn btn--xl magnetic" href="contact-us/"><span>Get your free estimate</span></a>
+      <a class="btn btn--xl" href="contact-us/"><span>Get your free estimate</span></a>
       <a class="cta__tel" href="tel:+15405148725">Call (540) 514-8725</a>
     </div>
   </div>
@@ -325,7 +335,7 @@
 <footer class="footer">
   <div class="wrap footer__grid">
     <div>
-      <img src="assets/logo.png" alt="Potros Construction LLC" width="170" height="59">
+      <img class="footer__logo" src="assets/logo.png" alt="Potros Construction LLC" width="230" height="80">
       <p class="footer__note">Custom hardscapes and outdoor living in Winchester, VA and surrounding communities.</p>
     </div>
     <div>
