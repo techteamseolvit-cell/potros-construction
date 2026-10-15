@@ -329,7 +329,7 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 .manifesto__text{max-width:none}
 .manifesto__art{position:relative;display:grid;place-items:center}
 .manifesto__art img{width:100%;max-width:none;height:auto;opacity:.62;filter:saturate(.8) brightness(.92) blur(.8px);-webkit-mask-image:radial-gradient(farthest-side,#000 62%,transparent 100%);mask-image:radial-gradient(farthest-side,#000 62%,transparent 100%)}
-@media (max-width:860px){.manifesto__grid{grid-template-columns:1fr}.manifesto__art{order:-1;max-width:300px}}
+@media (max-width:860px){.manifesto__grid{grid-template-columns:1fr}.manifesto__art{order:2;max-width:300px;margin:8px auto 0}}
 
 /* hero: content anchored just below the nav */
 .hero__content{top:max(112px,20vh);bottom:auto;max-width:980px}
@@ -367,3 +367,20 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
   .hero.has-video .hero__vignette,.hero__vignette{background:linear-gradient(90deg,rgba(5,5,7,.92),rgba(5,5,7,.72) 70%,rgba(5,5,7,.5)),linear-gradient(180deg,rgba(5,5,7,.72),rgba(5,5,7,.4) 35%,rgba(5,5,7,.6) 62%,rgba(5,5,7,.95))}
   .reveal{height:560vh}
 }
+
+/* hero: shade only on the left (where the text is); the rest of the video stays fully clear */
+.hero__vignette,.hero.has-video .hero__vignette{background:linear-gradient(90deg,rgba(5,5,7,.82) 0%,rgba(5,5,7,.6) 30%,rgba(5,5,7,.22) 52%,rgba(5,5,7,0) 68%),linear-gradient(180deg,rgba(5,5,7,.38),transparent 14%,transparent 86%,rgba(5,5,7,.3))}
+.hero__poster{background:url(../assets/video/hero-poster.webp) center/cover,#0a0a0a}
+@media (max-width:1060px){
+  .hero__vignette,.hero.has-video .hero__vignette{background:linear-gradient(90deg,rgba(5,5,7,.84) 0%,rgba(5,5,7,.6) 45%,rgba(5,5,7,.2) 75%,rgba(5,5,7,0) 100%),linear-gradient(180deg,rgba(5,5,7,.34),transparent 14%,transparent 88%,rgba(5,5,7,.25))}
+}
+@media (max-width:700px){
+  .hero__vignette,.hero.has-video .hero__vignette{background:linear-gradient(90deg,rgba(5,5,7,.86) 0%,rgba(5,5,7,.62) 50%,rgba(5,5,7,.18) 82%,rgba(5,5,7,0) 100%),linear-gradient(180deg,rgba(5,5,7,.34),transparent 14%,transparent 88%,rgba(5,5,7,.25))}
+  .manifesto__art{order:2;max-width:280px;margin:8px auto 0}
+}
+
+/* horse fades in as the text above it is revealed */
+.manifesto__art img{opacity:calc(.62 * var(--horse,1));transform:translateY(calc((1 - var(--horse,1)) * 18px));transition:opacity .35s linear,transform .35s linear}
+
+.hero__hud,.hero__hud *{text-shadow:0 1px 12px rgba(0,0,0,.75)}
+.hero__hud{color:rgba(255,255,255,.85)}

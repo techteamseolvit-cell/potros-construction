@@ -52,7 +52,7 @@
   })();
 
   /* ---------- manifesto: word-by-word scrub ---------- */
-  var mf = $('#manifesto'), words = [];
+  var mf = $('#manifesto'), words = [], horseArt = $('.manifesto__art');
   if (mf) {
     var txt = mf.textContent.trim().split(/\s+/), red = /^(engineer|extraordinary|decades\.?)$/i;
     mf.setAttribute('aria-label', mf.textContent.trim());
@@ -223,6 +223,7 @@
     if (words.length && mf) {
       var r = mf.getBoundingClientRect(), pp = clamp((w.innerHeight * .85 - r.top) / (r.height + w.innerHeight * .35), 0, 1), n = Math.round(pp * words.length);
       for (var i = 0; i < words.length; i++) words[i].classList.toggle('lit', i < n);
+      if (horseArt) horseArt.style.setProperty('--horse', clamp((pp - .5) / .18, 0, 1).toFixed(3));
     }
     if (svc && track) {
       var sp = pinProgress(svc); track.style.transform = 'translate3d(' + (-sp * svcMax) + 'px,0,0)'; if (svcBar) svcBar.style.transform = 'scaleX(' + sp + ')';
@@ -244,7 +245,7 @@
   w.addEventListener('resize', function () { measureSvc(); req(); });
   w.addEventListener('load', function () { measureSvc(); req(); });
   measureSvc();
-  if (reduce) { $$('.manifesto__text .w').forEach(function (e) { e.classList.add('lit'); }); }
+  if (reduce) { $$('.manifesto__text .w').forEach(function (e) { e.classList.add('lit'); }); if (horseArt) horseArt.style.setProperty('--horse', 1); }
   update();
 
   /* ---------- debug hooks for screenshots (?y=px or ?p=hero-progress) ---------- */
