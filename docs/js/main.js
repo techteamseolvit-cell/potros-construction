@@ -66,7 +66,7 @@
 
 
   /* ---------- reveals ---------- */
-  var revealTargets = $$('.pstep,.about__copy>*,.about__video,.h2,.lede,.tile,.area__list,.area__map,.cta__title,.cta__row,.footer__grid>div,.why .eyebrow,.work__head>*');
+  var revealTargets = $$('.pstep,.about__copy>*,.about__video,.h2,.lede,.wrow,.area__list,.area__map,.cta__title,.cta__row,.footer__grid>div,.why .eyebrow,.why__photo,.work__head>*');
   revealTargets.forEach(function (el, i) { el.classList.add('rv'); el.style.setProperty('--d', (i % 6 * .07) + 's'); });
   var io = 'IntersectionObserver' in w ? new IntersectionObserver(function (en) {
     en.forEach(function (e) {
