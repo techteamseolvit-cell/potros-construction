@@ -40,7 +40,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:500}
 .loader.done{transform:translateY(-101%)}
 .loader__inner{display:grid;justify-items:center;gap:24px;transition:opacity .4s}
 .loader.done .loader__inner{opacity:0}
-.loader__logo{width:min(260px,60vw);height:auto;animation:logoIn 1.4s var(--ease) both}
+.loader__logo{width:min(220px,55vw);height:auto;animation:logoIn 1.4s var(--ease) both}
 @keyframes logoIn{from{opacity:0;transform:scale(.92);filter:blur(10px)}}
 .loader__bar{width:min(260px,60vw);height:2px;background:var(--line);overflow:hidden}
 .loader__bar i{display:block;height:100%;width:0;background:var(--red-hot);transition:width .2s}
@@ -321,3 +321,13 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 .reviews__widget noscript p{color:#444}
 .reviews__widget a{color:var(--red)}
 .footer__grid{align-items:start}
+
+/* horse mark */
+.brandmark{display:flex;align-items:center;gap:16px;margin-bottom:6px}
+.brandmark img{width:120px;height:auto}
+.brandmark__t{display:flex;flex-direction:column;line-height:1}
+.brandmark__t strong{font-family:var(--serif);font-weight:600;font-size:38px;letter-spacing:.06em;color:#fff}
+.brandmark__t span{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.manifesto{position:relative;overflow:hidden}
+.manifesto__mark{position:absolute;right:-4%;bottom:6%;width:min(52vw,720px);height:auto;opacity:.07;pointer-events:none;user-select:none}
+.manifesto .wrap{position:relative}
