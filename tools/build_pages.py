@@ -16,7 +16,7 @@ def hero(h1, lead, photo, alt, crumb, chips, cta=True):
     lis = ''.join(f'<li><b>0{i + 1}</b>{e(c)}</li>' for i, c in enumerate(chips))
     btns = f'<div class="sp-hero__cta"><a class="btn" href="../contact-us/">Get a free estimate</a><a class="sp-call" href="tel:{PHONE_HREF}">Call {PHONE}</a></div>' if cta else ''
     return f'''<section class="sp-hero pg-hero" aria-labelledby="sp-h1">
-  <div class="sp-hero__bg" aria-hidden="true"><img src="{img_path(photo)}" alt="" width="1800" height="1012" fetchpriority="high" decoding="async"></div>
+  <div class="sp-hero__bg" aria-hidden="true"><img src="{photo if photo.startswith('../') else img_path(photo)}" alt="" width="1800" height="750" fetchpriority="high" decoding="async"></div>
   <div class="sp-hero__shade" aria-hidden="true"></div>
   <div class="wrap sp-hero__in">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><b aria-current="page">{e(crumb)}</b></nav>
@@ -90,7 +90,7 @@ def about():
     tr = ''.join(f'<li class="rv"><h3>{e(t)}</h3><p>{e(d)}</p></li>' for t, d in trust)
     svc = ''.join(f'<a class="pg-svc" href="../{s}-winchester-va/"><span>{l}</span><i aria-hidden="true">→</i></a>' for s, l in LIVE_SERVICES)
     body = f'''
-{hero('About Us', 'A family-owned outdoor construction company in Winchester, Virginia, building patios, walkways and stone work with honesty, respect and pride.', 'house-deck-stone-landscape', 'Home with deck, natural stone and landscaped yard in Winchester VA', 'About Us', ['Family owned', 'Licensed & insured', 'Free estimates', 'Warranted work'])}
+{hero('About Us', 'A family-owned outdoor construction company in Winchester, Virginia, building patios, walkways and stone work with honesty, respect and pride.', '../assets/about/hero.webp', 'Potros Construction toolbox, tools and a paver patio under construction at a Winchester VA home', 'About Us', ['Family owned', 'Licensed & insured', 'Free estimates', 'Warranted work'])}
 
 <section class="sp-intro pg-story" aria-labelledby="story-h2">
   <div class="wrap sp-intro__grid">
@@ -172,7 +172,7 @@ def about():
         crumbs_schema('About Us', url)]}
     return page('About Us | Potros Construction, Winchester VA',
                 'Meet Potros Construction, a family-owned outdoor construction company in Winchester, VA. Licensed, insured and committed to honest, quality work.',
-                url, SITE + '/assets/hardscapes/house-deck-stone-landscape.webp', schema, body, 'pg-about', 'about')
+                url, SITE + '/assets/about/hero.webp', schema, body, 'pg-about', 'about')
 
 
 # ───────────────────────── CONTACT ─────────────────────────
