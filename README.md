@@ -23,19 +23,22 @@ Parámetros de prueba: `?noload` omite el preloader.
 El sitio vive en `docs/` y hay un `index.html` en la raíz que redirige a `docs/`, así que funciona con la fuente de Pages en
 `/docs` o en la raíz de la rama. URL: `https://<usuario>.github.io/potros-construction/`.
 
-## Cómo agregar los renders y videos reales
+## Medios del sitio (ya integrados)
 
-| Qué | Dónde | Formato |
+| Archivo | Origen | Uso |
 |---|---|---|
-| Galería "Our work" (hasta 6) | `docs/assets/work/work-01.webp` … `work-06.webp` | WebP, ~1800 px de ancho, <400 KB |
-| Video del hero (opcional) | `docs/assets/video/hero.mp4` | MP4 H.264, 1080p, sin audio, <8 MB, en bucle |
+| `docs/assets/video/hero.mp4` (+ `hero-poster.webp`) | *Video 1.mp4* (carpeta Project) | Hero del home, en bucle |
+| `docs/assets/video/reveal.mp4` (+ poster) | *Clip 1.mp4* (carpeta Images II) | Sección "See it before we build it": el video avanza con el scroll |
+| `docs/assets/work/work-01…06.webp` | Fotos de "Best Potros Content" | Galería "Built work, up close" |
+| `docs/assets/cards/*.webp` | Fotos de "Best Potros Content" | Tarjetas de servicios |
 
-Si `hero.mp4` existe reemplaza la escena 3D; si no, se ve la escena 3D de WebGL. Los renders faltantes muestran un marcador discreto.
+Los originales (170-316 MB) **no** se suben al repo: se comprimen (MP4 H.264 720p / WebP) y solo se guardan las versiones web.
+Si falla la reproducción del video, el hero cae a la escena 3D de WebGL (`js/hero3d.js`).
 
 ## Estado de v1
 
-- Home con animaciones: preloader, hero 3D con vuelo de cámara al hacer scroll, manifiesto palabra a palabra, servicios en scroll horizontal,
-  galería de renders con parallax y lightbox, proceso con dibujo isométrico y mapa de zona de servicio.
+- Home con animaciones: preloader, hero con video 3D real (y escena WebGL de respaldo), manifiesto palabra a palabra, servicios en scroll horizontal,
+  video con scroll-scrub, galería de fotos reales con parallax y lightbox, proceso con dibujo isométrico y mapa de zona de servicio.
 - Paleta = logo de Potros: rojo, blanco y negro.
 - Las 14 páginas internas son *stubs* (`noindex`) con las mismas URLs del sitio actual; se construyen en la siguiente fase.
 - Todo lleva `noindex,nofollow` mientras sea una vista previa. **Quitarlo al lanzar.**
@@ -43,5 +46,5 @@ Si `hero.mp4` existe reemplaza la escena 3D; si no, se ve la escena 3D de WebGL.
 
 ## Pendientes
 
-- Renders y videos de las carpetas de Drive (Renders II, Images II, Project, Best Potros Content): comprimir e integrar.
+- Renders de la carpeta *Renders II* (PNG) y los otros clips de *Images II* / *Project*: pendientes de elegir.
 - Reseñas reales, FAQ y textos finales por página.

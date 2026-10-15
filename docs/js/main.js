@@ -23,6 +23,15 @@
       if (hero3d) { requestAnimationFrame(function () { canvas.classList.add('ready'); }); }
     } catch (e) { if (w.console) console.warn('3D hero unavailable', e); }
   }
+  var hv = $('#heroVideo');
+  function heroMedia() {
+    if (!hv) { start3D(); return; }
+    if (reduce) return;                       // poster only
+    var fallback = function () { start3D(); };
+    hv.addEventListener('error', fallback, true);
+    var p = hv.play();
+    if (p && p.then) p.then(function () { heroEl.classList.add('has-video'); }).catch(fallback);
+  }
   function finishLoad() {
     var l = $('#loader'); if (l) l.classList.add('done');
     body.classList.remove('is-loading'); body.classList.add('ready');
@@ -30,9 +39,9 @@
   }
   (function loader() {
     var n = 0, num = $('#loaderNum'), bar = $('#loaderBar');
-    if (q.has('noload') || reduce) { start3D(); finishLoad(); return; }
+    if (q.has('noload') || reduce) { heroMedia(); finishLoad(); return; }
     var t0 = performance.now();
-    start3D();
+    heroMedia();
     (function tick() {
       var el = performance.now() - t0, target = d.readyState === 'complete' ? 100 : Math.min(92, el / 14);
       n += (target - n) * .12 + .4; if (n > 100) n = 100;
@@ -185,14 +194,23 @@
     d.addEventListener('keydown', function (e) { if (lb.hidden) return; if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowRight') stepLb(1); if (e.key === 'ArrowLeft') stepLb(-1); });
   }
 
-  /* ---------- optional hero video: drop assets/video/hero.mp4 and it replaces the 3D canvas ---------- */
-  (function heroVideo() {
-    var v = $('#heroVideo'); if (!v || !heroEl) return;
-    fetch('assets/video/hero.mp4', { method: 'HEAD' }).then(function (r) {
-      if (!r.ok) return; v.src = 'assets/video/hero.mp4'; v.preload = 'auto';
-      var po = v.play(); if (po && po.then) po.then(function () { heroEl.classList.add('has-video'); }).catch(function () {});
-    }).catch(function () {});
-  })();
+
+
+  /* ---------- reveal: scroll-scrubbed video ---------- */
+  var revealEl = $('#reveal'), rv = $('#revealVideo'), rvBar = $('#revealBar'), caps = $$('.cap'), rvTarget = 0, rvVisible = false, rvCap = -1;
+  if (rv) {
+    if (reduce) { rv.loop = true; rv.play().catch(function () {}); }
+    else {
+      rv.load();
+      (function scrub() {
+        if (rvVisible && rv.readyState >= 2 && rv.duration) {
+          var diff = rvTarget - rv.currentTime;
+          if (Math.abs(diff) > .03) rv.currentTime = clamp(rv.currentTime + diff * .2, 0, rv.duration - .05);
+        }
+        requestAnimationFrame(scrub);
+      })();
+    }
+  }
 
   /* ---------- nav + drawer ---------- */
   var nav = $('#nav'), burger = $('#burger'), drawer = $('#drawer'), lastY = 0;
@@ -223,7 +241,7 @@
 
   /* ---------- scroll loop ---------- */
   var heroContent = $('.hero__content'), hudStage = $('#hudStage'), hudBar = $('#hudBar'), prog = $('#progress'), ticking = false;
-  var stages = ['01 · Arrival', '02 · The terrace', '03 · The kitchen', '04 · The fire'];
+  var stages = ['01 · Arrival', '02 · The garden', '03 · The patio', '04 · The kitchen'];
   var lastStage = '';
   function update() {
     ticking = false;
@@ -247,6 +265,13 @@
       var sp = pinProgress(svc); track.style.transform = 'translate3d(' + (-sp * svcMax) + 'px,0,0)'; if (svcBar) svcBar.style.transform = 'scaleX(' + sp + ')';
     }
     for (var wi = 0; wi < workItems.length; wi++) { var wr = workItems[wi].getBoundingClientRect(); if (wr.bottom < -50 || wr.top > w.innerHeight + 50) continue; var wp = (wr.top + wr.height / 2) / w.innerHeight - .5; workItems[wi].querySelector('img').style.setProperty('--py', (-wp * 46 - 30) + 'px'); }
+    if (revealEl && rv) {
+      var rr = revealEl.getBoundingClientRect(); rvVisible = rr.top < w.innerHeight && rr.bottom > 0;
+      var rp = pinProgress(revealEl); rvTarget = rp * (rv.duration || 21.4) * .985;
+      if (rvBar) rvBar.style.transform = 'scaleX(' + rp + ')';
+      var ci = Math.min(2, Math.floor(rp * 3)); if (ci !== rvCap) { rvCap = ci; caps.forEach(function (c, k) { c.classList.toggle('on', k === ci); }); }
+    }
+    if (hv && heroEl.classList.contains('has-video')) { hv.style.transform = 'scale(' + (1 + pinProgress(heroEl) * .14) + ')'; }
     if (proc) { setStep(Math.min(2, Math.floor(pinProgress(proc) * 3 * .999))); }
   }
   var req = function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } };

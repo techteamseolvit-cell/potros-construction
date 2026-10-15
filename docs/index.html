@@ -18,6 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap">
+<link rel="preload" as="image" href="assets/video/hero-poster.webp" fetchpriority="high">
 <link rel="stylesheet" href="css/styles.css">
 <script type="application/ld+json">
 {
@@ -115,7 +116,7 @@
 <section class="hero" id="hero" aria-label="Potros Construction, custom outdoor living">
   <div class="hero__pin">
     <div class="hero__poster" aria-hidden="true"></div>
-    <video class="hero__video" id="heroVideo" muted loop playsinline preload="none" aria-hidden="true"></video>
+    <video class="hero__video" id="heroVideo" muted loop playsinline preload="metadata" poster="assets/video/hero-poster.webp" aria-hidden="true"><source src="assets/video/hero.mp4" type="video/mp4"></video>
     <canvas id="hero3d" class="hero__canvas" aria-hidden="true"></canvas>
     <div class="hero__vignette" aria-hidden="true"></div>
 
@@ -169,42 +170,42 @@
     </div>
     <div class="services__track" id="svcTrack">
       <a class="card" href="hardscapes-winchester-va/" data-cursor="View">
-        <div class="card__art art-hardscape" aria-hidden="true"></div>
+        <div class="card__art art-hardscape" aria-hidden="true"><img src="assets/cards/hardscapes.webp" alt="" loading="lazy" decoding="async"></div>
         <span class="card__no">01</span>
         <h3>Hardscapes</h3>
         <p>Patios, walkways and retaining walls designed for beauty and engineered for durability.</p>
         <span class="card__more">Explore hardscapes <i>→</i></span>
       </a>
       <a class="card" href="patios-winchester-va/" data-cursor="View">
-        <div class="card__art art-patio" aria-hidden="true"></div>
+        <div class="card__art art-patio" aria-hidden="true"><img src="assets/cards/patios.webp" alt="" loading="lazy" decoding="async"></div>
         <span class="card__no">02</span>
         <h3>Patios</h3>
         <p>Paver and stone patios that turn an empty yard into your favorite room of the house.</p>
         <span class="card__more">Explore patios <i>→</i></span>
       </a>
       <a class="card" href="decks-winchester-va/" data-cursor="View">
-        <div class="card__art art-deck" aria-hidden="true"></div>
+        <div class="card__art art-deck" aria-hidden="true"><img src="assets/cards/decks.webp" alt="" loading="lazy" decoding="async"></div>
         <span class="card__no">03</span>
         <h3>Decks</h3>
         <p>Composite and wood decks built with precise framing, premium decking and lasting finishes.</p>
         <span class="card__more">Explore decks <i>→</i></span>
       </a>
       <a class="card" href="porches-winchester-va/" data-cursor="View">
-        <div class="card__art art-porch" aria-hidden="true"></div>
+        <div class="card__art art-porch" aria-hidden="true"><img src="assets/cards/porches.webp" alt="" loading="lazy" decoding="async"></div>
         <span class="card__no">04</span>
         <h3>Porches</h3>
         <p>Front, covered and screened porches that add charm, comfort and curb appeal.</p>
         <span class="card__more">Explore porches <i>→</i></span>
       </a>
       <a class="card" href="fireplaces-winchester-va/" data-cursor="View">
-        <div class="card__art art-fire" aria-hidden="true"></div>
+        <div class="card__art art-fire" aria-hidden="true"><img src="assets/cards/fireplaces.webp" alt="" loading="lazy" decoding="async"></div>
         <span class="card__no">05</span>
         <h3>Fireplaces</h3>
         <p>Stone and brick outdoor fireplaces and fire features that anchor every evening outside.</p>
         <span class="card__more">Explore fireplaces <i>→</i></span>
       </a>
       <a class="card" href="landscaping-winchester-va/" data-cursor="View">
-        <div class="card__art art-land" aria-hidden="true"></div>
+        <div class="card__art art-land" aria-hidden="true"><img src="assets/cards/landscaping.webp" alt="" loading="lazy" decoding="async"></div>
         <span class="card__no">06</span>
         <h3>Landscaping</h3>
         <p>Plant selection, bed design, grading, sod and mulch, tailored to your property.</p>
@@ -215,23 +216,41 @@
   </div>
 </section>
 
-<!-- WORK: renders gallery -->
+<!-- REVEAL: scroll-scrubbed 3D render -->
+<section class="reveal" id="reveal" aria-labelledby="reveal-title">
+  <div class="reveal__pin">
+    <video class="reveal__video" id="revealVideo" muted playsinline preload="auto" poster="assets/video/reveal-poster.webp" aria-hidden="true"><source src="assets/video/reveal.mp4" type="video/mp4"></video>
+    <div class="reveal__shade" aria-hidden="true"></div>
+    <div class="reveal__copy wrap">
+      <p class="eyebrow"><span class="dot"></span> 3D design</p>
+      <h2 id="reveal-title" class="h2">See it before <em>we build it.</em></h2>
+    </div>
+    <div class="reveal__caps wrap" aria-hidden="true">
+      <p class="cap on"><b>01</b> The design<span>Every space starts as a precise 3D model of your property.</span></p>
+      <p class="cap"><b>02</b> The details<span>Grading, walls, lighting and materials resolved before the first shovel.</span></p>
+      <p class="cap"><b>03</b> The result<span>What you approve on screen is exactly what we build.</span></p>
+    </div>
+    <div class="reveal__bar" aria-hidden="true"><i id="revealBar"></i></div>
+  </div>
+</section>
+
+<!-- WORK: project gallery -->
 <section class="work" id="work" aria-labelledby="work-title">
   <div class="wrap work__head">
     <div>
       <p class="eyebrow"><span class="dot"></span> Selected work</p>
-      <h2 id="work-title" class="h2">Our work, <em>rendered.</em></h2>
+      <h2 id="work-title" class="h2">Built work, <em>up close.</em></h2>
     </div>
-    <p class="lede">Every space is designed in 3D before we build it. Explore the renders and images from our latest projects.</p>
+    <p class="lede">Every space is designed in 3D before we build it. Explore real projects from our crews across Winchester and beyond.</p>
   </div>
   <div class="work__grid wrap" id="workGrid">
-    <!-- Replace images in assets/work/ (work-01.webp ... work-08.webp). Missing files show an elegant placeholder. -->
-    <figure class="work__item w1" data-i="0"><div class="work__img"><img src="assets/work/work-01.webp" alt="Potros Construction outdoor living render 1" loading="lazy" decoding="async"></div><figcaption><span>01</span> Outdoor living</figcaption></figure>
-    <figure class="work__item w2" data-i="1"><div class="work__img"><img src="assets/work/work-02.webp" alt="Potros Construction outdoor living render 2" loading="lazy" decoding="async"></div><figcaption><span>02</span> Patio &amp; pergola</figcaption></figure>
-    <figure class="work__item w3" data-i="2"><div class="work__img"><img src="assets/work/work-03.webp" alt="Potros Construction outdoor living render 3" loading="lazy" decoding="async"></div><figcaption><span>03</span> Fire feature</figcaption></figure>
-    <figure class="work__item w4" data-i="3"><div class="work__img"><img src="assets/work/work-04.webp" alt="Potros Construction outdoor living render 4" loading="lazy" decoding="async"></div><figcaption><span>04</span> Hardscape</figcaption></figure>
-    <figure class="work__item w5" data-i="4"><div class="work__img"><img src="assets/work/work-05.webp" alt="Potros Construction outdoor living render 5" loading="lazy" decoding="async"></div><figcaption><span>05</span> Outdoor kitchen</figcaption></figure>
-    <figure class="work__item w6" data-i="5"><div class="work__img"><img src="assets/work/work-06.webp" alt="Potros Construction outdoor living render 6" loading="lazy" decoding="async"></div><figcaption><span>06</span> Landscape</figcaption></figure>
+    <!-- Images live in assets/work/ (work-01.webp ... work-06.webp). Missing files show a placeholder. -->
+    <figure class="work__item w1" data-i="0"><div class="work__img"><img src="assets/work/work-01.webp" alt="Home with an illuminated deck and outdoor living area at dusk, built by Potros Construction" loading="lazy" decoding="async"></div><figcaption><span>01</span> Deck &amp; outdoor living</figcaption></figure>
+    <figure class="work__item w2" data-i="1"><div class="work__img"><img src="assets/work/work-02.webp" alt="Paver patio with fire pit and Adirondack chairs by Potros Construction" loading="lazy" decoding="async"></div><figcaption><span>02</span> Patio &amp; fire pit</figcaption></figure>
+    <figure class="work__item w3" data-i="2"><div class="work__img"><img src="assets/work/work-03.webp" alt="Covered porch with outdoor TV and lounge seating by Potros Construction" loading="lazy" decoding="async"></div><figcaption><span>03</span> Covered porch</figcaption></figure>
+    <figure class="work__item w4" data-i="3"><div class="work__img"><img src="assets/work/work-04.webp" alt="Paver patio with fire pit and natural stone water feature by Potros Construction" loading="lazy" decoding="async"></div><figcaption><span>04</span> Hardscape &amp; water feature</figcaption></figure>
+    <figure class="work__item w5" data-i="4"><div class="work__img"><img src="assets/work/work-05.webp" alt="Backyard deck, natural stone and landscaping by Potros Construction" loading="lazy" decoding="async"></div><figcaption><span>05</span> Deck &amp; landscape</figcaption></figure>
+    <figure class="work__item w6" data-i="5"><div class="work__img"><img src="assets/work/work-06.webp" alt="Covered outdoor living room with ceiling fans and TV at night by Potros Construction" loading="lazy" decoding="async"></div><figcaption><span>06</span> Outdoor living room</figcaption></figure>
   </div>
 </section>
 
