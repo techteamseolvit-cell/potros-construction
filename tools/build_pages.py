@@ -12,19 +12,21 @@ MAPS = 'https://www.google.com/maps/search/?api=1&query=704+Baker+Ln+Ste+5+Winch
 LB = '<div class="lb" id="lb" hidden><button class="lb__x" id="lbX" aria-label="Close">×</button><button class="lb__n lb__n--p" id="lbP" aria-label="Previous">←</button><img id="lbImg" alt=""><button class="lb__n" id="lbN" aria-label="Next">→</button></div>'
 
 
-def hero(h1, lead, photo, alt, crumb, chips, cta=True):
+def hero(h1, lead, photo, alt, crumb, chips, cta=True, trail=None):
     lis = ''.join(f'<li><b>0{i + 1}</b>{e(c)}</li>' for i, c in enumerate(chips))
+    strip = f'<div class="sp-hero__strip"><ul class="wrap" style="--cols:{len(chips)}" aria-label="At a glance">{lis}</ul></div>' if chips else ''
+    lead_html = f'<p class="sp-hero__lead">{e(lead)}</p>' if lead else ''
     btns = f'<div class="sp-hero__cta"><a class="btn" href="../contact-us/">Get a free estimate</a><a class="sp-call" href="tel:{PHONE_HREF}">Call {PHONE}</a></div>' if cta else ''
     return f'''<section class="sp-hero pg-hero" aria-labelledby="sp-h1">
   <div class="sp-hero__bg" aria-hidden="true"><img src="{photo if photo.startswith('../') else img_path(photo)}" alt="" width="1800" height="750" fetchpriority="high" decoding="async"></div>
   <div class="sp-hero__shade" aria-hidden="true"></div>
   <div class="wrap sp-hero__in">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><b aria-current="page">{e(crumb)}</b></nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a>{trail or ''}<span>/</span><b aria-current="page">{e(crumb)}</b></nav>
     <h1 id="sp-h1" class="sp-h1">{e(h1)}</h1>
-    <p class="sp-hero__lead">{e(lead)}</p>
+    {lead_html}
     {btns}
   </div>
-  <div class="sp-hero__strip"><ul class="wrap" style="--cols:{len(chips)}" aria-label="At a glance">{lis}</ul></div>
+  {strip}
 </section>'''
 
 

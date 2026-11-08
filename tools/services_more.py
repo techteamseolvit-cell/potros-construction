@@ -33,7 +33,7 @@ def _build(slug, name, extra):
         blocks.append({'kicker': k, 'h2': it[5 + 2 * i], 'paras': _split(it[6 + 2 * i], 2), 'bullets': bl, 'photos': photos})
     return {
         'slug': slug, 'name': name, 'folder': 'p1',
-        'title': o['title'], 'description': o['desc'], 'h1': h1, 'lead': extra.get('lead', it[2]),
+        'title': extra.get('title', o['title']), 'description': o['desc'], 'h1': h1, 'lead': extra.get('lead', it[2]),
         'chips': extra['chips'], 'hero': [(extra['hero'], extra['hero_alt'])],
         'intro': {'kicker': it[1], 'h2': it[3], 'paras': intro_paras if len(intro_paras) == 2 else [intro_paras[0], ''], 'photo': (extra['hero'], extra['hero_alt'])},
         'blocks': blocks,
@@ -72,6 +72,7 @@ _PATIOS = {
 }
 
 _DECKS = {
+    'title': 'Decks in Winchester VA | Potros Construction Deck Builders',
     'lead': 'We design and build custom decks, from composite and wood decking to stairs, railings and lighting, creating outdoor spaces that last longer.',
     'chips': ['Composite', 'Wood', 'Railings', 'Stairs', 'Lighting'],
     'hero': P('deck-house-dusk-aerial'), 'hero_alt': 'Elevated deck with stairs and lighting at dusk on a home built by Potros Construction',
@@ -94,6 +95,7 @@ _DECKS = {
 }
 
 _PORCHES = {
+    'title': 'Porches in Winchester VA | Potros Custom Porch Builders',
     'lead': 'We design and build custom front, covered and screened porches that add comfort, curb appeal and lasting value to your home.',
     'chips': ['Front porches', 'Covered', 'Screened', 'Railings', 'Roofing'],
     'hero': P('screened-porch-house-exterior'), 'hero_alt': 'Home with a screened porch above a deck, built by Potros Construction',
@@ -116,6 +118,7 @@ _PORCHES = {
 }
 
 _LANDSCAPING = {
+    'title': 'Landscaping in Winchester VA | Potros Landscape Design',
     'chips': ['Design', 'Planting', 'Beds & mulch', 'Grading & sod', 'Hardscape'],
     'hero': P('stepping-stone-garden'), 'hero_alt': 'Stepping stone path through a landscaped garden in autumn at a Winchester VA home',
     'blocks': [
@@ -136,9 +139,79 @@ _LANDSCAPING = {
     'cta': {'eyebrow': 'Landscaping in Winchester, VA', 'title': 'Ready to transform your <em>landscape?</em>', 'button': 'Get a free landscaping estimate', 'photo': P('stepping-stone-path-stairs')},
 }
 
+_FIREPLACES = {
+    'title': 'Fireplaces in Winchester VA | Potros Outdoor Fire Features',
+    'lead': 'We design and build outdoor fireplaces and fire features in stone and brick, bringing warmth and year-round comfort to your backyard.',
+    'chips': ['Stone', 'Brick', 'Gas', 'Wood-burning', 'Fire pits'],
+    'hero': 'patio-firepit-chairs', 'hero_alt': 'Stamped paver patio with a fire pit and Adirondack chairs at a Winchester VA home',
+    'blocks': [
+        ('Stone & brick', ['Premium natural stone and brick', 'High-quality masonry materials', 'Built to last for decades'],
+         [('patio-firepit-boulders', 'Paver patio with fire pit, boulders and landscaping'), ('paver-patio-firepit', 'Paver patio with a fire pit beside a home')]),
+        ('Gathering', ['A focal point for family nights and entertaining', 'Seating planned around the fire', 'Designed to fit your outdoor living area'],
+         [('stone-wall-lanterns', 'Stone wall with lantern posts and flagstone patio'), ('lit-stone-column', 'Lit natural stone column on a flagstone patio')]),
+        ('Gas & wood', ['Gas fireplaces for convenience', 'Wood-burning for the traditional crackle', 'Custom fire features to suit your lifestyle'],
+         [('p1/screened-porch-fire-table', 'Screened porch with a fire table and lounge seating'), ('p1/screened-porch-seating', 'Screened porch seating area around a fire table')]),
+    ],
+    'gallery_title': 'Fire feature projects', 'gallery_lead': 'Fire pits and fire features from recent builds around Winchester.',
+    'gallery': [('patio-firepit-chairs', 'Fire pit with Adirondack chairs on a stamped paver patio'), ('paver-patio-firepit', 'Paver patio with fire pit'),
+                ('patio-firepit-boulders', 'Fire pit with boulders and landscaping'), ('p1/screened-porch-lake-view', 'Fire table and lounge seating with a lake view'),
+                ('stone-wall-seating-house', 'Stone seating wall and lantern in front of a farmhouse')],
+    'points': [('Year-round comfort', 'A fire feature extends the season you can enjoy your yard.'), ('A natural focal point', 'Stone and brick give your outdoor space a place everyone gathers.'), ('Lasting value', 'Quality masonry adds beauty and value to your property.')],
+    'value_photo': 'stone-wall-seating-house',
+    'video': V1,
+    'cta': {'eyebrow': 'Fireplaces in Winchester, VA', 'title': 'Ready to add a custom <em>fire feature?</em>', 'button': 'Get a free fireplace estimate', 'photo': 'patio-firepit-boulders'},
+}
+
 SERVICES_MORE = {
     'patios': _build('patios', 'Patios', _PATIOS),
     'decks': _build('decks', 'Decks', _DECKS),
     'porches': _build('porches', 'Porches', _PORCHES),
     'landscaping': _build('landscaping', 'Landscaping', _LANDSCAPING),
+    'fireplaces': _build('fireplaces', 'Fireplaces', _FIREPLACES),
+}
+
+# Pools: NEW copy (no original page to preserve). Scope wording to be confirmed with the client.
+_POOL_P = [
+    'Winchester, VA’s Pool Deck and Outdoor Living Specialists',
+    'Custom Pool Projects in Winchester VA',
+]
+SERVICES_MORE['pools'] = {
+    'slug': 'pools', 'name': 'Pools', 'folder': 'hardscapes',
+    'title': 'Pools in Winchester VA | Potros Construction Pool Decks',
+    'description': 'Pool decks, patios, stone walls and outdoor living around your pool in Winchester, VA. Free on-site estimates and 3D design from Potros Construction.',
+    'h1': 'Pool Projects in Winchester, VA',
+    'lead': 'We design and build the outdoor spaces around your pool, from flagstone and paver decks to stone walls, lighting and seating areas.',
+    'chips': ['Pool decks', 'Flagstone', 'Pavers', 'Stone walls', 'Lighting'],
+    'hero': [('pool-deck-aerial', 'Aerial view of a flagstone pool deck with stone retaining walls built by Potros Construction')],
+    'intro': {'kicker': 'Winchester, VA’s Pool Deck and Outdoor Living Specialists', 'h2': 'Custom Pool Projects in Winchester VA',
+              'paras': ['A pool is only as good as the space around it: the deck you walk on, the walls that frame it and the places where family and friends gather.',
+                        'Potros Construction plans and builds the surroundings that make a pool feel like part of your home, with careful attention to drainage, safe surfaces and materials that hold up to sun, water and Virginia winters.'],
+              'photo': ('pool-deck-aerial', 'Aerial view of a flagstone pool deck')},
+    'blocks': [
+        {'kicker': 'Pool decks', 'h2': 'Pool Decks and Surrounds Built for Comfort and Safety',
+         'paras': ['The surface around a pool takes constant wear from water, sun and foot traffic. We build pool decks and surrounds in natural flagstone, pavers and other durable materials, with a stable base and proper grading so water drains away from the pool and your home.',
+                   'Every layout is planned around how you use the space, with room for lounging, dining and walking comfortably.'],
+         'bullets': ['Flagstone and paver pool decks', 'Proper grading and drainage', 'Surfaces chosen for comfort and durability'],
+         'photos': [('pool-deck-aerial', 'Aerial view of a flagstone pool deck with stone retaining walls'), ('flagstone-pool-edge', 'Flagstone pool edge with river rock and plantings')]},
+        {'kicker': 'Walls & seating', 'h2': 'Stone Walls, Seating and Structure Around the Water',
+         'paras': ['Stone walls frame the pool, support level areas on sloped yards and create built-in seating. Combined with columns and caps, they give the space structure and a finished, custom look.',
+                   'We integrate steps, planters and seating walls into the design so everything feels like one cohesive outdoor room.'],
+         'bullets': ['Natural stone retaining and seating walls', 'Columns, caps and steps', 'Built-in seating and planters'],
+         'photos': [('curved-stone-wall', 'Curved natural stone wall over a flagstone patio'), ('stone-wall-seating-house', 'Stone seating wall with lantern and flagstone patio')]},
+        {'kicker': 'Lighting & living', 'h2': 'Lighting, Fire Features and Outdoor Living',
+         'paras': ['Evenings by the pool are the best part of the summer. We add lighting to walls, steps and columns, and can include fire pits, fireplaces and outdoor kitchens so the space works well after the sun goes down.',
+                   'Our 3D virtual design lets you see the finished pool area before any work begins.'],
+         'bullets': ['Wall, column and step lighting', 'Fire pits and fireplaces', 'Outdoor kitchens and dining areas'],
+         'photos': [('lit-stone-column', 'Lit natural stone column on a flagstone patio'), ('stone-wall-lanterns', 'Stone wall with lantern posts and flagstone patio')]},
+    ],
+    'gallery_title': 'Pool area projects', 'gallery_lead': 'Pool decks, stone walls and outdoor living spaces from recent builds around Winchester.',
+    'gallery': [('pool-deck-aerial', 'Flagstone pool deck seen from above'), ('flagstone-pool-edge', 'Flagstone pool edge with river rock'),
+                ('stone-pillar-wall', 'Stone pillar and wall with accent lighting'), ('lit-stone-steps', 'Natural stone steps with step lighting'),
+                ('house-deck-stone-landscape', 'Home with deck, natural stone and landscaped yard')],
+    'value': {'h2': 'Make Your Pool the Centerpiece of Your Outdoor Space',
+              'lead': 'A well-designed pool area increases how much you use your yard and adds lasting value to your property. Potros Construction delivers careful planning, quality materials and detailed craftsmanship around your pool.',
+              'points': [('Safe, durable surfaces', 'Materials and grading chosen for comfort underfoot and good drainage.'), ('Cohesive design', 'Decks, walls, lighting and seating planned together.'), ('Lasting value', 'A finished pool area adds beauty, use and value to your home.')],
+              'photo': 'flagstone-pool-edge'},
+    'process': PROCESS, 'faqs': FAQS, 'video': V1,
+    'cta': {'eyebrow': 'Pools in Winchester, VA', 'title': 'Ready to design your <em>pool area?</em>', 'button': 'Get a free pool area estimate', 'photo': 'pool-deck-aerial'},
 }

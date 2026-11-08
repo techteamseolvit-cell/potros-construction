@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261109b'          # cache-busting for css/js
+VERSION = '20261109d'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -25,6 +25,7 @@ SERVICE_INDEX = [  # slug, label, card photo, one-liner (used by the "other serv
     ('porches', 'Porches', 'cards/porches.webp', 'Front, covered and screened porches.'),
     ('fireplaces', 'Fireplaces', 'cards/fireplaces.webp', 'Stone and brick outdoor fireplaces.'),
     ('landscaping', 'Landscaping', 'cards/landscaping.webp', 'Beds, grading, sod and mulch, done right.'),
+    ('pools', 'Pools', 'cards/pools.webp', 'Pool decks, stone walls and outdoor living around your pool.'),
 ]
 
 SERVICES = {
@@ -106,7 +107,7 @@ def og_path(name):
 
 
 NAV_SERVICES = [('hardscapes', 'Hardscapes')]    # items shown in the top menu (kept to the approved four-item menu)
-LIVE_SERVICES = [('hardscapes', 'Hardscapes'), ('patios', 'Patios'), ('decks', 'Decks'), ('porches', 'Porches'), ('landscaping', 'Landscaping')]   # pages that exist (footer + related links)
+LIVE_SERVICES = [('hardscapes', 'Hardscapes'), ('patios', 'Patios'), ('decks', 'Decks'), ('porches', 'Porches'), ('landscaping', 'Landscaping'), ('fireplaces', 'Fireplaces'), ('pools', 'Pools')]   # pages that exist (footer + related links)
 
 
 def nav(current=None):
@@ -135,7 +136,7 @@ def footer():
   <div class="wrap footer__grid">
     <div class="footer__brand"><img class="footer__emblem" src="../assets/emblem.png" alt="" width="84" height="93"><p class="footer__note">Custom hardscapes and outdoor living in Winchester, VA and surrounding communities.</p></div>
     <div><h3>Services</h3>{''.join(f'<a href="../{s}-winchester-va/">{l}</a>' for s, l in LIVE_SERVICES)}</div>
-    <div><h3>Company</h3><a href="../about-us/">About us</a><a href="../contact-us/">Contact us</a></div>
+    <div><h3>Company</h3><a href="../about-us/">About us</a><a href="../portfolio/">Portfolio</a><a href="../reviews/">Reviews</a><a href="../service-area/">Service area</a><a href="../faq/">FAQ</a><a href="../blog/">Blog</a><a href="../contact-us/">Contact us</a></div>
     <div><h3>Visit</h3><address>704 Baker Ln, Suite 5<br>Winchester, VA 22603</address><a href="tel:{PHONE_HREF}">{PHONE}</a><p>Mon–Sat · 8:00 AM – 6:00 PM<br>Sunday closed</p></div>
   </div>
   <div class="wrap footer__bar"><span>© 2026 Potros Construction LLC</span><span><a href="../privacy-policy/">Privacy</a> · <a href="../terms-and-conditions/">Terms</a></span></div>
