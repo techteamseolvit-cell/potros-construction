@@ -67,3 +67,8 @@ Si falla la reproducción del video, el hero cae a la escena 3D de WebGL (`js/he
 ## About / Contact pages
 `python3 tools/build_pages.py` regenerates `docs/about-us/` and `docs/contact-us/` (shares nav/footer with `tools/build_service.py`).
 The menu only lists live pages (`LIVE_SERVICES` in `build_service.py`). The contact form has no backend yet: submit opens a prefilled `mailto:`. Connect a form service before launch. Hours in the footer/contact (Mon–Sat 8–6) differ from the old site ("Everyday 8am–5pm"); confirm with the client.
+
+## Nuevas páginas de servicio (nov 2026)
+`tools/services_more.py` define Patios, Decks, Porches y Landscaping (textos originales en `tools/data/original-content.json`); `python3 tools/build_service.py` las genera.
+Fotos nuevas en `docs/assets/p1/` (38 archivos) y videos de diseño 3D en `docs/assets/video/design-1|2.mp4`. Fireplaces queda pendiente de fotos.
+`NAV_SERVICES` controla el menú superior (solo Hardscapes); `LIVE_SERVICES` controla footer y "More outdoor services".

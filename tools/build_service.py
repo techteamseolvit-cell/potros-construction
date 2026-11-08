@@ -5,10 +5,11 @@ Writes docs/<slug>-winchester-va/index.html (same URL pattern as the current sit
 Add a new service by adding an entry to SERVICES (see 'hardscapes').
 """
 import html, json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261016r'          # cache-busting for css/js
+VERSION = '20261109b'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -97,10 +98,15 @@ e = html.escape
 
 
 def img_path(name):
-    return f'../assets/hardscapes/{name}.webp'
+    return f'../assets/{name}.webp' if '/' in name else f'../assets/hardscapes/{name}.webp'
 
 
-LIVE_SERVICES = [('hardscapes', 'Hardscapes')]   # add a service here when its page goes live
+def og_path(name):
+    return f'{SITE}/assets/{name}.webp' if '/' in name else f'{SITE}/assets/hardscapes/{name}.webp'
+
+
+NAV_SERVICES = [('hardscapes', 'Hardscapes')]    # items shown in the top menu (kept to the approved four-item menu)
+LIVE_SERVICES = [('hardscapes', 'Hardscapes'), ('patios', 'Patios'), ('decks', 'Decks'), ('porches', 'Porches'), ('landscaping', 'Landscaping')]   # pages that exist (footer + related links)
 
 
 def nav(current=None):
@@ -110,7 +116,7 @@ def nav(current=None):
   <a class="nav__logo" href="../" aria-label="Potros Construction, home"><img src="../assets/logo.png" alt="Potros Construction LLC" width="140" height="41"></a>
   <nav class="nav__links" aria-label="Primary">
     <a href="../"{cur('home')}>Home</a>
-    {''.join(f'<a href="../{sl}-winchester-va/"{cur(sl)}>{l}</a>' for sl, l in LIVE_SERVICES)}
+    {''.join(f'<a href="../{sl}-winchester-va/"{cur(sl)}>{l}</a>' for sl, l in NAV_SERVICES)}
     <a href="../about-us/"{cur('about')}>About Us</a>
     <a href="../contact-us/"{cur('contact')}>Contact Us</a>
   </nav>
@@ -119,7 +125,7 @@ def nav(current=None):
   <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
 </header>
 <div class="drawer" id="drawer">
-  <a href="../">Home</a>{''.join(f'<a href="../{s}-winchester-va/">{l}</a>' for s, l in LIVE_SERVICES)}<a href="../about-us/">About Us</a><a href="../contact-us/">Contact Us</a>
+  <a href="../">Home</a>{''.join(f'<a href="../{s}-winchester-va/">{l}</a>' for s, l in NAV_SERVICES)}<a href="../about-us/">About Us</a><a href="../contact-us/">Contact Us</a>
   <a class="drawer__tel" href="tel:{PHONE_HREF}">{PHONE}</a>
 </div>'''
 
@@ -174,13 +180,18 @@ def schema(s):
             {'@type': 'ListItem', 'position': 3, 'name': s['name'], 'item': url}]},
         {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in s['faqs']]},
     ]
+    if s.get('video'):
+        v = s['video']
+        graph.append({'@type': 'VideoObject', 'name': v['label'], 'description': v['lead'], 'thumbnailUrl': f'{SITE}/assets/{v["src"]}-poster.webp',
+                      'contentUrl': f'{SITE}/assets/{v["src"]}.mp4', 'uploadDate': '2026-11-08', 'duration': v['iso']})
     return json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False, indent=1)
 
 
 def render(s):
     url = f'{SITE}/{s["slug"]}-winchester-va/'
     hero, intro, val = s['hero'], s['intro'], s['value']
-    others = [x for x in SERVICE_INDEX if x[0] != s['slug']]
+    live = {x[0] for x in LIVE_SERVICES}
+    others = [x for x in SERVICE_INDEX if x[0] != s['slug'] and x[0] in live]
 
     blocks = ''
     for i, b in enumerate(s['blocks']):
@@ -214,6 +225,20 @@ def render(s):
         for sl, lb, ph, ds in others)
     chips = ''.join(f'<li><b>0{i + 1}</b>{e(c)}</li>' for i, c in enumerate(s['chips']))
 
+    v = s.get('video')
+    video_section = ''
+    if v:
+        video_section = f'''
+<!-- 3D DESIGN VIDEO -->
+<section class="sp-video" aria-labelledby="vid-h2">
+  <div class="wrap">
+    <div class="sp-video__head rv"><p class="eyebrow"><span class="dot"></span> 3D virtual design</p>
+      <h2 id="vid-h2" class="h2">See your project <em>before we build it.</em></h2>
+      <p class="lede">{e(v['lead'])}</p></div>
+    <div class="sp-video__frame rv"><video controls preload="none" playsinline poster="../assets/{v['src']}-poster.webp" aria-label="{e(v['label'])}"><source src="../assets/{v['src']}.mp4" type="video/mp4"></video></div>
+  </div>
+</section>
+'''
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -226,7 +251,7 @@ def render(s):
 <link rel="canonical" href="{url}">
 <meta name="theme-color" content="#0a0a0a">
 <meta property="og:type" content="website"><meta property="og:title" content="{e(s['title'])}"><meta property="og:description" content="{e(s['description'])}"><meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE}/assets/hardscapes/{hero[0][0]}.webp"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="{og_path(hero[0][0])}"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/icon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="../assets/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap">
@@ -305,6 +330,7 @@ def render(s):
   </div>
 </section>
 
+{video_section}
 <!-- FAQ -->
 <section class="sp-faq" aria-labelledby="faq-h2">
   <div class="wrap sp-faq__grid">
@@ -361,6 +387,11 @@ def render(s):
 
 
 def main(slugs):
+    try:
+        from services_more import SERVICES_MORE
+        SERVICES.update(SERVICES_MORE)
+    except ImportError:
+        pass
     for slug in slugs or SERVICES:
         s = SERVICES[slug]
         out = os.path.join(DOCS, f'{slug}-winchester-va')

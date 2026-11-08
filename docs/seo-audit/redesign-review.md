@@ -10,7 +10,8 @@
 | `/hardscapes-winchester-va/` | Rediseñada | 49 / 152 | 1 | Service, FAQPage, Breadcrumb | Conserva H2 y FAQ originales |
 | `/about-us/` | Rediseñada | 45 / 145 | 1 | AboutPage, Breadcrumb | Pasa de 170 a ~500 palabras |
 | `/contact-us/` | Rediseñada | 47 / 131 | 1 | ContactPage, Breadcrumb | Formulario sin backend (mailto) |
-| patios, decks, porches, fireplaces, landscaping | **Pendiente** | — | — | — | Necesitan fotos propias de cada servicio |
+| `/patios-`, `/decks-`, `/porches-`, `/landscaping-winchester-va/` | Rediseñadas | título y meta originales | 1 | Service, FAQPage, Breadcrumb, VideoObject | Texto y H2 originales conservados; sin “Top” en el H1 |
+| `/fireplaces-winchester-va/` | **Pendiente** | — | — | — | Faltan fotos de chimeneas / fire pits |
 | service-area, faq, reviews, blog, guía de hardscapes | **Pendiente** | — | — | — | Hoy son páginas “Next phase” noindex |
 
 Mejoras ya incluidas frente al sitio actual: alt en todas las imágenes, un solo H1 por página, BreadcrumbList, FAQPage, schema con dirección/teléfono/horario, titles ≤60 caracteres, CTA con una sola URL (`/contact-us/`), sin errores de texto (“Next Lever”, “Checkout Out Blog”).
