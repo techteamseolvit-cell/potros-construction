@@ -163,6 +163,56 @@ _FIREPLACES = {
     'cta': {'eyebrow': 'Fireplaces in Winchester, VA', 'title': 'Ready to add a custom <em>fire feature?</em>', 'button': 'Get a free fireplace estimate', 'photo': 'patio-firepit-boulders'},
 }
 
+# ───────────── photo assignment (reviewed): each service uses its own subject, mixing different projects ─────────────
+_PATIOS.update({
+    'hero': 'hero/patios', 'hero_alt': 'Paver patio with stone columns under a covered deck at a Winchester VA home',
+    'blocks': [
+        ('Materials', _PATIOS['blocks'][0][1], [('paver-patio-dining', 'Large paver patio with outdoor dining table beside a gray-sided home'), (P('paver-patio-diagonal'), 'Paver patio laid in a diagonal pattern beside a stone seating wall')]),
+        ('Entertaining', _PATIOS['blocks'][1][1], [('patio-firepit-chairs', 'Stamped paver patio with fire pit and Adirondack chairs'), ('p2/covered-patio-hanging-chairs', 'Covered patio with hanging chairs and a lounge area')]),
+        ('Built to last', _PATIOS['blocks'][2][1], [('p2/paver-patio-table-side', 'Paver patio with dining table beside a home'), ('curved-stone-wall', 'Flagstone patio with a curved natural stone wall')]),
+    ],
+    'gallery': [(P('paver-patio-bistro-border'), 'Paver patio with a dark border and bistro table set'), ('p2/firepit-patio-boulders-side', 'Paver patio with fire pit and boulder landscaping'),
+                ('paver-patio-firepit', 'Paver patio with fire pit beside a home'), ('p2/flagstone-patio-pillar', 'Flagstone patio with a lit stone pillar'),
+                ('stone-wall-seating-house', 'Flagstone patio with stone seating wall and lantern in front of a farmhouse')],
+    'value_photo': 'stone-wall-seating-house',
+})
+_PORCHES.update({
+    'hero': 'hero/porches', 'hero_alt': 'Screened porch with vaulted wood ceiling and lounge seating built by Potros Construction',
+    'blocks': [
+        ('Front porches', _PORCHES['blocks'][0][1], [(P('screened-porch-house-exterior'), 'Home with a screened porch above a deck, built by Potros Construction'), (P('deck-house-dusk-corner'), 'Home with lit porch and deck at dusk')]),
+        ('Covered & screened', _PORCHES['blocks'][1][1], [(P('screened-porch-seating'), 'Screened porch seating area with fire table'), (P('screened-porch-lake-view'), 'Screened porch with lounge seating and a lake view')]),
+        ('Craftsmanship', _PORCHES['blocks'][2][1], [(P('screened-porch-interior'), 'Interior of a screened porch with recessed lighting and a fire table'), (P('screened-porch-fire-table'), 'Screened porch with a fire table and lounge seating')]),
+    ],
+    'gallery': [('p2/covered-patio-hanging-chairs', 'Covered porch area with hanging chairs'), ('p2/covered-patio-tv-lounge', 'Covered lounge under a deck with TV and wood ceiling'),
+                ('p2/covered-patio-dusk-lounge', 'Covered lounge at dusk with heater and hanging chairs'), ('p2/covered-patio-tv-stairs', 'Covered area with seating, TV and stairs'),
+                (P('deck-house-dusk-lit'), 'Lit porch and deck on a home at dusk')],
+    'value_photo': P('deck-house-twilight'),
+})
+_LANDSCAPING.update({
+    'hero': 'hero/landscaping', 'hero_alt': 'Stepping stone path through a landscaped garden in autumn at a Winchester VA home',
+    'blocks': [
+        ('Design', _LANDSCAPING['blocks'][0][1], [('p2/ls-stepping-stones-plants', 'Stepping stone path winding through planted beds'), ('p2/stone-pillar-walkway-plantings', 'Flagstone walkway with planted beds beside a stone pillar')]),
+        ('Planting', _LANDSCAPING['blocks'][1][1], [('p2/ls-grasses-mulch-bed', 'Ornamental grasses and mulch beds beside a paver patio'), ('p2/firepit-patio-boulders-garden', 'Boulder water feature and plantings beside a patio')]),
+        ('Hardscape integration', _LANDSCAPING['blocks'][2][1], [('p2/ls-flagstone-plantings', 'Paver patio edged with flagstone steps and shrubs'), ('patio-firepit-boulders', 'Paver patio, boulders and plantings around a fire pit')]),
+    ],
+    'gallery': [('p2/ls-boulder-bed', 'Boulder landscaping, ornamental grasses and mulch beds'), ('p2/ls-garden-path-close', 'Flagstone stepping stones through a mulch bed with shrubs'),
+                ('flagstone-pool-edge', 'Flagstone pool edge with river rock and plantings'), ('p2/ls-flagstone-beds', 'Flagstone path and shrubs in mulch beds beside a patio'),
+                ('p2/aerial-patio-firepit-boulders', 'Aerial view of a patio, fire pit and boulder garden')],
+    'value_photo': 'p2/ls-garden-path-close',
+})
+_LANDSCAPING['cta']['photo'] = 'p2/stone-pillar-walkway-plantings'
+_FIREPLACES.update({
+    'blocks': [
+        ('Stone & brick', _FIREPLACES['blocks'][0][1], [('paver-patio-firepit', 'Paver patio with a fire pit beside a home'), ('design/design-06', '3D design of a lit stone seating wall with a fire pit')]),
+        ('Gathering', _FIREPLACES['blocks'][1][1], [('p2/deck-patio-night-lights', 'Deck with string lights above a fire pit patio at night'), ('p1/screened-porch-lake-view', 'Fire table and lounge seating with a lake view')]),
+        ('Gas & wood', _FIREPLACES['blocks'][2][1], [('p1/screened-porch-fire-table', 'Screened porch with a fire table and lounge seating'), ('p2/aerial-patio-firepit-boulders', 'Aerial view of a fire pit patio with boulders')]),
+    ],
+    'gallery': [('patio-firepit-chairs', 'Fire pit with Adirondack chairs on a stamped paver patio'), ('p1/screened-porch-seating', 'Screened porch seating area around a fire table'),
+                ('design/design-05', '3D design of a deck, patio and lit stone seating walls at dusk'), ('design/design-09', '3D design of a covered patio with a fire pit lounge'),
+                ('p2/firepit-patio-boulders-side', 'Fire pit patio with Adirondack chairs and boulder landscaping')],
+    'value_photo': 'patio-firepit-chairs',
+})
+
 SERVICES_MORE = {
     'patios': _build('patios', 'Patios', _PATIOS),
     'decks': _build('decks', 'Decks', _DECKS),

@@ -191,10 +191,11 @@ def portfolio():
         s = SERVICES[slug]
         photos = [x for b in s['blocks'] for x in b['photos']] + list(s['gallery']) + [s['hero'][0]]
         for n, alt in photos:
-            if n not in seen and not n.startswith('hero/'):
+            if n not in seen and not n.startswith(('hero/', 'design/')):
                 seen.add(n); items.append((n, alt, s['name']))
     def cat_of(n):
         k = n.split('/')[-1]
+        if k.startswith('ls-'): return 'Landscaping'
         if 'porch' in k or 'covered' in k: return 'Porches' if 'screened' in k else 'Patios'
         if 'firepit' in k: return 'Fireplaces'
         if 'flagstone' in k: return 'Pools'
