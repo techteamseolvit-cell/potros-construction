@@ -819,6 +819,9 @@ p,li,figcaption{text-wrap:pretty}
 .pg-member b{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.3vw,32px);line-height:1.1}
 .pg-member span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
 @media (max-width:560px){.pg-team__list{grid-template-columns:repeat(2,1fr);gap:14px}.pg-member b{font-size:22px}}
+.pg-team__list{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));max-width:1100px;margin:0 auto}
+@media (min-width:900px){.pg-team__list{grid-template-columns:repeat(6,1fr)}.pg-member{grid-column:span 2}.pg-member:nth-child(4){grid-column:2 / span 2}.pg-member:nth-child(5){grid-column:4 / span 2}}
+@media (max-width:899px){.pg-team__list{grid-template-columns:repeat(2,1fr)}.pg-member:last-child:nth-child(odd){grid-column:1 / -1;max-width:50%;justify-self:center}}
 
 </style>
 <script type="application/ld+json">

@@ -1115,6 +1115,24 @@ Reglas: no cambies el slug; un solo H1 por página; title ≤ 60 caracteres y me
    }
   },
   {
+   "@type": "Person",
+   "name": "Leydy Arteaga",
+   "jobTitle": "Office Manager",
+   "image": "https://potrosconstruction.com/assets/team/leydy-arteaga.webp",
+   "worksFor": {
+    "@id": "https://potrosconstruction.com/#business"
+   }
+  },
+  {
+   "@type": "Person",
+   "name": "Cris Reséndiz",
+   "jobTitle": "Sales Representative",
+   "image": "https://potrosconstruction.com/assets/team/cris-resendiz.webp",
+   "worksFor": {
+    "@id": "https://potrosconstruction.com/#business"
+   }
+  },
+  {
    "@type": "AboutPage",
    "@id": "https://potrosconstruction.com/about-us/#page",
    "url": "https://potrosconstruction.com/about-us/",
