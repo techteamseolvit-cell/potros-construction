@@ -127,6 +127,18 @@ def about():
   </div>
 </section>
 
+<section class="pg-team" aria-labelledby="team-h2">
+  <div class="wrap pg-team__grid">
+    <figure class="pg-team__photo rv"><img src="../assets/team/eduardo-peguero.webp" alt="Eduardo Peguero, project manager at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure>
+    <div class="pg-team__copy rv">
+      <p class="eyebrow"><span class="dot"></span> Meet the team</p>
+      <h2 id="team-h2" class="h2">The people <em>behind your project.</em></h2>
+      <p class="sp-p">Every project at Potros Construction has a dedicated project manager who keeps the schedule, the crew and the details on track from the first visit to the final walkthrough.</p>
+      <div class="pg-person"><b>Eduardo Peguero</b><span>Project Manager</span><a href="tel:{PHONE_HREF}">{PHONE}</a></div>
+    </div>
+  </div>
+</section>
+
 <section class="pg-values" aria-labelledby="val-h2">
   <div class="wrap">
     <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> What we stand for</p><h2 id="val-h2" class="h2">Three promises behind <em>every project.</em></h2></div>
@@ -169,6 +181,7 @@ def about():
   </div>
 </section>'''
     schema = {'@context': 'https://schema.org', '@graph': [
+        {'@type': 'Person', '@id': url + '#eduardo', 'name': 'Eduardo Peguero', 'jobTitle': 'Project Manager', 'image': SITE + '/assets/team/eduardo-peguero.webp', 'worksFor': {'@id': SITE + '/#business'}},
         {'@type': 'AboutPage', '@id': url + '#page', 'url': url, 'name': 'About Potros Construction',
          'about': {'@type': 'GeneralContractor', '@id': SITE + '/#business', 'name': 'Potros Construction LLC', 'telephone': '+1-540-514-8725'}},
         crumbs_schema('About Us', url)]}

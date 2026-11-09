@@ -801,11 +801,32 @@ p,li,figcaption{text-wrap:pretty}
 .sp-rel b{font-size:clamp(24px,2.2vw,32px)}
 @media (max-width:640px){.sp-more__grid{grid-template-columns:repeat(2,1fr);gap:10px}.sp-rel{aspect-ratio:4/5}.sp-rel b{font-size:22px}}
 
+/* team */
+.pg-team{padding:var(--sec) 0}
+.pg-team__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,7vw,110px);align-items:center;max-width:1000px}
+.pg-team__photo{margin:0;border-radius:18px;overflow:hidden;outline:1px solid rgba(255,255,255,.1);outline-offset:-1px;background:#000;max-width:420px}
+.pg-team__photo img{width:100%;height:auto;display:block}
+.pg-person{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);display:grid;gap:4px}
+.pg-person b{font-family:var(--serif);font-weight:500;font-size:clamp(26px,2.6vw,36px)}
+.pg-person span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.pg-person a{margin-top:6px;color:var(--red-hot)}
+@media (max-width:860px){.pg-team__grid{grid-template-columns:1fr}.pg-team__photo{max-width:340px}}
+
 </style>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://potrosconstruction.com/about-us/#eduardo",
+   "name": "Eduardo Peguero",
+   "jobTitle": "Project Manager",
+   "image": "https://techteamseolvit-cell.github.io/potros-construction/docs/assets/team/eduardo-peguero.webp",
+   "worksFor": {
+    "@id": "https://potrosconstruction.com/#business"
+   }
+  },
   {
    "@type": "AboutPage",
    "@id": "https://potrosconstruction.com/about-us/#page",
@@ -902,6 +923,18 @@ p,li,figcaption{text-wrap:pretty}
     <figure class="sp-dip sp-dip--a"><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/p1/screened-porch-wide.webp" alt="Screened porch with vaulted wood ceiling and lounge seating built by Potros Construction" loading="lazy" decoding="async" width="1100" height="1467"></figure>
     <figure class="sp-dip sp-dip--b"><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/p2/firepit-patio-boulders-side.webp" alt="Fire pit patio with Adirondack chairs and boulder landscaping" loading="lazy" decoding="async" width="1100" height="1467"></figure>
     <figure class="sp-dip"><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hardscapes/paver-patio-dining.webp" alt="Large paver patio with outdoor dining table beside a home" loading="lazy" decoding="async" width="1100" height="1467"></figure>
+  </div>
+</section>
+
+<section class="pg-team" aria-labelledby="team-h2">
+  <div class="wrap pg-team__grid">
+    <figure class="pg-team__photo rv"><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/team/eduardo-peguero.webp" alt="Eduardo Peguero, project manager at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure>
+    <div class="pg-team__copy rv">
+      <p class="eyebrow"><span class="dot"></span> Meet the team</p>
+      <h2 id="team-h2" class="h2">The people <em>behind your project.</em></h2>
+      <p class="sp-p">Every project at Potros Construction has a dedicated project manager who keeps the schedule, the crew and the details on track from the first visit to the final walkthrough.</p>
+      <div class="pg-person"><b>Eduardo Peguero</b><span>Project Manager</span><a href="tel:+15405148725">(540) 514-8725</a></div>
+    </div>
   </div>
 </section>
 

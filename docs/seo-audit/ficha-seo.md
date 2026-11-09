@@ -1088,6 +1088,16 @@ Reglas: no cambies el slug; un solo H1 por página; title ≤ 60 caracteres y me
  "@context": "https://schema.org",
  "@graph": [
   {
+   "@type": "Person",
+   "@id": "https://potrosconstruction.com/about-us/#eduardo",
+   "name": "Eduardo Peguero",
+   "jobTitle": "Project Manager",
+   "image": "https://potrosconstruction.com/assets/team/eduardo-peguero.webp",
+   "worksFor": {
+    "@id": "https://potrosconstruction.com/#business"
+   }
+  },
+  {
    "@type": "AboutPage",
    "@id": "https://potrosconstruction.com/about-us/#page",
    "url": "https://potrosconstruction.com/about-us/",
