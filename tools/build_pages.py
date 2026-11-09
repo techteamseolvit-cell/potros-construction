@@ -121,8 +121,8 @@ def about():
 
 <section class="pg-band" aria-label="Recent work">
   <div class="wrap pg-band__grid rv">
-    <figure class="sp-dip sp-dip--a"><img src="{img_path('curved-stone-wall')}" alt="Curved natural stone wall over a flagstone patio built by Potros Construction" loading="lazy" decoding="async" width="1100" height="1467"></figure>
-    <figure class="sp-dip sp-dip--b"><img src="{img_path('lit-stone-column')}" alt="Lit natural stone column on a flagstone patio" loading="lazy" decoding="async" width="1100" height="1467"></figure>
+    <figure class="sp-dip sp-dip--a"><img src="{img_path('p1/screened-porch-wide')}" alt="Screened porch with vaulted wood ceiling and lounge seating built by Potros Construction" loading="lazy" decoding="async" width="1100" height="1467"></figure>
+    <figure class="sp-dip sp-dip--b"><img src="{img_path('p2/firepit-patio-boulders-side')}" alt="Fire pit patio with Adirondack chairs and boulder landscaping" loading="lazy" decoding="async" width="1100" height="1467"></figure>
     <figure class="sp-dip"><img src="{img_path('paver-patio-dining')}" alt="Large paver patio with outdoor dining table beside a home" loading="lazy" decoding="async" width="1100" height="1467"></figure>
   </div>
 </section>
