@@ -324,3 +324,7 @@ p,li,figcaption{text-wrap:pretty}
 @media (max-width:520px){.pf-grid{columns:1}}
 .pf.sp-g{aspect-ratio:auto;background:transparent}
 .pf.sp-g img{height:auto}
+.pf-vid{margin:0}.pf-vid figcaption{margin-top:12px;font-size:14px;color:var(--muted)}
+.pf-videos{grid-template-columns:repeat(2,1fr);gap:28px 18px}
+.pg-testi{border-top:0}
+@media (max-width:860px){.pf-videos{grid-template-columns:1fr}}

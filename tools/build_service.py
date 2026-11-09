@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261109e'          # cache-busting for css/js
+VERSION = '20261109f'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -36,7 +36,7 @@ SERVICES = {
         'h1': 'Hardscape Services in Winchester, VA',
         'lead': 'We design and build durable hardscapes, including patios, walkways, and retaining walls, creating beautiful, functional outdoor spaces that last longer.',
         'chips': ['Patios', 'Walkways', 'Retaining walls', 'Stone borders', 'Masonry'],
-        'hero': [('patio-firepit-boulders', 'Paver patio with fire pit, boulders and landscaping at a Winchester VA home built by Potros Construction')],
+        'hero': [('hero/hardscapes', 'Paver patio with fire pit, boulders and landscaping at a Winchester VA home built by Potros Construction')],
         'intro': {
             'kicker': 'Winchester, VA’s Trusted Hardscape Specialists',
             'h2': 'Hardscapes in Winchester VA Designed for Beauty and Durability',
@@ -63,14 +63,14 @@ SERVICES = {
         ],
         'gallery_title': 'Hardscape projects',
         'gallery_lead': 'Natural stone, pavers and masonry from recent builds around Winchester and the surrounding communities.',
-        'gallery': [('pool-deck-aerial', 'Aerial view of a flagstone pool deck with stone retaining walls'),
-                    ('lit-stone-column', 'Lit natural stone column on a flagstone patio'),
+        'gallery': [('lit-stone-column', 'Lit natural stone column on a flagstone patio'),
                     ('rounded-paver-steps', 'Rounded paver steps with dark cap stones'),
                     ('stone-pillar-wall', 'Stone pillar and wall with accent lighting'),
                     ('paver-patio-firepit', 'Paver patio with fire pit beside a home'),
-                    ('flagstone-pool-edge', 'Flagstone pool edge with river rock and plantings'),
-                    ('stone-wall-lanterns', 'Stone wall with lantern posts and flagstone patio'),
+                    ('p2/paver-steps-landing', 'Paver steps and landing at a back-door entry'),
                     ('lit-stone-steps', 'Natural stone steps with step lighting'),
+                    ('p2/paver-patio-table-side', 'Paver patio with dining table beside a home'),
+                    ('p2/stone-pillar-walkway-plantings', 'Stone pillar, flagstone walkway and planted beds'),
                     ('house-deck-stone-landscape', 'Home with deck, natural stone and landscaped yard'),
                     ('patio-firepit-chairs', 'Stamped paver patio with fire pit and Adirondack chairs')],
         'value': {'h2': 'Enhance Your Property Value With Professional Hardscaping',
@@ -78,7 +78,7 @@ SERVICES = {
                   'points': [('Curb appeal', 'Clean lines, quality materials and finishing details that make a first impression.'),
                              ('Usable space', 'Patios, paths and walls that turn unused yard into places you actually live.'),
                              ('Drainage & resale value', 'Proper grading protects your home and adds lasting value.')],
-                  'photo': 'pool-deck-aerial'},
+                  'photo': 'p2/aerial-patio-firepit-boulders'},
         'process': [('In-Person Estimate', 'We visit your home, discuss your project, and take measurements.'),
                     ('3D Virtual Design', 'See your project in a realistic 3D virtual tour before we start.'),
                     ('Build & Enjoy', 'Our team brings your approved design to life with quality craftsmanship.')],
