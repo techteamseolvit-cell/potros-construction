@@ -79,7 +79,7 @@ def crumbs_schema(name, url):
 
 
 # ───────────────────────── ABOUT ─────────────────────────
-TEAM = [('Jesús Trejo', 'CEO', 'jesus-trejo'), ('Eduardo Peguero', 'Project Manager', 'eduardo-peguero')]   # add (name, role, photo slug) here
+TEAM = [('Hugo Perez', 'Founder', 'hugo-perez'), ('Jesús Trejo', 'CEO', 'jesus-trejo'), ('Eduardo Peguero', 'Project Manager', 'eduardo-peguero')]   # add (name, role, photo slug) here
 
 
 def about():
