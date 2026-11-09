@@ -150,7 +150,7 @@ def about():
 </section>
 
 <section class="pg-svcs" aria-labelledby="svc-h2">
-  <div class="pg-svcs__bg" aria-hidden="true"><img src="{img_path('pool-deck-aerial')}" alt="" loading="lazy" decoding="async"></div>
+  <div class="pg-svcs__bg" aria-hidden="true"><img src="{img_path('house-deck-stone-landscape')}" alt="" loading="lazy" decoding="async"></div>
   <div class="wrap sp-intro__grid pg-svcs__in">
     <div class="rv"><p class="eyebrow"><span class="dot"></span> What we build</p><h2 id="svc-h2" class="h2">Outdoor construction, done properly.</h2></div>
     <div class="rv">{svc}</div>

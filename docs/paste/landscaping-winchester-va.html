@@ -787,6 +787,15 @@ p,li,figcaption{text-wrap:pretty}
 .pg-testi{border-top:0}
 @media (max-width:860px){.pf-videos{grid-template-columns:1fr}}
 
+/* services list: text + two link columns (3 containers) */
+.pg-svcs .pg-svcs__in,.pg-svcs--plain .sp-intro__grid{grid-template-columns:1fr 1fr 1fr;gap:clamp(24px,4vw,64px)}
+.pg-svcs .pg-svcs__in>.rv:last-child,.pg-svcs--plain .sp-intro__grid>.rv:last-child{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,auto);grid-auto-flow:column;column-gap:clamp(24px,4vw,64px);align-content:start}
+.pg-svcs .pg-svc,.pg-svcs--plain .pg-svc{font-size:clamp(20px,1.9vw,26px);padding:16px 0;border-top:0;border-bottom:1px solid rgba(255,255,255,.28)}
+.pg-svcs .pg-svcs__in>.rv:last-child>.pg-svc:nth-child(1),.pg-svcs .pg-svcs__in>.rv:last-child>.pg-svc:nth-child(5),.pg-svcs--plain .sp-intro__grid>.rv:last-child>.pg-svc:nth-child(1),.pg-svcs--plain .sp-intro__grid>.rv:last-child>.pg-svc:nth-child(5){border-top:1px solid rgba(255,255,255,.28)}
+.pg-svcs--plain .pg-svc{border-bottom-color:var(--line)}
+@media (max-width:860px){.pg-svcs .pg-svcs__in,.pg-svcs--plain .sp-intro__grid{grid-template-columns:1fr}.pg-svcs .pg-svcs__in>.rv:last-child,.pg-svcs--plain .sp-intro__grid>.rv:last-child{grid-column:auto}}
+@media (max-width:560px){.pg-svcs .pg-svcs__in>.rv:last-child,.pg-svcs--plain .sp-intro__grid>.rv:last-child{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}.pg-svcs .pg-svc:nth-child(5),.pg-svcs--plain .pg-svc:nth-child(5){border-top:0}}
+
 </style>
 <script type="application/ld+json">
 {
