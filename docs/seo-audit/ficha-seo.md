@@ -1089,7 +1089,15 @@ Reglas: no cambies el slug; un solo H1 por página; title ≤ 60 caracteres y me
  "@graph": [
   {
    "@type": "Person",
-   "@id": "https://potrosconstruction.com/about-us/#eduardo",
+   "name": "Jesús Trejo",
+   "jobTitle": "CEO",
+   "image": "https://potrosconstruction.com/assets/team/jesus-trejo.webp",
+   "worksFor": {
+    "@id": "https://potrosconstruction.com/#business"
+   }
+  },
+  {
+   "@type": "Person",
    "name": "Eduardo Peguero",
    "jobTitle": "Project Manager",
    "image": "https://potrosconstruction.com/assets/team/eduardo-peguero.webp",

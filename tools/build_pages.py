@@ -79,8 +79,12 @@ def crumbs_schema(name, url):
 
 
 # ───────────────────────── ABOUT ─────────────────────────
+TEAM = [('Jesús Trejo', 'CEO', 'jesus-trejo'), ('Eduardo Peguero', 'Project Manager', 'eduardo-peguero')]   # add (name, role, photo slug) here
+
+
 def about():
     url = SITE + '/about-us/'
+    team_cards = ''.join(f'<li class="pg-member rv"><figure><img src="../assets/team/{sl}.webp" alt="{e(n)}, {e(r)} at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>{e(n)}</b><span>{e(r)}</span></li>' for n, r, sl in TEAM)
     values = [('Work honestly', 'Clear scopes, straight answers and a written schedule before work begins. No surprises on the site or on the invoice.'),
               ('Treat others with respect', 'Your home, your time and your budget come first. Our crew leaves every property as clean as it was found.'),
               ('Take pride in everything we do', 'From the base under a paver to the last cap on a wall, the details nobody sees are the ones we care about most.')]
@@ -128,14 +132,9 @@ def about():
 </section>
 
 <section class="pg-team" aria-labelledby="team-h2">
-  <div class="wrap pg-team__grid">
-    <figure class="pg-team__photo rv"><img src="../assets/team/eduardo-peguero.webp" alt="Eduardo Peguero, project manager at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure>
-    <div class="pg-team__copy rv">
-      <p class="eyebrow"><span class="dot"></span> Meet the team</p>
-      <h2 id="team-h2" class="h2">The people <em>behind your project.</em></h2>
-      <p class="sp-p">Every project at Potros Construction has a dedicated project manager who keeps the schedule, the crew and the details on track from the first visit to the final walkthrough.</p>
-      <div class="pg-person"><b>Eduardo Peguero</b><span>Project Manager</span><a href="tel:{PHONE_HREF}">{PHONE}</a></div>
-    </div>
+  <div class="wrap">
+    <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Meet the team</p><h2 id="team-h2" class="h2">The people <em>behind your project.</em></h2></div>
+    <ul class="pg-team__list">{team_cards}</ul>
   </div>
 </section>
 
@@ -181,7 +180,7 @@ def about():
   </div>
 </section>'''
     schema = {'@context': 'https://schema.org', '@graph': [
-        {'@type': 'Person', '@id': url + '#eduardo', 'name': 'Eduardo Peguero', 'jobTitle': 'Project Manager', 'image': SITE + '/assets/team/eduardo-peguero.webp', 'worksFor': {'@id': SITE + '/#business'}},
+        *[{'@type': 'Person', 'name': n, 'jobTitle': r, 'image': f'{SITE}/assets/team/{sl}.webp', 'worksFor': {'@id': SITE + '/#business'}} for n, r, sl in TEAM],
         {'@type': 'AboutPage', '@id': url + '#page', 'url': url, 'name': 'About Potros Construction',
          'about': {'@type': 'GeneralContractor', '@id': SITE + '/#business', 'name': 'Potros Construction LLC', 'telephone': '+1-540-514-8725'}},
         crumbs_schema('About Us', url)]}
