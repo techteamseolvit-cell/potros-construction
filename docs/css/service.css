@@ -337,3 +337,9 @@ p,li,figcaption{text-wrap:pretty}
 .pg-svcs--plain .pg-svc{border-bottom-color:var(--line)}
 @media (max-width:860px){.pg-svcs .pg-svcs__in,.pg-svcs--plain .sp-intro__grid{grid-template-columns:1fr}.pg-svcs .pg-svcs__in>.rv:last-child,.pg-svcs--plain .sp-intro__grid>.rv:last-child{grid-column:auto}}
 @media (max-width:560px){.pg-svcs .pg-svcs__in>.rv:last-child,.pg-svcs--plain .sp-intro__grid>.rv:last-child{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}.pg-svcs .pg-svc:nth-child(5),.pg-svcs--plain .pg-svc:nth-child(5){border-top:0}}
+
+/* other services: always an even grid (6 cards = 3x2, mobile 2x3) */
+.sp-more__grid{grid-template-columns:repeat(3,1fr);gap:16px}
+.sp-rel{aspect-ratio:3/2}
+.sp-rel b{font-size:clamp(24px,2.2vw,32px)}
+@media (max-width:640px){.sp-more__grid{grid-template-columns:repeat(2,1fr);gap:10px}.sp-rel{aspect-ratio:4/5}.sp-rel b{font-size:22px}}
