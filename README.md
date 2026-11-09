@@ -72,3 +72,6 @@ The menu only lists live pages (`LIVE_SERVICES` in `build_service.py`). The cont
 `tools/services_more.py` define Patios, Decks, Porches y Landscaping (textos originales en `tools/data/original-content.json`); `python3 tools/build_service.py` las genera.
 Fotos nuevas en `docs/assets/p1/` (38 archivos) y videos de diseño 3D en `docs/assets/video/design-1|2.mp4`. Fireplaces queda pendiente de fotos.
 `NAV_SERVICES` controla el menú superior (solo Hardscapes); `LIVE_SERVICES` controla footer y "More outdoor services".
+
+## HTML para copiar y pegar
+`python3 tools/build_paste.py` genera `docs/paste/<pagina>.html`: una página completa con CSS y JS inline, imágenes por URL absoluta (GitHub Pages) y enlaces a las URLs reales. `docs/paste/index.html` tiene botones "Copiar HTML". Regenerar después de cualquier cambio en las páginas.
