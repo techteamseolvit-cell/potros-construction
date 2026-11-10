@@ -138,6 +138,13 @@ def about():
   </div>
 </section>
 
+<section class="sp-reel" aria-labelledby="reel-h2">
+  <div class="wrap sp-reel__grid">
+    <div class="sp-reel__copy rv"><p class="eyebrow"><span class="dot"></span> Our office</p><h2 id="reel-h2" class="h2">Visit us, <em>then see our work.</em></h2><p class="lede">A quick look at the Potros office, the team and the projects behind every estimate.</p></div>
+    <div class="sp-reel__frame rv"><video controls preload="none" playsinline poster="../assets/video/reel-team-poster.webp" aria-label="Video tour of the Potros Construction office and team"><source src="../assets/video/reel-team.mp4" type="video/mp4"></video></div>
+  </div>
+</section>
+
 <section class="pg-values" aria-labelledby="val-h2">
   <div class="wrap">
     <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> What we stand for</p><h2 id="val-h2" class="h2">Three promises behind <em>every project.</em></h2></div>

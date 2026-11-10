@@ -39,7 +39,7 @@ def _build(slug, name, extra):
         'blocks': blocks,
         'gallery_title': extra['gallery_title'], 'gallery_lead': extra['gallery_lead'], 'gallery': extra['gallery'],
         'value': {'h2': it[14], 'lead': it[15], 'points': extra['points'], 'photo': extra['value_photo']},
-        'process': PROCESS, 'faqs': FAQS, 'cta': extra['cta'], 'video': extra.get('video'),
+        'process': PROCESS, 'faqs': FAQS, 'cta': extra['cta'], 'video': extra.get('video'), 'reel': extra.get('reel'),
     }
 
 
@@ -213,6 +213,10 @@ _FIREPLACES.update({
     'value_photo': 'patio-firepit-chairs',
 })
 
+_RL = 'A walk through a finished project with the Potros team.'
+_PATIOS['reel'] = {'src': 'reel-patio', 'h2': 'Walk a finished patio with us.', 'lead': 'The Potros team walks you through a finished patio and deck project, step by step.', 'label': 'Video tour of a finished patio and deck project'}
+_DECKS['reel'] = {'src': 'reel-deck', 'h2': 'See a finished deck up close.', 'lead': 'A closer look at the stairs, railing and lighting details of a finished deck.', 'label': 'Video tour of a finished deck'}
+_PORCHES['reel'] = {'src': 'reel-aerial', 'h2': 'A finished deck, from above and at dusk.', 'lead': 'Aerial and dusk views of a deck and porch built by Potros Construction.', 'label': 'Aerial and dusk video of a finished deck and porch'}
 SERVICES_MORE = {
     'patios': _build('patios', 'Patios', _PATIOS),
     'decks': _build('decks', 'Decks', _DECKS),

@@ -822,6 +822,13 @@ p,li,figcaption{text-wrap:pretty}
 @media (min-width:900px){.pg-team__list{grid-template-columns:repeat(6,1fr)}.pg-member{grid-column:span 2}.pg-member:nth-child(4){grid-column:2 / span 2}.pg-member:nth-child(5){grid-column:4 / span 2}}
 @media (max-width:899px){.pg-team__list{grid-template-columns:repeat(2,1fr)}.pg-member:last-child:nth-child(odd){grid-column:1 / -1;max-width:50%;justify-self:center}}
 
+/* vertical reels */
+.sp-reel{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.sp-reel__grid{display:grid;grid-template-columns:1fr auto;gap:clamp(30px,7vw,110px);align-items:center;max-width:1000px}
+.sp-reel__frame{width:min(340px,80vw);aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 90px -40px rgba(176,0,0,.55)}
+.sp-reel__frame video{width:100%;height:100%;display:block;object-fit:cover}
+@media (max-width:760px){.sp-reel__grid{grid-template-columns:1fr;justify-items:center;text-align:center}.sp-reel__copy .eyebrow{justify-content:center}}
+
 </style>
 <script type="application/ld+json">
 {
@@ -975,6 +982,13 @@ p,li,figcaption{text-wrap:pretty}
   <div class="wrap">
     <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Meet the team</p><h2 id="team-h2" class="h2">The people <em>behind your project.</em></h2></div>
     <ul class="pg-team__list"><li class="pg-member rv"><figure><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/team/hugo-perez.webp" alt="Hugo Perez, Founder at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>Hugo Perez</b><span>Founder</span></li><li class="pg-member rv"><figure><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/team/jesus-trejo.webp" alt="Jesús Trejo, CEO at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>Jesús Trejo</b><span>CEO</span></li><li class="pg-member rv"><figure><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/team/eduardo-peguero.webp" alt="Eduardo Peguero, Project Manager at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>Eduardo Peguero</b><span>Project Manager</span></li><li class="pg-member rv"><figure><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/team/leydy-arteaga.webp" alt="Leydy Arteaga, Office Manager at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>Leydy Arteaga</b><span>Office Manager</span></li><li class="pg-member rv"><figure><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/team/cris-resendiz.webp" alt="Cris Reséndiz, Sales Representative at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>Cris Reséndiz</b><span>Sales Representative</span></li></ul>
+  </div>
+</section>
+
+<section class="sp-reel" aria-labelledby="reel-h2">
+  <div class="wrap sp-reel__grid">
+    <div class="sp-reel__copy rv"><p class="eyebrow"><span class="dot"></span> Our office</p><h2 id="reel-h2" class="h2">Visit us, <em>then see our work.</em></h2><p class="lede">A quick look at the Potros office, the team and the projects behind every estimate.</p></div>
+    <div class="sp-reel__frame rv"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-team-poster.webp" aria-label="Video tour of the Potros Construction office and team"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-team.mp4" type="video/mp4"></video></div>
   </div>
 </section>
 

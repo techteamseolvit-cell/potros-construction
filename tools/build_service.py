@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261109n'          # cache-busting for css/js
+VERSION = '20261110a'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -237,6 +237,17 @@ def render(s):
       <h2 id="vid-h2" class="h2">See your project <em>before we build it.</em></h2>
       <p class="lede">{e(v['lead'])}</p></div>
     <div class="sp-video__frame rv"><video controls preload="none" playsinline poster="../assets/{v['src']}-poster.webp" aria-label="{e(v['label'])}"><source src="../assets/{v['src']}.mp4" type="video/mp4"></video></div>
+  </div>
+</section>
+'''
+    r = s.get('reel')
+    if r:
+        video_section += f'''
+<!-- CLIENT-FACING REEL (vertical) -->
+<section class="sp-reel" aria-labelledby="reel-h2">
+  <div class="wrap sp-reel__grid">
+    <div class="sp-reel__copy rv"><p class="eyebrow"><span class="dot"></span> On site</p><h2 id="reel-h2" class="h2">{e(r['h2'])}</h2><p class="lede">{e(r['lead'])}</p></div>
+    <div class="sp-reel__frame rv"><video controls preload="none" playsinline poster="../assets/video/{r['src']}-poster.webp" aria-label="{e(r['label'])}"><source src="../assets/video/{r['src']}.mp4" type="video/mp4"></video></div>
   </div>
 </section>
 '''
