@@ -21,6 +21,18 @@ def read(rel):
     return open(os.path.join(DOCS, rel), encoding='utf-8').read()
 
 
+def encode_scripts(t):
+    """WordPress turns '&&' into '&#038;&#038;' and wpautop injects <p>/<br> into inline scripts, which breaks them.
+    Each plain inline <script> is re-emitted as one safe line (base64) that rebuilds and runs the original code."""
+    import base64
+    def enc(m):
+        js = m.group(1)
+        b64 = base64.b64encode(js.encode('utf-8')).decode()
+        return ('<script>(function(){var s=document.createElement("script");s.text=decodeURIComponent(escape(atob("' + b64 + '")));'
+                'document.head.appendChild(s);})();</script>')
+    return re.sub(r'<script>(.*?)</script>', enc, t, flags=re.S)
+
+
 def build(name, linked=False):
     src = 'index.html' if name == 'home' else f'{name}/index.html'
     t = read(src); path = '/' if name == 'home' else f'/{name}/'; base = SITE + path
@@ -39,6 +51,8 @@ def build(name, linked=False):
     t = t.replace(SITE + '/assets/', ASSETS)
     t = t.replace('<meta name="robots" content="noindex,nofollow">', '<meta name="robots" content="index,follow,max-image-preview:large">')
     t = re.sub(r'<!-- PREVIEW[^>]*-->\n?', '', t)
+    if not linked:
+        t = encode_scripts(t)
     outdir = os.path.join(OUT, 'linked') if linked else OUT
     os.makedirs(outdir, exist_ok=True)
     open(os.path.join(outdir, name + '.html'), 'w', encoding='utf-8').write(t)
