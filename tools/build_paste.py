@@ -66,7 +66,7 @@ button,.btn{{min-height:44px;min-width:130px;border:0;border-radius:8px;backgrou
 <h1>HTML y recursos</h1><p>Cada página es un archivo completo y autocontenido (CSS y JavaScript dentro; imágenes y videos por dirección absoluta). Pulsa <b>Copiar HTML</b>, pega en tu editor y se ve todo. Con <b>Ver código</b> lees el HTML en el navegador; con <b>Descargar</b> bajas el archivo.</p>
 <p><a class="btn" href="potros-paginas-html.zip" download>Descargar las 18 páginas (.zip)</a></p>
 <table>{rows}</table>
-<h2>Imágenes “Design concept” (creadas con IA)</h2><p>Se muestran con la etiqueta “Design concept” en el sitio. Descárgalas una por una.</p><div class="g">{imgs}</div></main>
+<h2>Imágenes nuevas</h2><p>Descárgalas una por una.</p><div class="g">{imgs}</div></main>
 <script>document.addEventListener('click',function(e){{var b=e.target.closest('button[data-f]');if(!b)return;b.textContent='Copiando…';fetch(b.dataset.f).then(function(r){{return r.text()}}).then(function(t){{return navigator.clipboard.writeText(t)}}).then(function(){{b.textContent='¡Copiado!';b.classList.add('ok');setTimeout(function(){{b.textContent='Copiar HTML';b.classList.remove('ok')}},1800)}}).catch(function(){{b.textContent='Error: usa Descargar'}})}});</script></body></html>'''
     open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(page)
 
