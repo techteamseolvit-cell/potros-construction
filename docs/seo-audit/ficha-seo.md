@@ -934,17 +934,17 @@ Reglas: no cambies el slug; un solo H1 por página; title ≤ 60 caracteres y me
 - **URL:** https://potrosconstruction.com/pools-winchester-va/
 - **Palabra clave principal:** pools Winchester VA
 - **Title (52):** Pools in Winchester VA | Potros Custom Pool Builders
-- **Meta description (168):** Custom pools in Winchester, VA: design, construction and the stone decks, walls and lighting around them. Free on-site estimates and 3D design from Potros Construction.
+- **Meta description (131):** Custom pools in Winchester, VA with stone decks, walls and lighting. Free on-site estimates and 3D design from Potros Construction.
 - **H1:** Custom Pools in Winchester, VA
 - **Imagen para compartir (og:image):** https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/pools.webp
 - **Title actual del sitio:** —
 
 ```html
 <title>Pools in Winchester VA | Potros Custom Pool Builders</title>
-<meta name="description" content="Custom pools in Winchester, VA: design, construction and the stone decks, walls and lighting around them. Free on-site estimates and 3D design from Potros Construction.">
+<meta name="description" content="Custom pools in Winchester, VA with stone decks, walls and lighting. Free on-site estimates and 3D design from Potros Construction.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://potrosconstruction.com/pools-winchester-va/">
-<meta property="og:type" content="website"><meta property="og:title" content="Pools in Winchester VA | Potros Custom Pool Builders"><meta property="og:description" content="Custom pools in Winchester, VA: design, construction and the stone decks, walls and lighting around them. Free on-site estimates and 3D design from Potros Construction."><meta property="og:url" content="https://potrosconstruction.com/pools-winchester-va/"><meta property="og:image" content="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/pools.webp">
+<meta property="og:type" content="website"><meta property="og:title" content="Pools in Winchester VA | Potros Custom Pool Builders"><meta property="og:description" content="Custom pools in Winchester, VA with stone decks, walls and lighting. Free on-site estimates and 3D design from Potros Construction."><meta property="og:url" content="https://potrosconstruction.com/pools-winchester-va/"><meta property="og:image" content="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/pools.webp">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -955,7 +955,7 @@ Reglas: no cambies el slug; un solo H1 por página; title ≤ 60 caracteres y me
    "@id": "https://potrosconstruction.com/pools-winchester-va/#service",
    "name": "Pools in Winchester, VA",
    "serviceType": "Pools",
-   "description": "Custom pools in Winchester, VA: design, construction and the stone decks, walls and lighting around them. Free on-site estimates and 3D design from Potros Construction.",
+   "description": "Custom pools in Winchester, VA with stone decks, walls and lighting. Free on-site estimates and 3D design from Potros Construction.",
    "url": "https://potrosconstruction.com/pools-winchester-va/",
    "provider": {
     "@type": "GeneralContractor",
