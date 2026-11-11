@@ -10,7 +10,7 @@ PAGES = [  # path, keyword, status
     ('/porches-winchester-va/', 'porch builders Winchester VA', 'Rediseñada'),
     ('/fireplaces-winchester-va/', 'outdoor fireplaces Winchester VA', 'Rediseñada'),
     ('/landscaping-winchester-va/', 'landscaping Winchester VA', 'Rediseñada'),
-    ('/pools-winchester-va/', 'pool decks Winchester VA', 'NUEVA'),
+    ('/pools-winchester-va/', 'pools Winchester VA', 'NUEVA'),
     ('/about-us/', 'Potros Construction Winchester VA', 'Rediseñada'),
     ('/contact-us/', 'contact Potros Construction', 'Rediseñada'),
     ('/portfolio/', 'hardscape projects Winchester VA', 'NUEVA'),

@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261111p'          # cache-busting for css/js
+VERSION = '20261111r'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -25,7 +25,7 @@ SERVICE_INDEX = [  # slug, label, card photo, one-liner (used by the "other serv
     ('porches', 'Porches', 'cards/porches.webp', 'Front, covered and screened porches.'),
     ('fireplaces', 'Fireplaces', 'cards/fireplaces.webp', 'Stone and brick outdoor fireplaces.'),
     ('landscaping', 'Landscaping', 'cards/landscaping.webp', 'Beds, grading, sod and mulch, done right.'),
-    ('pools', 'Pools', 'cards/pools.webp', 'Pool decks, stone walls and outdoor living around your pool.'),
+    ('pools', 'Pools', 'cards/pools.webp', 'Custom pools with stone decks, walls and lighting.'),
 ]
 
 SERVICES = {
