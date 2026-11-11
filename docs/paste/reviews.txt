@@ -1048,7 +1048,7 @@ p,li,figcaption{text-wrap:pretty}
 <section class="reviews pg-reviews" id="reviews" aria-labelledby="reviews-title">
   <div class="wrap">
     <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Reviews</p><h2 id="reviews-title" class="h2">A Word From Our <em>Happy Customers</em></h2></div>
-    <div class="reviews__widget" id="reviewsWidget" data-trustindex="585d188595d53198d00608bfd4f"><noscript><p>Enable JavaScript to see our customer reviews.</p></noscript></div>
+    <div class="reviews__widget">[trustindex no-registration=google]</div>
   </div>
 </section>
 <section class="cta" aria-labelledby="cta-title">

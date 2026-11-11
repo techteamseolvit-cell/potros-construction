@@ -33,6 +33,15 @@ def encode_scripts(t):
     return re.sub(r'<script>(.*?)</script>', enc, t, flags=re.S)
 
 
+SHORTCODE = '[trustindex no-registration=google]'
+
+
+def use_shortcode(t):
+    """In the WordPress copy, Google reviews come from the client's Trustindex shortcode instead of our loader script."""
+    t = re.sub(r'<div class="reviews__widget" id="reviewsWidget"[^>]*>.*?</div>', '<div class="reviews__widget">' + SHORTCODE + '</div>', t, flags=re.S)
+    return t
+
+
 def wrap_page(t):
     """Full-bleed wrapper (breaks out of the theme's centered container) + restores the <body> classes the CMS drops."""
     m = re.search(r'<body([^>]*)>', t)
@@ -70,6 +79,7 @@ def build(name, linked=False):
     t = t.replace('<meta name="robots" content="noindex,nofollow">', '<meta name="robots" content="index,follow,max-image-preview:large">')
     t = re.sub(r'<!-- PREVIEW[^>]*-->\n?', '', t)
     t = strip_snippet_css(t)
+    t = use_shortcode(t)
     t = wrap_page(t)
     if not linked:
         t = encode_scripts(t)

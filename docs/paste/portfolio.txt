@@ -1053,7 +1053,7 @@ p,li,figcaption{text-wrap:pretty}
   <div class="wrap">
     <div class="reviews__head"><div><p class="eyebrow"><span class="dot"></span> Reviews</p>
       <h2 id="reviews-title" class="h2">What our clients <em>say about us.</em></h2></div><a class="btn" href="https://potrosconstruction.com/reviews/">Read all reviews</a></div>
-    <div class="reviews__widget" id="reviewsWidget" data-trustindex="585d188595d53198d00608bfd4f"><noscript><p>Our customer reviews are shown here. Enable JavaScript to view them, or visit our <a href="https://potrosconstruction.com/reviews/">reviews page</a>.</p></noscript></div>
+    <div class="reviews__widget">[trustindex no-registration=google]</div>
   </div>
 </section>
 <section class="cta" aria-labelledby="cta-title">
