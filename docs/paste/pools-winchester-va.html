@@ -542,6 +542,15 @@ body:has(.potros-page){background:#0a0a0a!important}
 .reel-trio video{width:100%;height:100%;display:block;object-fit:cover}
 @media (max-width:760px){.reel-trio__grid{grid-template-columns:1fr;max-width:340px}}
 
+/* award block under the home video */
+.award{display:grid;grid-template-columns:minmax(0,200px) 1fr;gap:clamp(22px,4vw,56px);align-items:center;margin-top:clamp(40px,5vw,72px);padding-top:clamp(30px,4vw,56px);border-top:1px solid var(--line)}
+.award__img{margin:0;border-radius:16px;overflow:hidden;outline:1px solid rgba(255,255,255,.12);outline-offset:-1px;aspect-ratio:1/1}
+.award__img img{width:100%;height:100%;object-fit:cover;display:block}
+.award__h{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3vw,44px);line-height:1.08;margin:6px 0 12px}
+.award__h em{color:var(--red-hot)}
+.award__p{color:var(--muted);max-width:56ch}
+@media (max-width:640px){.award{grid-template-columns:110px 1fr;gap:16px}.award__h{font-size:24px}.award__p{font-size:14px}}
+
 </style>
 <style>
 /* Service pages (template). Same tokens/components as the home (styles.css), different layouts. */

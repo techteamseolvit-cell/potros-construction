@@ -549,11 +549,21 @@ body:has(.potros-page){background:#0a0a0a!important}
 .reel-trio video{width:100%;height:100%;display:block;object-fit:cover}
 @media (max-width:760px){.reel-trio__grid{grid-template-columns:1fr;max-width:340px}}
 
+/* award block under the home video */
+.award{display:grid;grid-template-columns:minmax(0,200px) 1fr;gap:clamp(22px,4vw,56px);align-items:center;margin-top:clamp(40px,5vw,72px);padding-top:clamp(30px,4vw,56px);border-top:1px solid var(--line)}
+.award__img{margin:0;border-radius:16px;overflow:hidden;outline:1px solid rgba(255,255,255,.12);outline-offset:-1px;aspect-ratio:1/1}
+.award__img img{width:100%;height:100%;object-fit:cover;display:block}
+.award__h{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3vw,44px);line-height:1.08;margin:6px 0 12px}
+.award__h em{color:var(--red-hot)}
+.award__p{color:var(--muted);max-width:56ch}
+@media (max-width:640px){.award{grid-template-columns:110px 1fr;gap:16px}.award__h{font-size:24px}.award__p{font-size:14px}}
+
 </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "GeneralContractor",
+  "award": "BusinessRate Best of 2026 - Deck Builder, Winchester, VA",
   "@id": "https://potrosconstruction.com/#business",
   "name": "Potros Construction LLC",
   "url": "https://potrosconstruction.com/",
@@ -682,6 +692,14 @@ body:has(.potros-page){background:#0a0a0a!important}
       <div class="about__thumb" aria-hidden="true"></div>
       <button class="about__play" id="filmPlay" aria-label="Play the Potros Construction video"><i></i></button>
       <span class="about__cap">Watch Potros Construction</span>
+    </div>
+  </div>
+  <div class="wrap award rv">
+    <figure class="award__img"><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/award-businessrate-2026.webp" alt="BusinessRate Best of 2026 award plaque for Potros Construction LLC, Deck Builder, Winchester, Virginia" loading="lazy" decoding="async" width="1100" height="1100"></figure>
+    <div class="award__copy">
+      <p class="eyebrow"><span class="dot"></span> Award winner</p>
+      <h3 class="award__h">Best of 2026: <em>Deck Builder, Winchester VA</em></h3>
+      <p class="award__p">Honored to receive this recognition from BusinessRate, built on the trust and reviews of our customers. The standard keeps getting higher.</p>
     </div>
   </div>
 </section>
