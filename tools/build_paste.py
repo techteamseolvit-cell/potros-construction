@@ -33,6 +33,17 @@ def encode_scripts(t):
     return re.sub(r'<script>(.*?)</script>', enc, t, flags=re.S)
 
 
+def wrap_page(t):
+    """Full-bleed wrapper (breaks out of the theme's centered container) + restores the <body> classes the CMS drops."""
+    m = re.search(r'<body([^>]*)>', t)
+    cls = re.search(r'class="([^"]*)"', m.group(1)).group(1) if m and 'class=' in m.group(1) else ''
+    t = re.sub(r'<body[^>]*>', '<body><div class="potros-page">', t, 1)
+    t = t.replace('</body>', '</div></body>', 1)
+    names = ','.join('"%s"' % c for c in cls.split() if c)
+    shim = f'<script>(function(){{var b=document.body;[{names}].forEach(function(c){{b.classList.add(c)}});}})();</script>'
+    return t.replace('<div class="potros-page">', '<div class="potros-page">' + shim, 1)
+
+
 def build(name, linked=False):
     src = 'index.html' if name == 'home' else f'{name}/index.html'
     t = read(src); path = '/' if name == 'home' else f'/{name}/'; base = SITE + path
@@ -51,6 +62,7 @@ def build(name, linked=False):
     t = t.replace(SITE + '/assets/', ASSETS)
     t = t.replace('<meta name="robots" content="noindex,nofollow">', '<meta name="robots" content="index,follow,max-image-preview:large">')
     t = re.sub(r'<!-- PREVIEW[^>]*-->\n?', '', t)
+    t = wrap_page(t)
     if not linked:
         t = encode_scripts(t)
     outdir = os.path.join(OUT, 'linked') if linked else OUT

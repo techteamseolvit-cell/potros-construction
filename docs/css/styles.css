@@ -445,3 +445,13 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 body.is-loading{animation:fsScroll .01s 6s forwards}
 .rv,.reveal-up{animation:fsShow .01s 7s forwards}
 .line__in{animation:fsShow .01s 7s forwards}
+
+/* Embedded in a CMS theme: break out of the centered container to the full viewport width */
+.potros-page{position:relative;left:50%;width:100vw;max-width:100vw;margin-left:-50vw;box-sizing:border-box;overflow-x:clip}
+body{overflow-x:clip}
+
+/* Embedded in a CMS theme: headings must take our colors, not the theme's */
+.potros-page{color:var(--ivory);background:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+.potros-page.potros-page :is(h1,h2,h3,h4,h5,h6){color:inherit!important;text-transform:none!important}
+.potros-page.potros-page .footer h3{color:var(--muted)!important;text-transform:uppercase!important}
+.potros-page.potros-page .pg-video h2,.potros-page.potros-page .pg-next h2{color:#fff!important}
