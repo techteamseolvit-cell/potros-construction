@@ -472,6 +472,16 @@ body{overflow-x:clip}
 .potros-page.potros-page .footer h3{color:var(--muted)!important;text-transform:uppercase!important}
 .potros-page.potros-page .pg-video h2,.potros-page.potros-page .pg-next h2{color:#fff!important}
 
+/* Embedded in the CMS: pages with the new design drop every piece of the old theme chrome (no extra CSS needed in the theme) */
+body:has(.potros-page) .tm-toolbar,
+body:has(.potros-page) .tm-header,
+body:has(.potros-page) .tm-header-mobile,
+body:has(.potros-page) .tm-footer,
+body:has(.potros-page) .mobile-buttons,
+body:has(.potros-page) .uk-sticky-placeholder{display:none!important}
+body:has(.potros-page) .tm-page{margin-top:0!important;padding-top:0!important}
+body:has(.potros-page){background:#0a0a0a!important}
+
 </style>
 <style>
 /* Service pages (template). Same tokens/components as the home (styles.css), different layouts. */
@@ -918,13 +928,6 @@ p,li,figcaption{text-wrap:pretty}
 </section>
 <article class="pg-article pg-article--legal"><div class="wrap"><div class="pg-prose"><p>Terms and Conditions</p><h3>Introduction</h3><p>By accessing and using our website, you accept and agree to be bound by these Terms and Conditions. If you disagree with any part of these terms, please refrain from using our website.</p><h3>Use of Website</h3><p>The content provided on this website is for general informational purposes only. We reserve the right to update, modify, or discontinue any part of this website without prior notice.</p><h3>User Submissions and Form Fills</h3><p>When you complete forms on our website, you voluntarily provide personal information. By submitting your information through forms, you explicitly agree to receive marketing messages, promotional emails, and other communications from us, provided you have opted-in by checking the corresponding boxes. You may opt out at any time by following the unsubscribe instructions included in these communications.</p><h3>Intellectual Property Rights</h3><p>Unless otherwise stated, we own or license all intellectual property rights in the website content, including text, graphics, logos, and images. Any unauthorized use of this content is strictly prohibited.</p><h3>Third-Party Links</h3><p>Our website may contain links to external websites not operated or controlled by us. We have no control over and accept no responsibility for the content, privacy policies, or practices of any third-party websites.</p><h3>Limitation of Liability</h3><p>The materials on this website are provided on an “as is” basis. We make no warranties, expressed or implied, regarding the accuracy, completeness, reliability, or suitability of the information provided. We will not be held liable for any loss or damage arising from your use of our website.</p><h3>Indemnification</h3><p>You agree to indemnify, defend, and hold harmless our company, its affiliates, officers, directors, employees, agents, licensors, and suppliers from any claims, liabilities, damages, expenses, and costs arising from your violation of these Terms and Conditions or your use of the website.</p><h3>Changes to These Terms</h3><p>We reserve the right to revise these Terms and Conditions at any time. Any updates will be posted on this page. Continued use of the website after any changes constitutes your acceptance of the new terms.</p><h3>Governing Law</h3><p>These Terms and Conditions shall be governed by and interpreted in accordance with applicable laws, irrespective of location.</p><h3>Contact Information</h3><p>If you have any questions regarding these Terms and Conditions, please contact us using the information provided on our website.</p></div></div></article>
 <!-- SNIPPETS START -->
-<div class="mobile-visible mobile-buttons uk-sticky">
-	<ul>
-		<li><a href="tel:5405148725"><button class="button-left">Call Now <br>(540) 514-8725</button></a></li>
-		<li><a href="https://potrosconstruction.com/contact-us/"><button class="button-right">Build Your Dream Space Now!</button></a></li>
-	</ul>
-</div>
-
 <!-- SNIPPETS END -->
 </main>
 <footer class="footer">

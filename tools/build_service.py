@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261111j'          # cache-busting for css/js
+VERSION = '20261111k'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -102,28 +102,9 @@ SNIPPETS_HEAD = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 's
 
 
 def snippets_body(prefix='../'):
-    """Client snippets live INSIDE <main>, so they survive when the header and footer are replaced."""
-    return f'''<!-- SNIPPETS START -->
-<div class="mobile-visible mobile-buttons uk-sticky">
-	<ul>
-		<li><a href="tel:5405148725"><button class="button-left">Call Now <br>(540) 514-8725</button></a></li>
-		<li><a href="{prefix}contact-us/"><button class="button-right">Build Your Dream Space Now!</button></a></li>
-	</ul>
-</div>
-<style>
-.mobile-buttons{{display:none}}
-@media (max-width:1100px){{
-  .mobile-buttons{{display:flex;position:fixed;top:0;left:0;right:0;z-index:3;width:100%}}
-  .mobile-buttons ul{{list-style:none;margin:0;padding:0;width:100%;display:grid;grid-template-columns:repeat(2,1fr)}}
-  .mobile-buttons li{{margin:0}}
-  .mobile-buttons a{{display:block;text-decoration:none}}
-  .mobile-buttons button{{width:100%;height:70px;border:0;margin:0;font:700 18px/22px system-ui,sans-serif;color:#fff;cursor:pointer}}
-  .mobile-buttons .button-left{{background:#ab0101}}
-  .mobile-buttons .button-right{{background:#000}}
-  .potros-page{{margin-top:70px}}
-}}
-</style>
-<!-- SNIPPETS END -->'''
+    """Client snippets live INSIDE <main>, so they survive when the header and footer are replaced.
+    The mobile call/estimate bar was removed at the client's request; add new body snippets between the markers."""
+    return '<!-- SNIPPETS START -->\n<!-- SNIPPETS END -->'
 
 
 def img_path(name):

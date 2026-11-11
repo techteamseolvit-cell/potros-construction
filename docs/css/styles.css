@@ -455,3 +455,13 @@ body{overflow-x:clip}
 .potros-page.potros-page :is(h1,h2,h3,h4,h5,h6){color:inherit!important;text-transform:none!important}
 .potros-page.potros-page .footer h3{color:var(--muted)!important;text-transform:uppercase!important}
 .potros-page.potros-page .pg-video h2,.potros-page.potros-page .pg-next h2{color:#fff!important}
+
+/* Embedded in the CMS: pages with the new design drop every piece of the old theme chrome (no extra CSS needed in the theme) */
+body:has(.potros-page) .tm-toolbar,
+body:has(.potros-page) .tm-header,
+body:has(.potros-page) .tm-header-mobile,
+body:has(.potros-page) .tm-footer,
+body:has(.potros-page) .mobile-buttons,
+body:has(.potros-page) .uk-sticky-placeholder{display:none!important}
+body:has(.potros-page) .tm-page{margin-top:0!important;padding-top:0!important}
+body:has(.potros-page){background:#0a0a0a!important}

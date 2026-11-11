@@ -473,6 +473,16 @@ body{overflow-x:clip}
 .potros-page.potros-page .footer h3{color:var(--muted)!important;text-transform:uppercase!important}
 .potros-page.potros-page .pg-video h2,.potros-page.potros-page .pg-next h2{color:#fff!important}
 
+/* Embedded in the CMS: pages with the new design drop every piece of the old theme chrome (no extra CSS needed in the theme) */
+body:has(.potros-page) .tm-toolbar,
+body:has(.potros-page) .tm-header,
+body:has(.potros-page) .tm-header-mobile,
+body:has(.potros-page) .tm-footer,
+body:has(.potros-page) .mobile-buttons,
+body:has(.potros-page) .uk-sticky-placeholder{display:none!important}
+body:has(.potros-page) .tm-page{margin-top:0!important;padding-top:0!important}
+body:has(.potros-page){background:#0a0a0a!important}
+
 </style>
 <style>
 /* Service pages (template). Same tokens/components as the home (styles.css), different layouts. */
@@ -1147,13 +1157,6 @@ p,li,figcaption{text-wrap:pretty}
 </section>
 
 <!-- SNIPPETS START -->
-<div class="mobile-visible mobile-buttons uk-sticky">
-	<ul>
-		<li><a href="tel:5405148725"><button class="button-left">Call Now <br>(540) 514-8725</button></a></li>
-		<li><a href="https://potrosconstruction.com/contact-us/"><button class="button-right">Build Your Dream Space Now!</button></a></li>
-	</ul>
-</div>
-
 <!-- SNIPPETS END -->
 </main>
 <footer class="footer">
