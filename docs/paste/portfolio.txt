@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Portfolio | Potros Construction, Winchester VA</title>
-<meta name="description" content="See hardscapes, patios, decks, porches and outdoor living projects built by Potros Construction in Winchester, VA.">
+<title>Hardscape Projects Winchester VA | Potros Portfolio</title>
+<meta name="description" content="Hardscape projects Winchester VA: see patios, decks, porches, pools and outdoor living builds by Potros Construction.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://potrosconstruction.com/portfolio/">
 <meta name="theme-color" content="#0a0a0a">
-<meta property="og:type" content="website"><meta property="og:title" content="Portfolio | Potros Construction, Winchester VA"><meta property="og:description" content="See hardscapes, patios, decks, porches and outdoor living projects built by Potros Construction in Winchester, VA."><meta property="og:url" content="https://potrosconstruction.com/portfolio/">
+<meta property="og:type" content="website"><meta property="og:title" content="Hardscape Projects Winchester VA | Potros Portfolio"><meta property="og:description" content="Hardscape projects Winchester VA: see patios, decks, porches, pools and outdoor living builds by Potros Construction."><meta property="og:url" content="https://potrosconstruction.com/portfolio/">
 <meta property="og:image" content="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/portfolio.webp"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/icon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

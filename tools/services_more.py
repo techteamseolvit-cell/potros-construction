@@ -232,8 +232,8 @@ _POOL_P = [
 ]
 SERVICES_MORE['pools'] = {
     'slug': 'pools', 'name': 'Pools', 'folder': 'hardscapes',
-    'title': 'Pools in Winchester VA | Potros Custom Pool Builders',
-    'description': 'Custom pools in Winchester, VA with stone decks, walls and lighting. Free on-site estimates and 3D design from Potros Construction.',
+    'title': 'Pools Winchester VA | Potros Custom Pool Builders',
+    'description': 'Pools Winchester VA by Potros Construction: custom pool design, stone decks, walls and lighting. Free on-site estimates and 3D design.',
     'h1': 'Custom Pools in Winchester, VA',
     'lead': 'We design and build custom pools and the outdoor spaces around them, from the pool itself to flagstone decks, stone walls, lighting and seating areas.',
     'chips': ['Custom pools', 'Pool decks', 'Flagstone', 'Stone walls', 'Lighting'],

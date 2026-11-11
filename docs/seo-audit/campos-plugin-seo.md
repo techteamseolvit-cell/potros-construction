@@ -52,8 +52,8 @@
 ## /pools-winchester-va/
 
 - Focus keyword: pools Winchester VA
-- SEO title: Pools in Winchester VA | Potros Custom Pool Builders
-- Meta description: Custom pools in Winchester, VA with stone decks, walls and lighting. Free on-site estimates and 3D design from Potros Construction.
+- SEO title: Pools Winchester VA | Potros Custom Pool Builders
+- Meta description: Pools Winchester VA by Potros Construction: custom pool design, stone decks, walls and lighting. Free on-site estimates and 3D design.
 - Slug: pools-winchester-va
 
 ## /about-us/
@@ -73,8 +73,8 @@
 ## /portfolio/
 
 - Focus keyword: hardscape projects Winchester VA
-- SEO title: Portfolio | Potros Construction, Winchester VA
-- Meta description: See hardscapes, patios, decks, porches and outdoor living projects built by Potros Construction in Winchester, VA.
+- SEO title: Hardscape Projects Winchester VA | Potros Portfolio
+- Meta description: Hardscape projects Winchester VA: see patios, decks, porches, pools and outdoor living builds by Potros Construction.
 - Slug: portfolio
 
 ## /reviews/

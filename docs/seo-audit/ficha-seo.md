@@ -933,18 +933,18 @@ Reglas: no cambies el slug; un solo H1 por página; title ≤ 60 caracteres y me
 
 - **URL:** https://potrosconstruction.com/pools-winchester-va/
 - **Palabra clave principal:** pools Winchester VA
-- **Title (52):** Pools in Winchester VA | Potros Custom Pool Builders
-- **Meta description (131):** Custom pools in Winchester, VA with stone decks, walls and lighting. Free on-site estimates and 3D design from Potros Construction.
+- **Title (49):** Pools Winchester VA | Potros Custom Pool Builders
+- **Meta description (134):** Pools Winchester VA by Potros Construction: custom pool design, stone decks, walls and lighting. Free on-site estimates and 3D design.
 - **H1:** Custom Pools in Winchester, VA
 - **Imagen para compartir (og:image):** https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/pools.webp
 - **Title actual del sitio:** —
 
 ```html
-<title>Pools in Winchester VA | Potros Custom Pool Builders</title>
-<meta name="description" content="Custom pools in Winchester, VA with stone decks, walls and lighting. Free on-site estimates and 3D design from Potros Construction.">
+<title>Pools Winchester VA | Potros Custom Pool Builders</title>
+<meta name="description" content="Pools Winchester VA by Potros Construction: custom pool design, stone decks, walls and lighting. Free on-site estimates and 3D design.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://potrosconstruction.com/pools-winchester-va/">
-<meta property="og:type" content="website"><meta property="og:title" content="Pools in Winchester VA | Potros Custom Pool Builders"><meta property="og:description" content="Custom pools in Winchester, VA with stone decks, walls and lighting. Free on-site estimates and 3D design from Potros Construction."><meta property="og:url" content="https://potrosconstruction.com/pools-winchester-va/"><meta property="og:image" content="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/pools.webp">
+<meta property="og:type" content="website"><meta property="og:title" content="Pools Winchester VA | Potros Custom Pool Builders"><meta property="og:description" content="Pools Winchester VA by Potros Construction: custom pool design, stone decks, walls and lighting. Free on-site estimates and 3D design."><meta property="og:url" content="https://potrosconstruction.com/pools-winchester-va/"><meta property="og:image" content="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/pools.webp">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -955,7 +955,7 @@ Reglas: no cambies el slug; un solo H1 por página; title ≤ 60 caracteres y me
    "@id": "https://potrosconstruction.com/pools-winchester-va/#service",
    "name": "Pools in Winchester, VA",
    "serviceType": "Pools",
-   "description": "Custom pools in Winchester, VA with stone decks, walls and lighting. Free on-site estimates and 3D design from Potros Construction.",
+   "description": "Pools Winchester VA by Potros Construction: custom pool design, stone decks, walls and lighting. Free on-site estimates and 3D design.",
    "url": "https://potrosconstruction.com/pools-winchester-va/",
    "provider": {
     "@type": "GeneralContractor",
@@ -1234,18 +1234,18 @@ Reglas: no cambies el slug; un solo H1 por página; title ≤ 60 caracteres y me
 
 - **URL:** https://potrosconstruction.com/portfolio/
 - **Palabra clave principal:** hardscape projects Winchester VA
-- **Title (46):** Portfolio | Potros Construction, Winchester VA
-- **Meta description (114):** See hardscapes, patios, decks, porches and outdoor living projects built by Potros Construction in Winchester, VA.
+- **Title (51):** Hardscape Projects Winchester VA | Potros Portfolio
+- **Meta description (117):** Hardscape projects Winchester VA: see patios, decks, porches, pools and outdoor living builds by Potros Construction.
 - **H1:** Our Portfolio
 - **Imagen para compartir (og:image):** https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/portfolio.webp
 - **Title actual del sitio:** —
 
 ```html
-<title>Portfolio | Potros Construction, Winchester VA</title>
-<meta name="description" content="See hardscapes, patios, decks, porches and outdoor living projects built by Potros Construction in Winchester, VA.">
+<title>Hardscape Projects Winchester VA | Potros Portfolio</title>
+<meta name="description" content="Hardscape projects Winchester VA: see patios, decks, porches, pools and outdoor living builds by Potros Construction.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://potrosconstruction.com/portfolio/">
-<meta property="og:type" content="website"><meta property="og:title" content="Portfolio | Potros Construction, Winchester VA"><meta property="og:description" content="See hardscapes, patios, decks, porches and outdoor living projects built by Potros Construction in Winchester, VA."><meta property="og:url" content="https://potrosconstruction.com/portfolio/"><meta property="og:image" content="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/portfolio.webp">
+<meta property="og:type" content="website"><meta property="og:title" content="Hardscape Projects Winchester VA | Potros Portfolio"><meta property="og:description" content="Hardscape projects Winchester VA: see patios, decks, porches, pools and outdoor living builds by Potros Construction."><meta property="og:url" content="https://potrosconstruction.com/portfolio/"><meta property="og:image" content="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/portfolio.webp">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {

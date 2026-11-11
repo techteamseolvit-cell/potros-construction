@@ -240,7 +240,7 @@ def portfolio():
 {reviews()}
 {cta('Want results like <em>these?</em>')}'''
     sch = schema({'@type': 'CollectionPage', '@id': url + '#page', 'url': url, 'name': 'Potros Construction Portfolio', 'about': GBUSINESS}, crumbs_schema('Portfolio', url))
-    write('portfolio', page('Portfolio | Potros Construction, Winchester VA', 'See hardscapes, patios, decks, porches and outdoor living projects built by Potros Construction in Winchester, VA.',
+    write('portfolio', page('Hardscape Projects Winchester VA | Potros Portfolio', 'Hardscape projects Winchester VA: see patios, decks, porches, pools and outdoor living builds by Potros Construction.',
                             url, SITE + '/assets/hero/portfolio.webp', sch, body, 'pg-portfoliopage', 'portfolio'))
 
 
