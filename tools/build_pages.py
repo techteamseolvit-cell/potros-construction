@@ -132,6 +132,17 @@ def about():
   </div>
 </section>
 
+<section class="pg-award" aria-labelledby="award-h2">
+  <div class="wrap pg-award__in rv">
+    <figure class="pg-award__img"><img src="{img_path('award-businessrate-2026')}" alt="BusinessRate Best of 2026 award plaque for Potros Construction LLC, Deck Builder, Winchester, Virginia" loading="lazy" decoding="async" width="1100" height="1100"></figure>
+    <div class="pg-award__copy">
+      <p class="eyebrow"><span class="dot"></span> Award winner</p>
+      <h2 id="award-h2" class="h2">Best of 2026: <em>Deck Builder, Winchester VA</em></h2>
+      <p class="lede">Honored to receive this recognition from BusinessRate, built on the trust and reviews of our customers. The standard keeps getting higher.</p>
+    </div>
+  </div>
+</section>
+
 <section class="pg-welcome" aria-labelledby="welcome-h2">
   <div class="wrap">
     <p class="eyebrow rv"><span class="dot"></span> Welcome</p>
@@ -144,17 +155,6 @@ def about():
   <div class="wrap">
     <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Meet the team</p><h2 id="team-h2" class="h2">The people <em>behind your project.</em></h2></div>
     <ul class="pg-team__list">{team_cards}</ul>
-  </div>
-</section>
-
-<section class="pg-award" aria-labelledby="award-h2">
-  <div class="wrap pg-award__in rv">
-    <figure class="pg-award__img"><img src="{img_path('award-businessrate-2026')}" alt="BusinessRate Best of 2026 award plaque for Potros Construction LLC, Deck Builder, Winchester, Virginia" loading="lazy" decoding="async" width="1100" height="1100"></figure>
-    <div class="pg-award__copy">
-      <p class="eyebrow"><span class="dot"></span> Award winner</p>
-      <h2 id="award-h2" class="h2">Best of 2026: <em>Deck Builder, Winchester VA</em></h2>
-      <p class="lede">Honored to receive this recognition from BusinessRate, built on the trust and reviews of our customers. The standard keeps getting higher.</p>
-    </div>
   </div>
 </section>
 
