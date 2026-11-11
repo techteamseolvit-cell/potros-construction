@@ -1,6 +1,6 @@
 # Ficha SEO — páginas nuevas (no estaban en el sitemap original)
 
-Copiar y pegar. Cada bloque ya trae index,follow; el preview lleva noindex a propósito.
+Copiar y pegar. Cada bloque ya trae index,follow.
 
 ## /pools-winchester-va/  —  NUEVA
 
@@ -9,7 +9,7 @@ Copiar y pegar. Cada bloque ya trae index,follow; el preview lleva noindex a pro
 - **Title (55):** Pools in Winchester VA | Potros Construction Pool Decks
 - **Meta description (149):** Pool decks, patios, stone walls and outdoor living around your pool in Winchester, VA. Free on-site estimates and 3D design from Potros Construction.
 - **H1:** Pool Projects in Winchester, VA
-- **Imagen para compartir (og:image):** https://potrosconstruction.com/assets/hero/pools.webp
+- **Imagen para compartir (og:image):** https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/pools.webp
 - **Title actual del sitio:** —
 
 ```html
@@ -17,7 +17,7 @@ Copiar y pegar. Cada bloque ya trae index,follow; el preview lleva noindex a pro
 <meta name="description" content="Pool decks, patios, stone walls and outdoor living around your pool in Winchester, VA. Free on-site estimates and 3D design from Potros Construction.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://potrosconstruction.com/pools-winchester-va/">
-<meta property="og:type" content="website"><meta property="og:title" content="Pools in Winchester VA | Potros Construction Pool Decks"><meta property="og:description" content="Pool decks, patios, stone walls and outdoor living around your pool in Winchester, VA. Free on-site estimates and 3D design from Potros Construction."><meta property="og:url" content="https://potrosconstruction.com/pools-winchester-va/"><meta property="og:image" content="https://potrosconstruction.com/assets/hero/pools.webp">
+<meta property="og:type" content="website"><meta property="og:title" content="Pools in Winchester VA | Potros Construction Pool Decks"><meta property="og:description" content="Pool decks, patios, stone walls and outdoor living around your pool in Winchester, VA. Free on-site estimates and 3D design from Potros Construction."><meta property="og:url" content="https://potrosconstruction.com/pools-winchester-va/"><meta property="og:image" content="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/pools.webp">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -146,7 +146,7 @@ Copiar y pegar. Cada bloque ya trae index,follow; el preview lleva noindex a pro
 - **Title (46):** Portfolio | Potros Construction, Winchester VA
 - **Meta description (114):** See hardscapes, patios, decks, porches and outdoor living projects built by Potros Construction in Winchester, VA.
 - **H1:** Our Portfolio
-- **Imagen para compartir (og:image):** https://potrosconstruction.com/assets/hero/portfolio.webp
+- **Imagen para compartir (og:image):** https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/portfolio.webp
 - **Title actual del sitio:** —
 
 ```html
@@ -154,7 +154,7 @@ Copiar y pegar. Cada bloque ya trae index,follow; el preview lleva noindex a pro
 <meta name="description" content="See hardscapes, patios, decks, porches and outdoor living projects built by Potros Construction in Winchester, VA.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://potrosconstruction.com/portfolio/">
-<meta property="og:type" content="website"><meta property="og:title" content="Portfolio | Potros Construction, Winchester VA"><meta property="og:description" content="See hardscapes, patios, decks, porches and outdoor living projects built by Potros Construction in Winchester, VA."><meta property="og:url" content="https://potrosconstruction.com/portfolio/"><meta property="og:image" content="https://potrosconstruction.com/assets/hero/portfolio.webp">
+<meta property="og:type" content="website"><meta property="og:title" content="Portfolio | Potros Construction, Winchester VA"><meta property="og:description" content="See hardscapes, patios, decks, porches and outdoor living projects built by Potros Construction in Winchester, VA."><meta property="og:url" content="https://potrosconstruction.com/portfolio/"><meta property="og:image" content="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/portfolio.webp">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -201,7 +201,7 @@ Copiar y pegar. Cada bloque ya trae index,follow; el preview lleva noindex a pro
 - **Title (36):** Privacy Policy | Potros Construction
 - **Meta description (122):** Review Potros Construction’s Privacy Policy to understand how we protect your information online and through our services.
 - **H1:** Privacy Policy
-- **Imagen para compartir (og:image):** https://potrosconstruction.com/assets/hero/legal.webp
+- **Imagen para compartir (og:image):** https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/legal.webp
 - **Title actual del sitio:** —
 
 ```html
@@ -209,7 +209,7 @@ Copiar y pegar. Cada bloque ya trae index,follow; el preview lleva noindex a pro
 <meta name="description" content="Review Potros Construction’s Privacy Policy to understand how we protect your information online and through our services.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://potrosconstruction.com/privacy-policy/">
-<meta property="og:type" content="website"><meta property="og:title" content="Privacy Policy | Potros Construction"><meta property="og:description" content="Review Potros Construction’s Privacy Policy to understand how we protect your information online and through our services."><meta property="og:url" content="https://potrosconstruction.com/privacy-policy/"><meta property="og:image" content="https://potrosconstruction.com/assets/hero/legal.webp">
+<meta property="og:type" content="website"><meta property="og:title" content="Privacy Policy | Potros Construction"><meta property="og:description" content="Review Potros Construction’s Privacy Policy to understand how we protect your information online and through our services."><meta property="og:url" content="https://potrosconstruction.com/privacy-policy/"><meta property="og:image" content="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/legal.webp">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -249,7 +249,7 @@ Copiar y pegar. Cada bloque ya trae index,follow; el preview lleva noindex a pro
 - **Title (38):** Terms of Service | Potros Construction
 - **Meta description (107):** Read Potros Construction’s Terms of Service outlining guidelines, usage policies, and service expectations.
 - **H1:** Terms and Conditions
-- **Imagen para compartir (og:image):** https://potrosconstruction.com/assets/hero/legal.webp
+- **Imagen para compartir (og:image):** https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/legal.webp
 - **Title actual del sitio:** —
 
 ```html
@@ -257,7 +257,7 @@ Copiar y pegar. Cada bloque ya trae index,follow; el preview lleva noindex a pro
 <meta name="description" content="Read Potros Construction’s Terms of Service outlining guidelines, usage policies, and service expectations.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://potrosconstruction.com/terms-and-conditions/">
-<meta property="og:type" content="website"><meta property="og:title" content="Terms of Service | Potros Construction"><meta property="og:description" content="Read Potros Construction’s Terms of Service outlining guidelines, usage policies, and service expectations."><meta property="og:url" content="https://potrosconstruction.com/terms-and-conditions/"><meta property="og:image" content="https://potrosconstruction.com/assets/hero/legal.webp">
+<meta property="og:type" content="website"><meta property="og:title" content="Terms of Service | Potros Construction"><meta property="og:description" content="Read Potros Construction’s Terms of Service outlining guidelines, usage policies, and service expectations."><meta property="og:url" content="https://potrosconstruction.com/terms-and-conditions/"><meta property="og:image" content="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/legal.webp">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {

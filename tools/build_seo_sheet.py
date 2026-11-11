@@ -30,9 +30,9 @@ rows = []
 for path, kw, status in PAGES:
     f = os.path.join(DOCS, path.strip('/'), 'index.html') if path != '/' else os.path.join(DOCS, 'index.html')
     t = open(f, encoding='utf-8').read()
-    ld = g(r'<script type="application/ld\+json">(.*?)</script>', t)
+    ld = g(r'<script type="application/ld\+json">(.*?)</script>', t).replace(SITE + '/assets/', 'https://techteamseolvit-cell.github.io/potros-construction/docs/assets/')
     rows.append({'path': path, 'url': SITE + path, 'kw': kw, 'status': status, 'title': g(r'<title>(.*?)</title>', t), 'desc': g(r'name="description" content="(.*?)"', t),
-                 'h1': re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', g(r'<h1[^>]*>(.*?)</h1>', t))), 'ogimg': g(r'property="og:image" content="(.*?)"', t),
+                 'h1': re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', g(r'<h1[^>]*>(.*?)</h1>', t))), 'ogimg': g(r'property="og:image" content="(.*?)"', t).replace(SITE + '/assets/', 'https://techteamseolvit-cell.github.io/potros-construction/docs/assets/'),
                  'ld': ld, 'old_title': AUDIT.get(path, {}).get('title', '—'), 'old_h1': (AUDIT.get(path, {}).get('h1') or ['—'])[0] if isinstance(AUDIT.get(path, {}).get('h1'), list) else AUDIT.get(path, {}).get('h1', '—')})
 
 
