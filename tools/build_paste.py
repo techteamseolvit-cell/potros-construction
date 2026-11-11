@@ -1,6 +1,6 @@
 """Self-contained, copy-paste HTML per page -> docs/paste/<slug>.html
 Each file has its CSS and JS inline; images/videos use absolute URLs (GitHub Pages assets); links point to the real site URLs."""
-import os, re, sys
+import os, re, shutil, sys
 from urllib.parse import urljoin
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); DOCS = os.path.join(ROOT, 'docs'); OUT = os.path.join(DOCS, 'paste')
 SITE = 'https://potrosconstruction.com'
@@ -47,14 +47,26 @@ if __name__ == '__main__':
 
 
 def index():
-    rows = ''.join(f'<tr><td><b>{n}</b><br><small>{"/" if n == "home" else "/" + n + "/"}</small></td><td><button data-f="{n}.html" type="button">Copiar HTML</button> <a href="{n}.html" target="_blank" rel="noopener">Ver</a> <a href="{n}.html" download>Descargar</a></td></tr>' for n in PAGES)
-    page = f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>HTML para copiar y pegar | Potros Construction</title>
+    import zipfile, glob
+    for n in PAGES:   # plain-text copy so the HTML can be read in the browser
+        shutil.copyfile(os.path.join(OUT, n + '.html'), os.path.join(OUT, n + '.txt'))
+    with zipfile.ZipFile(os.path.join(OUT, 'potros-paginas-html.zip'), 'w', zipfile.ZIP_DEFLATED) as z:
+        for n in PAGES: z.write(os.path.join(OUT, n + '.html'), n + '.html')
+    rows = ''.join(f'<tr><td><b>{n}</b><br><small>{"/" if n == "home" else "/" + n + "/"}</small></td><td class="a"><button data-f="{n}.html" type="button">Copiar HTML</button><a href="{n}.html" target="_blank" rel="noopener">Ver página</a><a href="{n}.txt" target="_blank" rel="noopener">Ver código</a><a href="{n}.html" download>Descargar</a></td></tr>' for n in PAGES)
+    CONCEPT = [('01', 'Patio de pavers con escalones', 'patio-pavers-steps'), ('02', 'Patio bajo el deck', 'patio-under-deck'), ('03', 'Chimenea de piedra', 'fireplace-stone-patio'), ('04', 'Fire pit de piedra', 'firepit-stone-chairs'),
+               ('05', 'Muro de contención con césped', 'landscape-retaining-wall'), ('06', 'Camino de pavers al frente', 'landscape-front-walkway'), ('07', 'Piscina desde la casa', 'pool-from-house'), ('08', 'Piscina con muro de piedra', 'pool-stone-wall'),
+               ('09', 'Cama lateral con roca', 'landscape-side-bed'), ('10', 'Deck de flagstone en piscina', 'pool-deck-flagstone'), ('11', 'Borde de piscina (detalle)', 'pool-deck-closeup'), ('12', 'Piedras de paso y camas', 'landscape-stepping-stones')]
+    imgs = ''.join(f'<figure><img src="../assets/concept/{f}.webp" alt="{t}" loading="lazy"><figcaption>{k} · {t}</figcaption><a href="../assets/concept/{f}.webp" download>Descargar imagen</a></figure>' for k, t, f in CONCEPT)
+    page = f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>HTML y recursos | Potros Construction</title>
 <style>:root{{--bg:#0a0a0a;--fg:#f2f2f2;--mu:#a0a0a0;--ln:rgba(255,255,255,.14);--red:#b00000}}@media(prefers-color-scheme:light){{:root{{--bg:#fff;--fg:#111;--mu:#555;--ln:rgba(0,0,0,.15)}}}}
-body{{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,sans-serif;-webkit-font-smoothing:antialiased}}main{{max-width:820px;margin:0 auto;padding:32px 16px 80px}}h1{{font-size:28px;margin:0 0 8px}}p{{color:var(--mu);max-width:68ch}}
-table{{width:100%;border-collapse:collapse;margin-top:20px}}td{{padding:12px 8px;border-top:1px solid var(--ln);vertical-align:middle}}small{{color:var(--mu)}}a{{color:var(--fg);margin-left:10px}}
-button{{min-height:44px;min-width:130px;border:0;border-radius:8px;background:var(--red);color:#fff;font:600 14px system-ui;cursor:pointer}}button.ok{{background:#1a7f37}}</style></head><body><main>
-<h1>HTML para copiar y pegar</h1><p>Cada archivo es una página completa y autocontenida: el CSS y el JavaScript van dentro y las imágenes y videos se cargan desde una dirección absoluta. Pulsa <b>Copiar HTML</b>, pega en tu editor y se ve todo, sin subir nada. Los enlaces internos ya apuntan a las URLs reales del sitio.</p>
-<table>{rows}</table></main>
+body{{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,sans-serif;-webkit-font-smoothing:antialiased}}main{{max-width:980px;margin:0 auto;padding:32px 16px 80px}}h1{{font-size:28px;margin:0 0 8px}}h2{{font-size:20px;margin:40px 0 8px}}p{{color:var(--mu);max-width:70ch}}
+table{{width:100%;border-collapse:collapse;margin-top:16px}}td{{padding:12px 8px;border-top:1px solid var(--ln);vertical-align:middle}}small{{color:var(--mu)}}.a{{display:flex;gap:6px 14px;flex-wrap:wrap;align-items:center}}a{{color:var(--fg)}}
+button,.btn{{min-height:44px;min-width:130px;border:0;border-radius:8px;background:var(--red);color:#fff;font:600 14px system-ui;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:0 14px}}button.ok{{background:#1a7f37}}
+.g{{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-top:16px}}figure{{margin:0;border:1px solid var(--ln);border-radius:12px;overflow:hidden;display:grid}}figure img{{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}}figcaption{{padding:8px 12px 0;font-size:14px}}figure a{{padding:6px 12px 12px;font-size:14px}}</style></head><body><main>
+<h1>HTML y recursos</h1><p>Cada página es un archivo completo y autocontenido (CSS y JavaScript dentro; imágenes y videos por dirección absoluta). Pulsa <b>Copiar HTML</b>, pega en tu editor y se ve todo. Con <b>Ver código</b> lees el HTML en el navegador; con <b>Descargar</b> bajas el archivo.</p>
+<p><a class="btn" href="potros-paginas-html.zip" download>Descargar las 18 páginas (.zip)</a></p>
+<table>{rows}</table>
+<h2>Imágenes “Design concept” (creadas con IA)</h2><p>Se muestran con la etiqueta “Design concept” en el sitio. Descárgalas una por una.</p><div class="g">{imgs}</div></main>
 <script>document.addEventListener('click',function(e){{var b=e.target.closest('button[data-f]');if(!b)return;b.textContent='Copiando…';fetch(b.dataset.f).then(function(r){{return r.text()}}).then(function(t){{return navigator.clipboard.writeText(t)}}).then(function(){{b.textContent='¡Copiado!';b.classList.add('ok');setTimeout(function(){{b.textContent='Copiar HTML';b.classList.remove('ok')}},1800)}}).catch(function(){{b.textContent='Error: usa Descargar'}})}});</script></body></html>'''
     open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(page)
 

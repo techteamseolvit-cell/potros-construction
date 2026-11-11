@@ -220,7 +220,7 @@ def portfolio():
     VIDS = [(1, 'Deck, patio and screened porch'), (2, 'Backyard with outdoor kitchen, pergola and landscaping'), (3, 'Patio with circular fire pit, outdoor kitchen and spa'),
             (4, 'Deck, screened porch and stone fireplace pavilion'), (5, 'Backyard patio with pergola, fire pit and grill island'), (6, 'Covered patio with a stone fireplace'), (7, 'Paver patio with pergola, fire pit and spa')]
     videos = ''.join(f'<figure class="pf-vid rv"><div class="sp-video__frame"><video controls preload="none" playsinline poster="../assets/video/design-{n}-poster.webp" aria-label="3D virtual design walkthrough: {e(lb)}"><source src="../assets/video/design-{n}.mp4" type="video/mp4"></video></div><figcaption>{e(lb)}</figcaption></figure>' for n, lb in VIDS)
-    grid = ''.join(f'<figure class="sp-g pf" data-c="{c}"><img src="{img_path(n)}" alt="{e(a)}" loading="lazy" decoding="async" width="1100" height="733"></figure>' for n, a, c in items)
+    grid = ''.join(f'<figure class="sp-g pf" data-c="{c}"{bs.cc(n)}><img src="{img_path(n)}" alt="{e(a)}" loading="lazy" decoding="async" width="1100" height="733"></figure>' for n, a, c in items)
     body = f'''
 {hero('Our Portfolio', 'A selection of hardscapes, patios, decks, porches, landscapes and outdoor living spaces built around Winchester, VA.', 'hero/portfolio', '', 'Portfolio', ['Hardscapes', 'Patios & decks', 'Porches', 'Outdoor living'])}
 <section class="pg-portfolio" aria-labelledby="pf-h2">

@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261110a'          # cache-busting for css/js
+VERSION = '20261111a'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -100,6 +100,10 @@ e = html.escape
 
 def img_path(name):
     return f'../assets/{name}.webp' if '/' in name else f'../assets/hardscapes/{name}.webp'
+
+
+def cc(n):
+    return ' data-concept="1"' if n.startswith('concept/') else ''
 
 
 def og_path(name):
@@ -201,8 +205,8 @@ def render(s):
 <section class="sp-block{' is-flip' if i % 2 else ''}" id="{e(b['kicker'].lower().replace(' ', '-'))}" aria-labelledby="blk{i}">
   <div class="wrap sp-block__grid">
     <div class="sp-block__photos rv">
-      <figure class="sp-dip sp-dip--a"><img src="{img_path(p1)}" alt="{e(a1)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
-      <figure class="sp-dip sp-dip--b"><img src="{img_path(p2)}" alt="{e(a2)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
+      <figure class="sp-dip sp-dip--a"{cc(p1)}><img src="{img_path(p1)}" alt="{e(a1)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
+      <figure class="sp-dip sp-dip--b"{cc(p2)}><img src="{img_path(p2)}" alt="{e(a2)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>
     </div>
     <div class="sp-block__copy rv">
       <p class="sp-kick"><b>0{i + 1}</b><i></i>{e(b['kicker'])}</p>
@@ -214,7 +218,7 @@ def render(s):
 </section>'''
 
     gallery = ''.join(
-        f'<figure class="sp-g rv" data-i="{i}"><img src="{img_path(n)}" alt="{e(a)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>'
+        f'<figure class="sp-g rv" data-i="{i}"{cc(n)}><img src="{img_path(n)}" alt="{e(a)}" loading="lazy" decoding="async" width="1100" height="1467"></figure>'
         for i, (n, a) in enumerate(s['gallery']))
 
     points = ''.join(f'<li class="rv"><b>{e(t)}</b><span>{e(d)}</span></li>' for t, d in val['points'])

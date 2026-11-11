@@ -270,3 +270,28 @@ SERVICES_MORE['pools'] = {
     'process': PROCESS, 'faqs': FAQS, 'video': None,
     'cta': {'eyebrow': 'Pools in Winchester, VA', 'title': 'Ready to design your <em>pool area?</em>', 'button': 'Get a free pool area estimate', 'photo': 'pool-deck-aerial'},
 }
+
+
+# ───────────── AI concept images (reviewed by client); shown with a "Design concept" tag ─────────────
+C = lambda n: 'concept/' + n
+def _swap(slug, blocks=None, gallery=None):
+    d = SERVICES_MORE[slug]
+    for i, ph in (blocks or {}).items(): d['blocks'][i]['photos'] = ph
+    if gallery: d['gallery'] = gallery
+_swap('patios', gallery=[(C('patio-pavers-steps'), 'Design concept: paver patio with wide steps and a dining set behind a gray-sided home'), (C('patio-under-deck'), 'Design concept: covered paver patio under an elevated deck with stone columns'),
+                         (P('paver-patio-bistro-border'), 'Paver patio with a dark border and bistro table set'), ('p2/firepit-patio-boulders-side', 'Paver patio with fire pit and boulder landscaping'),
+                         ('stone-wall-seating-house', 'Flagstone patio with stone seating wall and lantern in front of a farmhouse')])
+_swap('fireplaces', blocks={0: [(C('fireplace-stone-patio'), 'Design concept: freestanding fieldstone outdoor fireplace on a gray paver patio'), ('paver-patio-firepit', 'Paver patio with a fire pit beside a home')],
+                            1: [(C('firepit-stone-chairs'), 'Design concept: round stacked-stone fire pit with black Adirondack chairs'), ('p2/deck-patio-night-lights', 'Deck with string lights above a fire pit patio at night')]},
+      gallery=[(C('fireplace-stone-patio'), 'Design concept: outdoor stone fireplace'), (C('firepit-stone-chairs'), 'Design concept: stone fire pit with chairs'), ('patio-firepit-chairs', 'Fire pit with Adirondack chairs on a stamped paver patio'),
+               ('p2/aerial-patio-firepit-boulders', 'Aerial view of a fire pit patio with boulders'), ('p1/screened-porch-lake-view', 'Fire table and lounge seating with a lake view')])
+_swap('landscaping', blocks={0: [(C('landscape-stepping-stones'), 'Design concept: flagstone stepping stones through mulch beds to a paver patio'), ('p2/ls-stepping-stones-plants', 'Stepping stone path winding through planted beds')],
+                             1: [(C('landscape-side-bed'), 'Design concept: mulch bed with boulder and young ornamental grasses beside a paver walkway'), ('p2/ls-grasses-mulch-bed', 'Ornamental grasses and mulch beds beside a paver patio')],
+                             2: [(C('landscape-front-walkway'), 'Design concept: curved paver walkway with young shrubs in mulch beds'), ('p2/ls-flagstone-plantings', 'Paver patio edged with flagstone steps and shrubs')]},
+      gallery=[(C('landscape-retaining-wall'), 'Design concept: low stone retaining wall with new sod and a flagstone path'), ('p2/ls-boulder-bed', 'Boulder landscaping, ornamental grasses and mulch beds'),
+               ('p2/ls-garden-path-close', 'Flagstone stepping stones through a mulch bed with shrubs'), ('p2/ls-flagstone-beds', 'Flagstone path and shrubs in mulch beds beside a patio'),
+               ('flagstone-pool-edge', 'Flagstone pool edge with river rock and plantings')])
+_swap('pools', blocks={0: [(C('pool-deck-flagstone'), 'Design concept: flagstone pool deck with a lounge chair and a stone wall behind'), (C('pool-deck-closeup'), 'Design concept: flagstone pool edge with stone steps and a stone wall')],
+                       1: [(C('pool-stone-wall'), 'Design concept: pool with a low stacked-stone wall, steps and farmland beyond'), ('curved-stone-wall', 'Curved natural stone wall over a flagstone patio')]},
+      gallery=[(C('pool-from-house'), 'Design concept: pool and flagstone deck seen from the back door of a home'), (C('pool-stone-wall'), 'Design concept: pool with stacked-stone wall'), ('flagstone-pool-edge', 'Flagstone pool edge with river rock and plantings'),
+               ('p2/flagstone-patio-pillar', 'Flagstone patio with a lit stone pillar beside the pool'), ('stone-pillar-wall', 'Stone pillar and wall with accent lighting')])
