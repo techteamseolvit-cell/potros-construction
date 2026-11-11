@@ -483,6 +483,29 @@ body:has(.potros-page) .uk-sticky-placeholder{display:none!important}
 body:has(.potros-page) .tm-page{margin-top:0!important;padding-top:0!important}
 body:has(.potros-page){background:#0a0a0a!important}
 
+/* Header v2: full menu, services dropdown, taller bar, larger logo */
+.nav{padding:24px var(--gut);gap:22px}
+.nav.scrolled{padding-block:16px}
+.nav__logo img{width:170px}
+.nav.scrolled .nav__logo img{width:140px}
+.nav__links{gap:clamp(14px,1.5vw,26px);font-size:12.5px;letter-spacing:.07em;white-space:nowrap}
+.nav__links a{display:inline-flex;align-items:center;gap:6px}
+.nav__links a[aria-current="page"]{color:#fff}
+.nav__dd{position:relative;display:flex;align-items:center}
+.nav__caret{width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);display:inline-block}
+.nav__menu{position:absolute;top:100%;left:-18px;min-width:210px;padding:12px;background:rgba(14,14,15,.97);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:14px;display:grid;opacity:0;visibility:hidden;transform:translateY(10px);transition:.35s var(--ease)}
+.nav__dd:hover .nav__menu,.nav__dd:focus-within .nav__menu{opacity:1;visibility:visible;transform:none}
+.nav__menu a{padding:10px 12px;border-radius:8px;text-transform:none;letter-spacing:.02em;font-size:15px;display:block}
+.nav__menu a::after{display:none}.nav__menu a:hover{background:rgba(255,255,255,.07)}
+@media (max-width:1280px){.nav__phone{display:none}}
+@media (max-width:1180px){.nav__links,.nav__phone,.nav .btn{display:none}.nav__burger{display:block}}
+.drawer{justify-content:flex-start;overflow-y:auto;padding-top:96px;gap:4px}
+.drawer a{font-size:clamp(26px,7vw,38px)}
+.drawer__h{margin:14px 0 2px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.drawer__sub{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.drawer__sub a{font-size:clamp(20px,5.4vw,26px);color:rgba(255,255,255,.85)}
+.drawer__sub a{padding:5px 0}.drawer>a{padding:2px 0}
+
 </style>
 <style>
 /* Service pages (template). Same tokens/components as the home (styles.css), different layouts. */
@@ -997,19 +1020,23 @@ p,li,figcaption{text-wrap:pretty}
 <a class="skip" href="#main">Skip to content</a>
 <div class="progress" id="progress" aria-hidden="true"></div>
 <header class="nav" id="nav">
-  <a class="nav__logo" href="https://potrosconstruction.com/" aria-label="Potros Construction, home"><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/logo.png" alt="Potros Construction LLC" width="140" height="41"></a>
+  <a class="nav__logo" href="https://potrosconstruction.com/" aria-label="Potros Construction, home"><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/logo.png" alt="Potros Construction LLC" width="170" height="50"></a>
   <nav class="nav__links" aria-label="Primary">
     <a href="https://potrosconstruction.com/">Home</a>
-    <a href="https://potrosconstruction.com/hardscapes-winchester-va/">Hardscapes</a>
-    <a href="https://potrosconstruction.com/about-us/">About Us</a>
-    <a href="https://potrosconstruction.com/contact-us/">Contact Us</a>
+    <div class="nav__dd">
+      <a href="https://potrosconstruction.com/#services" aria-current="page" aria-haspopup="true">Services <i class="nav__caret" aria-hidden="true"></i></a>
+      <div class="nav__menu"><a href="https://potrosconstruction.com/hardscapes-winchester-va/">Hardscapes</a><a href="https://potrosconstruction.com/patios-winchester-va/">Patios</a><a href="https://potrosconstruction.com/decks-winchester-va/" aria-current="page">Decks</a><a href="https://potrosconstruction.com/porches-winchester-va/">Porches</a><a href="https://potrosconstruction.com/fireplaces-winchester-va/">Fireplaces</a><a href="https://potrosconstruction.com/landscaping-winchester-va/">Landscaping</a><a href="https://potrosconstruction.com/pools-winchester-va/">Pools</a></div>
+    </div>
+    <a href="https://potrosconstruction.com/portfolio/">Portfolio</a><a href="https://potrosconstruction.com/about-us/">About Us</a><a href="https://potrosconstruction.com/reviews/">Reviews</a><a href="https://potrosconstruction.com/service-area/">Service Area</a><a href="https://potrosconstruction.com/faq/">FAQ</a><a href="https://potrosconstruction.com/contact-us/">Contact Us</a>
   </nav>
   <a class="nav__phone" href="tel:+15405148725">(540) 514-8725</a>
   <a class="btn btn--sm" href="https://potrosconstruction.com/contact-us/">Free Estimate</a>
   <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
 </header>
 <div class="drawer" id="drawer">
-  <a href="https://potrosconstruction.com/">Home</a><a href="https://potrosconstruction.com/hardscapes-winchester-va/">Hardscapes</a><a href="https://potrosconstruction.com/about-us/">About Us</a><a href="https://potrosconstruction.com/contact-us/">Contact Us</a>
+  <a href="https://potrosconstruction.com/">Home</a>
+  <p class="drawer__h">Services</p><div class="drawer__sub"><a href="https://potrosconstruction.com/hardscapes-winchester-va/">Hardscapes</a><a href="https://potrosconstruction.com/patios-winchester-va/">Patios</a><a href="https://potrosconstruction.com/decks-winchester-va/">Decks</a><a href="https://potrosconstruction.com/porches-winchester-va/">Porches</a><a href="https://potrosconstruction.com/fireplaces-winchester-va/">Fireplaces</a><a href="https://potrosconstruction.com/landscaping-winchester-va/">Landscaping</a><a href="https://potrosconstruction.com/pools-winchester-va/">Pools</a></div>
+  <a href="https://potrosconstruction.com/portfolio/">Portfolio</a><a href="https://potrosconstruction.com/about-us/">About Us</a><a href="https://potrosconstruction.com/reviews/">Reviews</a><a href="https://potrosconstruction.com/service-area/">Service Area</a><a href="https://potrosconstruction.com/faq/">FAQ</a><a href="https://potrosconstruction.com/contact-us/">Contact Us</a>
   <a class="drawer__tel" href="tel:+15405148725">(540) 514-8725</a>
 </div>
 <main id="main">
@@ -1190,7 +1217,7 @@ p,li,figcaption{text-wrap:pretty}
   <div class="wrap footer__grid">
     <div class="footer__brand"><img class="footer__emblem" src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/emblem.png" alt="" width="84" height="93"><p class="footer__note">Custom hardscapes and outdoor living in Winchester, VA and surrounding communities.</p></div>
     <div><h3>Services</h3><a href="https://potrosconstruction.com/hardscapes-winchester-va/">Hardscapes</a><a href="https://potrosconstruction.com/patios-winchester-va/">Patios</a><a href="https://potrosconstruction.com/decks-winchester-va/">Decks</a><a href="https://potrosconstruction.com/porches-winchester-va/">Porches</a><a href="https://potrosconstruction.com/landscaping-winchester-va/">Landscaping</a><a href="https://potrosconstruction.com/fireplaces-winchester-va/">Fireplaces</a><a href="https://potrosconstruction.com/pools-winchester-va/">Pools</a></div>
-    <div><h3>Company</h3><a href="https://potrosconstruction.com/about-us/">About us</a><a href="https://potrosconstruction.com/portfolio/">Portfolio</a><a href="https://potrosconstruction.com/reviews/">Reviews</a><a href="https://potrosconstruction.com/service-area/">Service area</a><a href="https://potrosconstruction.com/faq/">FAQ</a><a href="https://potrosconstruction.com/blog/">Blog</a><a href="https://potrosconstruction.com/contact-us/">Contact us</a></div>
+    <div><h3>Company</h3><a href="https://potrosconstruction.com/about-us/">About us</a><a href="https://potrosconstruction.com/portfolio/">Portfolio</a><a href="https://potrosconstruction.com/reviews/">Reviews</a><a href="https://potrosconstruction.com/service-area/">Service area</a><a href="https://potrosconstruction.com/faq/">FAQ</a><a href="https://potrosconstruction.com/contact-us/">Contact us</a></div>
     <div><h3>Visit</h3><address>704 Baker Ln, Suite 5<br>Winchester, VA 22603</address><a href="tel:+15405148725">(540) 514-8725</a><p>Mon–Sat · 8:00 AM – 6:00 PM<br>Sunday closed</p></div>
   </div>
   <div class="wrap footer__bar"><span>© 2026 Potros Construction LLC</span><span><a href="https://potrosconstruction.com/privacy-policy/">Privacy</a> · <a href="https://potrosconstruction.com/terms-and-conditions/">Terms</a></span></div>

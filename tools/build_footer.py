@@ -5,7 +5,7 @@ SITE = 'https://potrosconstruction.com'
 ASSET = 'https://techteamseolvit-cell.github.io/potros-construction/docs/assets/'
 OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'docs', 'paste')
 SERVICES = [('hardscapes', 'Hardscapes'), ('patios', 'Patios'), ('decks', 'Decks'), ('porches', 'Porches'), ('fireplaces', 'Fireplaces'), ('landscaping', 'Landscaping'), ('pools', 'Pools')]
-COMPANY = [('about-us', 'About us'), ('portfolio', 'Portfolio'), ('reviews', 'Reviews'), ('service-area', 'Service area'), ('faq', 'FAQ'), ('blog', 'Blog'), ('contact-us', 'Contact us')]
+COMPANY = [('about-us', 'About us'), ('portfolio', 'Portfolio'), ('reviews', 'Reviews'), ('service-area', 'Service area'), ('faq', 'FAQ'), ('contact-us', 'Contact us')]
 
 CSS = '''
 #potros-footer{position:relative;left:50%;width:100vw;max-width:100vw;margin-left:-50vw;box-sizing:border-box;background:#0a0a0a;color:#f5f5f5;border-top:1px solid rgba(255,255,255,.13);padding:70px 0 26px;font-family:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:15px;line-height:1.6;text-align:left}

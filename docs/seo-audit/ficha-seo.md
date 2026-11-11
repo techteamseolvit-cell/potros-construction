@@ -1522,61 +1522,6 @@ Reglas: no cambies el slug; un solo H1 por página; title ≤ 60 caracteres y me
 </script>
 ```
 
-## /blog/  —  Rediseñada
-
-- **URL:** https://potrosconstruction.com/blog/
-- **Palabra clave principal:** hardscape blog Winchester VA
-- **Title (56):** Blog | Potros Construction, Hardscapes in Winchester, VA
-- **Meta description (137):** Enhance your outdoor space with insights from Potros Construction. Our Winchester, VA hardscape blog covers decks, patios and fireplaces!
-- **H1:** Hardscape & Outdoor Living Blog
-- **Imagen para compartir (og:image):** https://potrosconstruction.com/assets/hero/blog.webp
-- **Title actual del sitio:** Potros Construction | Blog | Hardscape Specialists in Winchester, VA
-
-```html
-<title>Blog | Potros Construction, Hardscapes in Winchester, VA</title>
-<meta name="description" content="Enhance your outdoor space with insights from Potros Construction. Our Winchester, VA hardscape blog covers decks, patios and fireplaces!">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://potrosconstruction.com/blog/">
-<meta property="og:type" content="website"><meta property="og:title" content="Blog | Potros Construction, Hardscapes in Winchester, VA"><meta property="og:description" content="Enhance your outdoor space with insights from Potros Construction. Our Winchester, VA hardscape blog covers decks, patios and fireplaces!"><meta property="og:url" content="https://potrosconstruction.com/blog/"><meta property="og:image" content="https://potrosconstruction.com/assets/hero/blog.webp">
-<meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Blog",
-   "@id": "https://potrosconstruction.com/blog/#blog",
-   "url": "https://potrosconstruction.com/blog/",
-   "name": "Potros Construction Blog",
-   "publisher": {
-    "@type": "GeneralContractor",
-    "@id": "https://potrosconstruction.com/#business",
-    "name": "Potros Construction LLC",
-    "telephone": "+1-540-514-8725"
-   }
-  },
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "Home",
-     "item": "https://potrosconstruction.com/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "Blog",
-     "item": "https://potrosconstruction.com/blog/"
-    }
-   ]
-  }
- ]
-}
-</script>
-```
-
 ## /hardscapes-winchester-va-guide/  —  Rediseñada
 
 - **URL:** https://potrosconstruction.com/hardscapes-winchester-va-guide/
@@ -1599,7 +1544,7 @@ Reglas: no cambies el slug; un solo H1 por página; title ≤ 60 caracteres y me
  "@context": "https://schema.org",
  "@graph": [
   {
-   "@type": "BlogPosting",
+   "@type": "Article",
    "@id": "https://potrosconstruction.com/hardscapes-winchester-va-guide/#post",
    "headline": "Hardscapes in Winchester, VA — What Homeowners Need to Know",
    "description": "Why hardscaping matters in Winchester, VA, popular projects, local costs and how to choose a contractor. Tips before you start.",
@@ -1629,12 +1574,6 @@ Reglas: no cambies el slug; un solo H1 por página; title ≤ 60 caracteres y me
     {
      "@type": "ListItem",
      "position": 2,
-     "name": "Blog",
-     "item": "https://potrosconstruction.com/blog/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 3,
      "name": "Hardscapes in Winchester, VA guide",
      "item": "https://potrosconstruction.com/hardscapes-winchester-va-guide/"
     }

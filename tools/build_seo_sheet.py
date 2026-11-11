@@ -17,7 +17,6 @@ PAGES = [  # path, keyword, status
     ('/reviews/', 'Potros Construction reviews', 'Rediseñada'),
     ('/service-area/', 'hardscapes near Winchester VA', 'Rediseñada'),
     ('/faq/', 'hardscape questions Winchester VA', 'Rediseñada'),
-    ('/blog/', 'hardscape blog Winchester VA', 'Rediseñada'),
     ('/hardscapes-winchester-va-guide/', 'hardscape cost Winchester VA', 'Rediseñada'),
     ('/privacy-policy/', '—', 'Rediseñada'), ('/terms-and-conditions/', '—', 'Rediseñada'),
 ]

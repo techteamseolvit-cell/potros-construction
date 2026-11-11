@@ -151,7 +151,7 @@ def guide():
             art.append(f'<p>{e(x)}</p>')
     tocl = ''.join(f'<li class="l{lv}"><a href="#{slugify(t)}">{e(t)}</a></li>' for lv, t in toc)
     body = f'''
-{hero(g['items'][0][1], 'Costs, project ideas and contractor tips before you start your hardscape project in Winchester, VA.', 'hero/guide', '', 'Guide', ['Freeze-thaw climate', 'Drainage & grading', 'Costs', 'Choosing a contractor'], cta=False, trail='<span>/</span><a href="../blog/">Blog</a>')}
+{hero(g['items'][0][1], 'Costs, project ideas and contractor tips before you start your hardscape project in Winchester, VA.', 'hero/guide', '', 'Guide', ['Freeze-thaw climate', 'Drainage & grading', 'Costs', 'Choosing a contractor'], cta=False)}
 <article class="pg-article" aria-labelledby="art-h1">
   <div class="wrap pg-article__grid">
     <aside class="pg-toc"><p class="pg-toc__t">In this guide</p><ol>{tocl}</ol></aside>
@@ -159,10 +159,10 @@ def guide():
   </div>
 </article>
 {cta('Ready to plan your <em>hardscape project?</em>', photo='paver-patio-firepit')}'''
-    sch = schema({'@type': 'BlogPosting', '@id': url + '#post', 'headline': g['items'][0][1], 'description': g['desc'], 'datePublished': '2025-03-21',
+    sch = schema({'@type': 'Article', '@id': url + '#post', 'headline': g['items'][0][1], 'description': g['desc'], 'datePublished': '2025-03-21',
                   'image': SITE + '/assets/hero/guide.webp', 'mainEntityOfPage': url, 'author': {'@type': 'Organization', 'name': 'Potros Construction LLC'}, 'publisher': GBUSINESS},
-                 {'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE + '/'}, {'@type': 'ListItem', 'position': 2, 'name': 'Blog', 'item': SITE + '/blog/'}, {'@type': 'ListItem', 'position': 3, 'name': 'Hardscapes in Winchester, VA guide', 'item': url}]})
-    write(G_SLUG, page(g['title'], g['desc'], url, SITE + '/assets/hero/guide.webp', sch, body, 'pg-guidepage', 'blog'))
+                 {'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE + '/'}, {'@type': 'ListItem', 'position': 2, 'name': 'Hardscapes in Winchester, VA guide', 'item': url}]})
+    write(G_SLUG, page(g['title'], g['desc'], url, SITE + '/assets/hero/guide.webp', sch, body, 'pg-guidepage', None))
 
 
 # ───────────── Legal ─────────────
@@ -245,5 +245,5 @@ def portfolio():
 
 
 if __name__ == '__main__':
-    faq(); reviews_page(); service_area(); blog(); guide(); portfolio()
+    faq(); reviews_page(); service_area(); guide(); portfolio()   # blog index removed at the client's request
     legal('privacy-policy', 'Privacy Policy'); legal('terms-and-conditions', 'Terms & Conditions')

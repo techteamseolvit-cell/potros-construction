@@ -6,7 +6,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); DOCS = os.pa
 SITE = 'https://potrosconstruction.com'
 ASSETS = 'https://techteamseolvit-cell.github.io/potros-construction/docs/assets/'
 PAGES = ['home', 'hardscapes-winchester-va', 'patios-winchester-va', 'decks-winchester-va', 'porches-winchester-va', 'fireplaces-winchester-va', 'landscaping-winchester-va', 'pools-winchester-va',
-         'about-us', 'contact-us', 'portfolio', 'reviews', 'service-area', 'faq', 'blog', 'hardscapes-winchester-va-guide', 'privacy-policy', 'terms-and-conditions']
+         'about-us', 'contact-us', 'portfolio', 'reviews', 'service-area', 'faq', 'hardscapes-winchester-va-guide', 'privacy-policy', 'terms-and-conditions']
 
 
 def absolutize(u, base):
