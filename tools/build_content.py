@@ -71,6 +71,7 @@ def reviews_page():
     <div class="sp-video__frame rv"><video controls preload="none" playsinline poster="../assets/video/testimonial-front-royal-poster.webp" aria-label="Video testimonial from Front Royal, VA homeowners"><source src="../assets/video/testimonial-front-royal.mp4" type="video/mp4"></video></div>
   </div>
 </section>
+{bs.ig_section(bs.IG_TESTIMONIALS, 'Client testimonial', 'Client testimonials', 'Real clients, <em>real stories.</em>', 'Watch what homeowners across Winchester say about working with Potros Construction.')}
 <section class="reviews pg-reviews" id="reviews" aria-labelledby="reviews-title">
   <div class="wrap">
     <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Reviews</p><h2 id="reviews-title" class="h2">A Word From Our <em>Happy Customers</em></h2></div>
@@ -237,6 +238,8 @@ def portfolio():
     <div class="pf-videos">{videos}</div>
   </div>
 </section>
+{bs.reel_trio('../')}
+{bs.ig_section(bs.IG_SOCIAL, 'Potros reel', 'On social', 'See our work <em>in motion.</em>', 'Recent projects and behind-the-scenes from our Instagram.')}
 {reviews()}
 {cta('Want results like <em>these?</em>')}'''
     sch = schema({'@type': 'CollectionPage', '@id': url + '#page', 'url': url, 'name': 'Potros Construction Portfolio', 'about': GBUSINESS}, crumbs_schema('Portfolio', url))

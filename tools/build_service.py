@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261111u'          # cache-busting for css/js
+VERSION = '20261111w'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -105,6 +105,37 @@ def snippets_body(prefix='../'):
     """Client snippets live INSIDE <main>, so they survive when the header and footer are replaced.
     The mobile call/estimate bar was removed at the client's request; add new body snippets between the markers."""
     return '<!-- SNIPPETS START -->\n<!-- SNIPPETS END -->'
+
+
+IG_SOCIAL = ['DZKtVe6NZoe', 'DYVfbjxoLbj', 'DCFdCRry1Jk']
+IG_TESTIMONIALS = ['DWO9QV5EX1A', 'DeCVOlVIFWH', 'DduH-x7I1Jj', 'DZIRU42RSGa', 'DY0IgIbIcSs', 'DYZ_z6vIsr_', 'DYfOXulRE71', 'DYXsP3KIX1G', 'DXo3rwKCFcU']
+
+
+def ig_grid(ids, label):
+    """Instagram reel embeds (lazy iframes). Reels must be public and embeddable."""
+    cards = ''.join(f'<div class="ig-card rv"><iframe src="https://www.instagram.com/reel/{i}/embed" title="{label} {n + 1} on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/{i}/" target="_blank" rel="noopener">Watch on Instagram</a></div>' for n, i in enumerate(ids))
+    return f'<div class="ig-grid">{cards}</div>'
+
+
+def ig_section(ids, label, eyebrow, h2, lead=''):
+    lede = f'<p class="lede">{lead}</p>' if lead else ''
+    return f'''<section class="ig-section" aria-label="{label}">
+  <div class="wrap">
+    <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> {eyebrow}</p><h2 class="h2">{h2}</h2>{lede}</div>
+    {ig_grid(ids, label)}
+  </div>
+</section>'''
+
+
+def reel_trio(prefix=''):
+    items = [('reel-showcase', 'Potros Construction showcase and intro video'), ('reel-jesus1', 'Construction tips from Jesús Trejo, video 1'), ('reel-jesus2', 'Construction tips from Jesús Trejo, video 2')]
+    cards = ''.join(f'<div class="sp-reel__frame rv"><video controls preload="none" playsinline poster="{prefix}assets/video/{n}-poster.webp" aria-label="{l}"><source src="{prefix}assets/video/{n}.mp4" type="video/mp4"></video></div>' for n, l in items)
+    return f'''<section class="reel-trio" aria-labelledby="trio-h2">
+  <div class="wrap">
+    <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Behind the scenes</p><h2 id="trio-h2" class="h2">Get to know <em>Potros Construction.</em></h2><p class="lede">Short videos from our team on how we plan, design and build your outdoor space.</p></div>
+    <div class="reel-trio__grid">{cards}</div>
+  </div>
+</section>'''
 
 
 def img_path(name):

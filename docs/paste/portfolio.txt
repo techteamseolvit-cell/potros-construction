@@ -525,6 +525,22 @@ body:has(.potros-page){background:#0a0a0a!important}
 .sp-video__frame{max-width:1040px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 90px -40px rgba(176,0,0,.55);background:#000;aspect-ratio:16/9}
 .sp-video__frame video{width:100%;height:100%;display:block;object-fit:cover}
 
+/* Instagram embeds */
+.ig-section{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.ig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(16px,2.4vw,28px);max-width:1180px;margin:0 auto}
+.ig-card{display:grid;gap:10px;justify-items:center}
+.ig-card iframe{width:100%;max-width:400px;height:640px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:#111;display:block}
+.ig-link{font-size:13px;letter-spacing:.08em;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:2px}
+.ig-link:hover{color:var(--red-hot,#e0100f)}
+@media (max-width:520px){.ig-card iframe{height:600px}}
+
+/* reel trio (vertical videos in a row) */
+.reel-trio{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.reel-trio__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.4vw,28px);max-width:1000px;margin:0 auto}
+.reel-trio .sp-reel__frame{width:100%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 70px -40px rgba(176,0,0,.55)}
+.reel-trio video{width:100%;height:100%;display:block;object-fit:cover}
+@media (max-width:760px){.reel-trio__grid{grid-template-columns:1fr;max-width:340px}}
+
 </style>
 <style>
 /* Service pages (template). Same tokens/components as the home (styles.css), different layouts. */
@@ -903,6 +919,22 @@ p,li,figcaption{text-wrap:pretty}
 
 .pg-welcome{padding:var(--sec) 0 0;text-align:center}.pg-welcome .eyebrow{justify-content:center;display:flex}.pg-welcome .h2{font-size:clamp(38px,5.2vw,78px);line-height:1.02}.pg-welcome .lede{max-width:56ch;margin:18px auto 0}
 
+/* Instagram embeds */
+.ig-section{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.ig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(16px,2.4vw,28px);max-width:1180px;margin:0 auto}
+.ig-card{display:grid;gap:10px;justify-items:center}
+.ig-card iframe{width:100%;max-width:400px;height:640px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:#111;display:block}
+.ig-link{font-size:13px;letter-spacing:.08em;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:2px}
+.ig-link:hover{color:var(--red-hot,#e0100f)}
+@media (max-width:520px){.ig-card iframe{height:600px}}
+
+/* reel trio (vertical videos in a row) */
+.reel-trio{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.reel-trio__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.4vw,28px);max-width:1000px;margin:0 auto}
+.reel-trio .sp-reel__frame{width:100%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 70px -40px rgba(176,0,0,.55)}
+.reel-trio video{width:100%;height:100%;display:block;object-fit:cover}
+@media (max-width:760px){.reel-trio__grid{grid-template-columns:1fr;max-width:340px}}
+
 </style>
 <script type="application/ld+json">
 {
@@ -994,6 +1026,18 @@ p,li,figcaption{text-wrap:pretty}
     <div class="sp-video__head rv"><p class="eyebrow"><span class="dot"></span> 3D virtual design</p><h2 id="vid-h2" class="h2">From design to <em>finished space.</em></h2>
       <p class="lede">Every project starts with a realistic 3D virtual tour, so you can approve every detail before we break ground.</p></div>
     <div class="pf-videos"><figure class="pf-vid rv"><div class="sp-video__frame"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-1-poster.webp" aria-label="3D virtual design walkthrough: Deck, patio and screened porch"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-1.mp4" type="video/mp4"></video></div><figcaption>Deck, patio and screened porch</figcaption></figure><figure class="pf-vid rv"><div class="sp-video__frame"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-2-poster.webp" aria-label="3D virtual design walkthrough: Backyard with outdoor kitchen, pergola and landscaping"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-2.mp4" type="video/mp4"></video></div><figcaption>Backyard with outdoor kitchen, pergola and landscaping</figcaption></figure><figure class="pf-vid rv"><div class="sp-video__frame"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-3-poster.webp" aria-label="3D virtual design walkthrough: Patio with circular fire pit, outdoor kitchen and spa"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-3.mp4" type="video/mp4"></video></div><figcaption>Patio with circular fire pit, outdoor kitchen and spa</figcaption></figure><figure class="pf-vid rv"><div class="sp-video__frame"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-4-poster.webp" aria-label="3D virtual design walkthrough: Deck, screened porch and stone fireplace pavilion"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-4.mp4" type="video/mp4"></video></div><figcaption>Deck, screened porch and stone fireplace pavilion</figcaption></figure><figure class="pf-vid rv"><div class="sp-video__frame"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-5-poster.webp" aria-label="3D virtual design walkthrough: Backyard patio with pergola, fire pit and grill island"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-5.mp4" type="video/mp4"></video></div><figcaption>Backyard patio with pergola, fire pit and grill island</figcaption></figure><figure class="pf-vid rv"><div class="sp-video__frame"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-6-poster.webp" aria-label="3D virtual design walkthrough: Covered patio with a stone fireplace"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-6.mp4" type="video/mp4"></video></div><figcaption>Covered patio with a stone fireplace</figcaption></figure><figure class="pf-vid rv"><div class="sp-video__frame"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-7-poster.webp" aria-label="3D virtual design walkthrough: Paver patio with pergola, fire pit and spa"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/design-7.mp4" type="video/mp4"></video></div><figcaption>Paver patio with pergola, fire pit and spa</figcaption></figure></div>
+  </div>
+</section>
+<section class="reel-trio" aria-labelledby="trio-h2">
+  <div class="wrap">
+    <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Behind the scenes</p><h2 id="trio-h2" class="h2">Get to know <em>Potros Construction.</em></h2><p class="lede">Short videos from our team on how we plan, design and build your outdoor space.</p></div>
+    <div class="reel-trio__grid"><div class="sp-reel__frame rv"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-showcase-poster.webp" aria-label="Potros Construction showcase and intro video"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-showcase.mp4" type="video/mp4"></video></div><div class="sp-reel__frame rv"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-jesus1-poster.webp" aria-label="Construction tips from Jesús Trejo, video 1"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-jesus1.mp4" type="video/mp4"></video></div><div class="sp-reel__frame rv"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-jesus2-poster.webp" aria-label="Construction tips from Jesús Trejo, video 2"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-jesus2.mp4" type="video/mp4"></video></div></div>
+  </div>
+</section>
+<section class="ig-section" aria-label="Potros reel">
+  <div class="wrap">
+    <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> On social</p><h2 class="h2">See our work <em>in motion.</em></h2><p class="lede">Recent projects and behind-the-scenes from our Instagram.</p></div>
+    <div class="ig-grid"><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DZKtVe6NZoe/embed" title="Potros reel 1 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DZKtVe6NZoe/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DYVfbjxoLbj/embed" title="Potros reel 2 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DYVfbjxoLbj/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DCFdCRry1Jk/embed" title="Potros reel 3 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DCFdCRry1Jk/" target="_blank" rel="noopener">Watch on Instagram</a></div></div>
   </div>
 </section>
 <section class="reviews" id="reviews" aria-labelledby="reviews-title">

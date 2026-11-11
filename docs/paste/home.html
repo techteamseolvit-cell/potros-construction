@@ -533,6 +533,22 @@ body:has(.potros-page){background:#0a0a0a!important}
 .sp-video__frame{max-width:1040px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 90px -40px rgba(176,0,0,.55);background:#000;aspect-ratio:16/9}
 .sp-video__frame video{width:100%;height:100%;display:block;object-fit:cover}
 
+/* Instagram embeds */
+.ig-section{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.ig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(16px,2.4vw,28px);max-width:1180px;margin:0 auto}
+.ig-card{display:grid;gap:10px;justify-items:center}
+.ig-card iframe{width:100%;max-width:400px;height:640px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:#111;display:block}
+.ig-link{font-size:13px;letter-spacing:.08em;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:2px}
+.ig-link:hover{color:var(--red-hot,#e0100f)}
+@media (max-width:520px){.ig-card iframe{height:600px}}
+
+/* reel trio (vertical videos in a row) */
+.reel-trio{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.reel-trio__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.4vw,28px);max-width:1000px;margin:0 auto}
+.reel-trio .sp-reel__frame{width:100%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 70px -40px rgba(176,0,0,.55)}
+.reel-trio video{width:100%;height:100%;display:block;object-fit:cover}
+@media (max-width:760px){.reel-trio__grid{grid-template-columns:1fr;max-width:340px}}
+
 </style>
 <script type="application/ld+json">
 {
@@ -827,6 +843,24 @@ body:has(.potros-page){background:#0a0a0a!important}
   </div>
 </section>
 
+<!-- REEL TRIO -->
+<section class="reel-trio" aria-labelledby="trio-h2">
+  <div class="wrap">
+    <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Behind the scenes</p><h2 id="trio-h2" class="h2">Get to know <em>Potros Construction.</em></h2><p class="lede">Short videos from our team on how we plan, design and build your outdoor space.</p></div>
+    <div class="reel-trio__grid"><div class="sp-reel__frame rv"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-showcase-poster.webp" aria-label="Potros Construction showcase and intro video"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-showcase.mp4" type="video/mp4"></video></div><div class="sp-reel__frame rv"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-jesus1-poster.webp" aria-label="Construction tips from Jesús Trejo, video 1"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-jesus1.mp4" type="video/mp4"></video></div><div class="sp-reel__frame rv"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-jesus2-poster.webp" aria-label="Construction tips from Jesús Trejo, video 2"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/reel-jesus2.mp4" type="video/mp4"></video></div></div>
+  </div>
+</section>
+<!-- /REEL TRIO -->
+
+<!-- SOCIAL REELS -->
+<section class="ig-section" aria-label="Potros reel">
+  <div class="wrap">
+    <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> On social</p><h2 class="h2">See our work <em>in motion.</em></h2><p class="lede">Recent projects and behind-the-scenes from our Instagram.</p></div>
+    <div class="ig-grid"><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DZKtVe6NZoe/embed" title="Potros reel 1 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DZKtVe6NZoe/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DYVfbjxoLbj/embed" title="Potros reel 2 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DYVfbjxoLbj/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DCFdCRry1Jk/embed" title="Potros reel 3 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DCFdCRry1Jk/" target="_blank" rel="noopener">Watch on Instagram</a></div></div>
+  </div>
+</section>
+<!-- /SOCIAL -->
+
 <!-- TEAM -->
 <section class="pg-team home-team" aria-labelledby="team-h2">
   <div class="wrap">
@@ -835,6 +869,15 @@ body:has(.potros-page){background:#0a0a0a!important}
     <p class="home-team__more rv"><a class="about__link" href="https://potrosconstruction.com/about-us/">More about us <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
+
+<!-- TESTIMONIALS (instagram) -->
+<section class="ig-section" aria-label="Client testimonial">
+  <div class="wrap">
+    <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Client testimonials</p><h2 class="h2">Real clients, <em>real stories.</em></h2></div>
+    <div class="ig-grid"><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DWO9QV5EX1A/embed" title="Client testimonial 1 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DWO9QV5EX1A/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DeCVOlVIFWH/embed" title="Client testimonial 2 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DeCVOlVIFWH/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DduH-x7I1Jj/embed" title="Client testimonial 3 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DduH-x7I1Jj/" target="_blank" rel="noopener">Watch on Instagram</a></div></div>
+  </div>
+</section>
+<p class="home-team__more rv"><a class="about__link" href="https://potrosconstruction.com/reviews/">More testimonials <span aria-hidden="true">→</span></a></p>
 
 <!-- VIDEO TESTIMONIAL -->
 <section class="sp-video home-testi" aria-labelledby="testi-h2">

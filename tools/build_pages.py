@@ -184,6 +184,7 @@ def about():
   </div>
 </section>
 
+{bs.ig_section(bs.IG_SOCIAL, 'Potros reel', 'On social', 'Follow the <em>Potros family.</em>', 'Projects, the team and life on site, straight from our Instagram.')}
 {reviews()}
 {area()}
 

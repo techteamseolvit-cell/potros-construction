@@ -525,6 +525,22 @@ body:has(.potros-page){background:#0a0a0a!important}
 .sp-video__frame{max-width:1040px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 90px -40px rgba(176,0,0,.55);background:#000;aspect-ratio:16/9}
 .sp-video__frame video{width:100%;height:100%;display:block;object-fit:cover}
 
+/* Instagram embeds */
+.ig-section{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.ig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(16px,2.4vw,28px);max-width:1180px;margin:0 auto}
+.ig-card{display:grid;gap:10px;justify-items:center}
+.ig-card iframe{width:100%;max-width:400px;height:640px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:#111;display:block}
+.ig-link{font-size:13px;letter-spacing:.08em;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:2px}
+.ig-link:hover{color:var(--red-hot,#e0100f)}
+@media (max-width:520px){.ig-card iframe{height:600px}}
+
+/* reel trio (vertical videos in a row) */
+.reel-trio{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.reel-trio__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.4vw,28px);max-width:1000px;margin:0 auto}
+.reel-trio .sp-reel__frame{width:100%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 70px -40px rgba(176,0,0,.55)}
+.reel-trio video{width:100%;height:100%;display:block;object-fit:cover}
+@media (max-width:760px){.reel-trio__grid{grid-template-columns:1fr;max-width:340px}}
+
 </style>
 <style>
 /* Service pages (template). Same tokens/components as the home (styles.css), different layouts. */
@@ -903,6 +919,22 @@ p,li,figcaption{text-wrap:pretty}
 
 .pg-welcome{padding:var(--sec) 0 0;text-align:center}.pg-welcome .eyebrow{justify-content:center;display:flex}.pg-welcome .h2{font-size:clamp(38px,5.2vw,78px);line-height:1.02}.pg-welcome .lede{max-width:56ch;margin:18px auto 0}
 
+/* Instagram embeds */
+.ig-section{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.ig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(16px,2.4vw,28px);max-width:1180px;margin:0 auto}
+.ig-card{display:grid;gap:10px;justify-items:center}
+.ig-card iframe{width:100%;max-width:400px;height:640px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:#111;display:block}
+.ig-link{font-size:13px;letter-spacing:.08em;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:2px}
+.ig-link:hover{color:var(--red-hot,#e0100f)}
+@media (max-width:520px){.ig-card iframe{height:600px}}
+
+/* reel trio (vertical videos in a row) */
+.reel-trio{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.reel-trio__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.4vw,28px);max-width:1000px;margin:0 auto}
+.reel-trio .sp-reel__frame{width:100%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 70px -40px rgba(176,0,0,.55)}
+.reel-trio video{width:100%;height:100%;display:block;object-fit:cover}
+@media (max-width:760px){.reel-trio__grid{grid-template-columns:1fr;max-width:340px}}
+
 </style>
 <script type="application/ld+json">
 {
@@ -996,6 +1028,12 @@ p,li,figcaption{text-wrap:pretty}
     <div class="sp-video__head rv"><p class="eyebrow"><span class="dot"></span> Video testimonial</p><h2 id="testi-h2" class="h2">Hear it from <em>our clients.</em></h2>
       <p class="lede">Homeowners in Front Royal, VA share their experience working with Potros Construction.</p></div>
     <div class="sp-video__frame rv"><video controls preload="none" playsinline poster="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/testimonial-front-royal-poster.webp" aria-label="Video testimonial from Front Royal, VA homeowners"><source src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/video/testimonial-front-royal.mp4" type="video/mp4"></video></div>
+  </div>
+</section>
+<section class="ig-section" aria-label="Client testimonial">
+  <div class="wrap">
+    <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Client testimonials</p><h2 class="h2">Real clients, <em>real stories.</em></h2><p class="lede">Watch what homeowners across Winchester say about working with Potros Construction.</p></div>
+    <div class="ig-grid"><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DWO9QV5EX1A/embed" title="Client testimonial 1 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DWO9QV5EX1A/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DeCVOlVIFWH/embed" title="Client testimonial 2 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DeCVOlVIFWH/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DduH-x7I1Jj/embed" title="Client testimonial 3 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DduH-x7I1Jj/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DZIRU42RSGa/embed" title="Client testimonial 4 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DZIRU42RSGa/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DY0IgIbIcSs/embed" title="Client testimonial 5 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DY0IgIbIcSs/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DYZ_z6vIsr_/embed" title="Client testimonial 6 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DYZ_z6vIsr_/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DYfOXulRE71/embed" title="Client testimonial 7 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DYfOXulRE71/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DYXsP3KIX1G/embed" title="Client testimonial 8 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DYXsP3KIX1G/" target="_blank" rel="noopener">Watch on Instagram</a></div><div class="ig-card rv"><iframe src="https://www.instagram.com/reel/DXo3rwKCFcU/embed" title="Client testimonial 9 on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/DXo3rwKCFcU/" target="_blank" rel="noopener">Watch on Instagram</a></div></div>
   </div>
 </section>
 <section class="reviews pg-reviews" id="reviews" aria-labelledby="reviews-title">
