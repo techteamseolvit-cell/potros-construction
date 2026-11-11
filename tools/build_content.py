@@ -249,4 +249,4 @@ def portfolio():
 
 if __name__ == '__main__':
     faq(); reviews_page(); service_area(); guide(); portfolio()   # blog index removed at the client's request
-    legal('privacy-policy', 'Privacy Policy'); legal('terms-and-conditions', 'Terms & Conditions')
+    legal('privacy-policy', 'Privacy Policy'); legal('terms-and-conditions', 'Terms & Conditions', 'hero/terms')
