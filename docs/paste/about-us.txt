@@ -944,6 +944,14 @@ p,li,figcaption{text-wrap:pretty}
 .reel-trio video{width:100%;height:100%;display:block;object-fit:cover}
 @media (max-width:760px){.reel-trio__grid{grid-template-columns:1fr;max-width:340px}}
 
+/* award on About */
+.pg-award{padding:var(--sec) 0 0}
+.pg-award__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);align-items:center;max-width:1100px;margin:0 auto}
+.pg-award__img{margin:0;justify-self:center;width:100%;max-width:520px;border-radius:20px;overflow:hidden;outline:1px solid rgba(255,255,255,.12);outline-offset:-1px;aspect-ratio:1/1;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.pg-award__img img{width:100%;height:100%;object-fit:cover;display:block}
+.pg-award__copy{text-align:left}
+@media (max-width:760px){.pg-award__in{grid-template-columns:1fr;text-align:center}.pg-award__img{max-width:420px}.pg-award__copy{text-align:center}.pg-award__copy .eyebrow{justify-content:center;display:flex}}
+
 </style>
 <script type="application/ld+json">
 {
@@ -1114,6 +1122,17 @@ p,li,figcaption{text-wrap:pretty}
   <div class="wrap">
     <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Meet the team</p><h2 id="team-h2" class="h2">The people <em>behind your project.</em></h2></div>
     <ul class="pg-team__list"><li class="pg-member rv"><figure><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/team/hugo-perez.webp" alt="Hugo Perez, Founder at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>Hugo Perez</b><span>Founder</span></li><li class="pg-member rv"><figure><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/team/jesus-trejo.webp" alt="Jesús Trejo, CEO at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>Jesús Trejo</b><span>CEO</span></li><li class="pg-member rv"><figure><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/team/eduardo-peguero.webp" alt="Eduardo Peguero, Project Manager at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>Eduardo Peguero</b><span>Project Manager</span></li><li class="pg-member rv"><figure><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/team/leydy-arteaga.webp" alt="Leydy Arteaga, Office Manager at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>Leydy Arteaga</b><span>Office Manager</span></li><li class="pg-member rv"><figure><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/team/cris-resendiz.webp" alt="Cris Reséndiz, Sales Representative at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>Cris Reséndiz</b><span>Sales Representative</span></li></ul>
+  </div>
+</section>
+
+<section class="pg-award" aria-labelledby="award-h2">
+  <div class="wrap pg-award__in rv">
+    <figure class="pg-award__img"><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hardscapes/award-businessrate-2026.webp" alt="BusinessRate Best of 2026 award plaque for Potros Construction LLC, Deck Builder, Winchester, Virginia" loading="lazy" decoding="async" width="1100" height="1100"></figure>
+    <div class="pg-award__copy">
+      <p class="eyebrow"><span class="dot"></span> Award winner</p>
+      <h2 id="award-h2" class="h2">Best of 2026: <em>Deck Builder, Winchester VA</em></h2>
+      <p class="lede">Honored to receive this recognition from BusinessRate, built on the trust and reviews of our customers. The standard keeps getting higher.</p>
+    </div>
   </div>
 </section>
 

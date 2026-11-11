@@ -147,6 +147,17 @@ def about():
   </div>
 </section>
 
+<section class="pg-award" aria-labelledby="award-h2">
+  <div class="wrap pg-award__in rv">
+    <figure class="pg-award__img"><img src="{img_path('award-businessrate-2026')}" alt="BusinessRate Best of 2026 award plaque for Potros Construction LLC, Deck Builder, Winchester, Virginia" loading="lazy" decoding="async" width="1100" height="1100"></figure>
+    <div class="pg-award__copy">
+      <p class="eyebrow"><span class="dot"></span> Award winner</p>
+      <h2 id="award-h2" class="h2">Best of 2026: <em>Deck Builder, Winchester VA</em></h2>
+      <p class="lede">Honored to receive this recognition from BusinessRate, built on the trust and reviews of our customers. The standard keeps getting higher.</p>
+    </div>
+  </div>
+</section>
+
 <section class="sp-reel" aria-labelledby="reel-h2">
   <div class="wrap sp-reel__grid">
     <div class="sp-reel__copy rv"><p class="eyebrow"><span class="dot"></span> Our office</p><h2 id="reel-h2" class="h2">Visit us, <em>then see our work.</em></h2><p class="lede">A quick look at the Potros office, the team and the projects behind every estimate.</p></div>
