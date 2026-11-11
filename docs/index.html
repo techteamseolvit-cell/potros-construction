@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap">
 <link rel="preload" as="image" href="assets/video/hero-poster.webp" fetchpriority="high">
-<link rel="stylesheet" href="css/styles.css?v=20261111c">
+<link rel="stylesheet" href="css/styles.css?v=20261111d">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -62,7 +62,98 @@
   }
 }
 </script>
-<!-- SNIPPETS HEAD START --><!-- SNIPPETS HEAD END -->
+<!-- SNIPPETS HEAD START --><script>
+(function () {
+  const KEYS = [
+    "utm_source","utm_medium","utm_campaign","utm_term","utm_content",
+    "utm_id","gclid","gbraid","wbraid","fbclid","ref","msclkid"
+  ];
+  const STORAGE_KEY = "persisted_utm_params_v1";
+
+  function collectFromLocation() {
+    const src = new URLSearchParams(window.location.search);
+    const kept = {};
+    let found = false;
+    KEYS.forEach(k => {
+      if (src.has(k)) { kept[k] = src.get(k); found = true; }
+    });
+    if (found) {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(kept));
+      return kept;
+    }
+    const saved = sessionStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : {};
+  }
+
+  function decorateUrl(href, params) {
+    if (!href) return href;
+    if (href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("javascript:")) return href;
+
+    let url;
+    try { url = new URL(href, window.location.origin); } catch(e){ return href; }
+
+    // Only decorate same-origin links
+    if (url.origin !== window.location.origin) return href;
+
+    Object.keys(params).forEach(k => {
+      if (!url.searchParams.has(k)) {
+        url.searchParams.set(k, params[k]);
+      }
+    });
+    return url.toString();
+  }
+
+  function decorateAll(params, root=document) {
+    if (!params || Object.keys(params).length === 0) return;
+
+    root.querySelectorAll("a[href]").forEach(a => {
+      const newHref = decorateUrl(a.getAttribute("href"), params);
+      if (newHref) a.setAttribute("href", newHref);
+    });
+
+    root.querySelectorAll("form[method='get' i]").forEach(form => {
+      Object.entries(params).forEach(([k,v]) => {
+        if (!form.querySelector(`input[name="${k}"]`)) {
+          const hidden = document.createElement("input");
+          hidden.type = "hidden";
+          hidden.name = k;
+          hidden.value = v;
+          form.appendChild(hidden);
+        }
+      });
+    });
+  }
+
+  function run() {
+    const params = collectFromLocation();
+    decorateAll(params);
+
+    const mo = new MutationObserver(muts => {
+      const p = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "{}");
+      muts.forEach(m => m.addedNodes.forEach(n => {
+        if (n.nodeType === 1) decorateAll(p, n);
+      }));
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run);
+  } else {
+    run();
+  }
+})();
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KX9ZZ2F0RJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KX9ZZ2F0RJ');
+</script>
+<!-- SNIPPETS HEAD END -->
 </head>
 <body class="is-loading">
 <a class="skip" href="#main">Skip to content</a>
@@ -405,7 +496,7 @@
 </footer>
 
 <div class="lb" id="lb" hidden><button class="lb__x" id="lbX" aria-label="Close">×</button><button class="lb__n lb__n--p" id="lbP" aria-label="Previous">←</button><img id="lbImg" alt=""><button class="lb__n" id="lbN" aria-label="Next">→</button></div>
-<script src="js/hero3d.js?v=20261111c"></script>
-<script src="js/main.js?v=20261111c"></script>
+<script src="js/hero3d.js?v=20261111d"></script>
+<script src="js/main.js?v=20261111d"></script>
 </body>
 </html>
