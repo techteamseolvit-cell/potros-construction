@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261111i'          # cache-busting for css/js
+VERSION = '20261111j'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -112,15 +112,15 @@ def snippets_body(prefix='../'):
 </div>
 <style>
 .mobile-buttons{{display:none}}
-@media (max-width:860px){{
-  .mobile-buttons{{display:block;position:fixed;left:0;right:0;bottom:0;z-index:90;padding-bottom:env(safe-area-inset-bottom);background:#0a0a0a;border-top:1px solid rgba(255,255,255,.14)}}
-  .mobile-buttons ul{{list-style:none;margin:0;padding:0;display:flex}}
-  .mobile-buttons li{{flex:1;margin:0}}
-  .mobile-buttons a{{display:block}}
-  .mobile-buttons button{{width:100%;min-height:54px;border:0;margin:0;padding:8px 6px;font:600 13px/1.25 system-ui,sans-serif;color:#fff;cursor:pointer}}
-  .mobile-buttons .button-left{{background:#1a1a1a}}
-  .mobile-buttons .button-right{{background:#b00000}}
-  body{{padding-bottom:54px}}
+@media (max-width:1100px){{
+  .mobile-buttons{{display:flex;position:fixed;top:0;left:0;right:0;z-index:3;width:100%}}
+  .mobile-buttons ul{{list-style:none;margin:0;padding:0;width:100%;display:grid;grid-template-columns:repeat(2,1fr)}}
+  .mobile-buttons li{{margin:0}}
+  .mobile-buttons a{{display:block;text-decoration:none}}
+  .mobile-buttons button{{width:100%;height:70px;border:0;margin:0;font:700 18px/22px system-ui,sans-serif;color:#fff;cursor:pointer}}
+  .mobile-buttons .button-left{{background:#ab0101}}
+  .mobile-buttons .button-right{{background:#000}}
+  .potros-page{{margin-top:70px}}
 }}
 </style>
 <!-- SNIPPETS END -->'''

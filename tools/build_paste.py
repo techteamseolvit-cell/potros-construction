@@ -44,6 +44,13 @@ def wrap_page(t):
     return t.replace('<div class="potros-page">', '<div class="potros-page">' + shim, 1)
 
 
+def strip_snippet_css(t):
+    """The live site already styles .mobile-buttons (global CSS), so the snippet ships without its preview-only <style>."""
+    def f(m):
+        return re.sub(r'<style>.*?</style>', '', m.group(0), flags=re.S)
+    return re.sub(r'<!-- SNIPPETS START -->.*?<!-- SNIPPETS END -->', f, t, flags=re.S)
+
+
 def build(name, linked=False):
     src = 'index.html' if name == 'home' else f'{name}/index.html'
     t = read(src); path = '/' if name == 'home' else f'/{name}/'; base = SITE + path
@@ -62,6 +69,7 @@ def build(name, linked=False):
     t = t.replace(SITE + '/assets/', ASSETS)
     t = t.replace('<meta name="robots" content="noindex,nofollow">', '<meta name="robots" content="index,follow,max-image-preview:large">')
     t = re.sub(r'<!-- PREVIEW[^>]*-->\n?', '', t)
+    t = strip_snippet_css(t)
     t = wrap_page(t)
     if not linked:
         t = encode_scripts(t)
