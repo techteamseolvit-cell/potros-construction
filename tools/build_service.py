@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261111k'          # cache-busting for css/js
+VERSION = '20261111m'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -123,23 +123,38 @@ NAV_SERVICES = [('hardscapes', 'Hardscapes')]    # items shown in the top menu (
 LIVE_SERVICES = [('hardscapes', 'Hardscapes'), ('patios', 'Patios'), ('decks', 'Decks'), ('porches', 'Porches'), ('landscaping', 'Landscaping'), ('fireplaces', 'Fireplaces'), ('pools', 'Pools')]   # pages that exist (footer + related links)
 
 
-def nav(current=None):
+ALL_SERVICES = [('hardscapes', 'Hardscapes'), ('patios', 'Patios'), ('decks', 'Decks'), ('porches', 'Porches'), ('fireplaces', 'Fireplaces'), ('landscaping', 'Landscaping'), ('pools', 'Pools')]
+MENU = [('portfolio', 'Portfolio', 'portfolio/'), ('about', 'About Us', 'about-us/'), ('reviews', 'Reviews', 'reviews/'), ('area', 'Service Area', 'service-area/'),
+        ('faq', 'FAQ', 'faq/'), ('blog', 'Blog', 'blog/'), ('contact', 'Contact Us', 'contact-us/')]
+
+
+def nav(current=None, prefix='../'):
     def cur(name):
         return ' aria-current="page"' if current == name else ''
+    home = prefix or './'
+    svc_cur = ' aria-current="page"' if current in {s for s, _ in ALL_SERVICES} else ''
+    sub = ''.join(f'<a href="{prefix}{s}-winchester-va/"{cur(s)}>{l}</a>' for s, l in ALL_SERVICES)
+    links = ''.join(f'<a href="{prefix}{u}"{cur(k)}>{l}</a>' for k, l, u in MENU)
+    drawer_svc = ''.join(f'<a href="{prefix}{s}-winchester-va/">{l}</a>' for s, l in ALL_SERVICES)
+    drawer_main = ''.join(f'<a href="{prefix}{u}">{l}</a>' for k, l, u in MENU)
     return f'''<header class="nav" id="nav">
-  <a class="nav__logo" href="../" aria-label="Potros Construction, home"><img src="../assets/logo.png" alt="Potros Construction LLC" width="140" height="41"></a>
+  <a class="nav__logo" href="{home}" aria-label="Potros Construction, home"><img src="{prefix}assets/logo.png" alt="Potros Construction LLC" width="170" height="50"></a>
   <nav class="nav__links" aria-label="Primary">
-    <a href="../"{cur('home')}>Home</a>
-    {''.join(f'<a href="../{sl}-winchester-va/"{cur(sl)}>{l}</a>' for sl, l in NAV_SERVICES)}
-    <a href="../about-us/"{cur('about')}>About Us</a>
-    <a href="../contact-us/"{cur('contact')}>Contact Us</a>
+    <a href="{home}"{cur('home')}>Home</a>
+    <div class="nav__dd">
+      <a href="{prefix}#services"{svc_cur} aria-haspopup="true">Services <i class="nav__caret" aria-hidden="true"></i></a>
+      <div class="nav__menu">{sub}</div>
+    </div>
+    {links}
   </nav>
   <a class="nav__phone" href="tel:{PHONE_HREF}">{PHONE}</a>
-  <a class="btn btn--sm" href="../contact-us/">Free Estimate</a>
+  <a class="btn btn--sm" href="{prefix}contact-us/">Free Estimate</a>
   <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
 </header>
 <div class="drawer" id="drawer">
-  <a href="../">Home</a>{''.join(f'<a href="../{s}-winchester-va/">{l}</a>' for s, l in NAV_SERVICES)}<a href="../about-us/">About Us</a><a href="../contact-us/">Contact Us</a>
+  <a href="{home}">Home</a>
+  <p class="drawer__h">Services</p><div class="drawer__sub">{drawer_svc}</div>
+  {drawer_main}
   <a class="drawer__tel" href="tel:{PHONE_HREF}">{PHONE}</a>
 </div>'''
 
