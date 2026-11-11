@@ -453,6 +453,15 @@ body.ready .hero__sub{transition-delay:.7s}body.ready .hero__cta{transition-dela
 
 @keyframes hudFill{to{transform:scaleX(1)}}
 
+/* Fail-safe: if the page script never runs (blocked/mangled by a CMS), the loader leaves and content shows after a few seconds */
+@keyframes fsLoader{to{opacity:0;visibility:hidden;pointer-events:none}}
+@keyframes fsShow{to{opacity:1;transform:none}}
+@keyframes fsScroll{to{overflow:visible}}
+.loader{animation:fsLoader .4s 6s forwards}
+body.is-loading{animation:fsScroll .01s 6s forwards}
+.rv,.reveal-up{animation:fsShow .01s 7s forwards}
+.line__in{animation:fsShow .01s 7s forwards}
+
 </style>
 <style>
 /* Service pages (template). Same tokens/components as the home (styles.css), different layouts. */

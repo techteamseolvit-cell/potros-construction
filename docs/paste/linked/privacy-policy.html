@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Privacy Policy | Potros Construction</title>
+<meta name="description" content="Review Potros Construction’s Privacy Policy to understand how we protect your information online and through our services.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://potrosconstruction.com/privacy-policy/">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:type" content="website"><meta property="og:title" content="Privacy Policy | Potros Construction"><meta property="og:description" content="Review Potros Construction’s Privacy Policy to understand how we protect your information online and through our services."><meta property="og:url" content="https://potrosconstruction.com/privacy-policy/">
+<meta property="og:image" content="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/legal.webp"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/icon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://techteamseolvit-cell.github.io/potros-construction/docs/css/styles.css?v=20261111e">
+<link rel="stylesheet" href="https://techteamseolvit-cell.github.io/potros-construction/docs/css/service.css?v=20261111e">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "url": "https://potrosconstruction.com/privacy-policy/",
+   "name": "Privacy Policy"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://potrosconstruction.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Privacy Policy",
+     "item": "https://potrosconstruction.com/privacy-policy/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- SNIPPETS HEAD START --><script>
+(function () {
+  const KEYS = [
+    "utm_source","utm_medium","utm_campaign","utm_term","utm_content",
+    "utm_id","gclid","gbraid","wbraid","fbclid","ref","msclkid"
+  ];
+  const STORAGE_KEY = "persisted_utm_params_v1";
+
+  function collectFromLocation() {
+    const src = new URLSearchParams(window.location.search);
+    const kept = {};
+    let found = false;
+    KEYS.forEach(k => {
+      if (src.has(k)) { kept[k] = src.get(k); found = true; }
+    });
+    if (found) {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(kept));
+      return kept;
+    }
+    const saved = sessionStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : {};
+  }
+
+  function decorateUrl(href, params) {
+    if (!href) return href;
+    if (href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("javascript:")) return href;
+
+    let url;
+    try { url = new URL(href, window.location.origin); } catch(e){ return href; }
+
+    // Only decorate same-origin links
+    if (url.origin !== window.location.origin) return href;
+
+    Object.keys(params).forEach(k => {
+      if (!url.searchParams.has(k)) {
+        url.searchParams.set(k, params[k]);
+      }
+    });
+    return url.toString();
+  }
+
+  function decorateAll(params, root=document) {
+    if (!params || Object.keys(params).length === 0) return;
+
+    root.querySelectorAll("a[href]").forEach(a => {
+      const newHref = decorateUrl(a.getAttribute("href"), params);
+      if (newHref) a.setAttribute("href", newHref);
+    });
+
+    root.querySelectorAll("form[method='get' i]").forEach(form => {
+      Object.entries(params).forEach(([k,v]) => {
+        if (!form.querySelector(`input[name="${k}"]`)) {
+          const hidden = document.createElement("input");
+          hidden.type = "hidden";
+          hidden.name = k;
+          hidden.value = v;
+          form.appendChild(hidden);
+        }
+      });
+    });
+  }
+
+  function run() {
+    const params = collectFromLocation();
+    decorateAll(params);
+
+    const mo = new MutationObserver(muts => {
+      const p = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "{}");
+      muts.forEach(m => m.addedNodes.forEach(n => {
+        if (n.nodeType === 1) decorateAll(p, n);
+      }));
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run);
+  } else {
+    run();
+  }
+})();
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KX9ZZ2F0RJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KX9ZZ2F0RJ');
+</script>
+<!-- SNIPPETS HEAD END -->
+</head>
+<body class="sp pg-legalpage">
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <a class="nav__logo" href="https://potrosconstruction.com/" aria-label="Potros Construction, home"><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/logo.png" alt="Potros Construction LLC" width="140" height="41"></a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="https://potrosconstruction.com/">Home</a>
+    <a href="https://potrosconstruction.com/hardscapes-winchester-va/">Hardscapes</a>
+    <a href="https://potrosconstruction.com/about-us/">About Us</a>
+    <a href="https://potrosconstruction.com/contact-us/">Contact Us</a>
+  </nav>
+  <a class="nav__phone" href="tel:+15405148725">(540) 514-8725</a>
+  <a class="btn btn--sm" href="https://potrosconstruction.com/contact-us/">Free Estimate</a>
+  <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+<div class="drawer" id="drawer">
+  <a href="https://potrosconstruction.com/">Home</a><a href="https://potrosconstruction.com/hardscapes-winchester-va/">Hardscapes</a><a href="https://potrosconstruction.com/about-us/">About Us</a><a href="https://potrosconstruction.com/contact-us/">Contact Us</a>
+  <a class="drawer__tel" href="tel:+15405148725">(540) 514-8725</a>
+</div>
+<main id="main">
+
+<section class="sp-hero pg-hero" aria-labelledby="sp-h1">
+  <div class="sp-hero__bg" aria-hidden="true"><img src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/hero/legal.webp" alt="" width="1800" height="750" fetchpriority="high" decoding="async"></div>
+  <div class="sp-hero__shade" aria-hidden="true"></div>
+  <div class="wrap sp-hero__in">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="https://potrosconstruction.com/">Home</a><span>/</span><b aria-current="page">Privacy Policy</b></nav>
+    <h1 id="sp-h1" class="sp-h1">Privacy Policy</h1>
+    
+    
+  </div>
+  
+</section>
+<article class="pg-article pg-article--legal"><div class="wrap"><div class="pg-prose"><p>Privacy Policy and Terms &amp; Conditions</p><h3>Who We Are</h3><p>Our website address is: https://potrosconstruction.com.</p><h3>Comments</h3><p>When visitors leave comments on our website, we collect the information provided in the comments form, the visitor’s IP address, and browser user-agent data to assist with spam detection.</p><p>An anonymized string created from your email address (also known as a hash) may be provided to the Gravatar service to determine if you are using it. The Gravatar privacy policy can be viewed at https://automattic.com/privacy/. Once your comment is approved, your profile picture will be visible publicly in the context of your comment.</p><h3>Media Uploads</h3><p>If you upload images to the website, please avoid including images with embedded location data (EXIF GPS). Visitors to our website can download and extract any location data contained within images published on the site.</p><h3>Cookies</h3><p>If you leave a comment, you have the option to save your name, email address, and website details in cookies. These cookies enhance your convenience, allowing your details to auto-fill when you comment again. These cookies remain active for one year.</p><p>When accessing our login page, a temporary cookie is set to verify if your browser accepts cookies. This cookie contains no personal data and is deleted when you close your browser.</p><p>Upon logging in, we set several cookies to save your login credentials and your screen display preferences. Login cookies remain active for two days, while screen option cookies last one year. Selecting the “Remember Me” option extends your login persistence to two weeks. Logging out will clear these login cookies.</p><p>If you edit or publish an article, an additional cookie is stored in your browser, containing no personal data but simply noting the post ID of the article edited. This cookie expires after one day.</p><h3>Embedded Content From External Sites</h3><p>Articles published on our website may contain embedded content such as videos, images, and articles from external websites. Embedded content behaves exactly as if the visitor had visited the external website directly.</p><p>These external websites may collect data about you, use cookies, embed third-party tracking mechanisms, and monitor your interactions with the embedded content. This includes tracking interactions if you are logged into an account on that external website.</p><h3>Microsoft Clarity</h3><p>We partner with Microsoft Clarity and Microsoft Advertising to capture how you use and interact with our website through behavioral metrics, heatmaps, and session replay to improve user experience. Website usage data is captured using first and third-party cookies and other tracking technologies to determine the popularity of pages/products and online activity. Additionally, we use this information for site optimization, fraud/security purposes, and advertising. For more information about how Microsoft collects and uses your data, please visit the Microsoft Privacy Statement.</p><h3>Sharing Your Data</h3><p>If you request a password reset, your IP address will be included in the reset email sent to you.</p><h3>Data Retention</h3><p>Comments and their associated metadata are retained indefinitely. This enables us to recognize and approve follow-up comments automatically without placing them into moderation queues.</p><p>For registered users (if any), we store the personal details provided within user profiles. Users can view, edit, or delete their personal information at any time (with the exception of usernames, which cannot be changed). Website administrators can also view and edit this information.</p><h3>Your Rights Regarding Your Data</h3><p>If you have an account or have left comments on our website, you have the right to request an export file containing the personal data we hold about you, including any data you provided to us. You may also request the deletion of your personal data. This does not include data we are required to retain for administrative, legal, or security purposes.</p><h3>Where Your Data is Sent</h3><p>Visitor comments may be processed through an automated spam detection service.</p></div></div></article>
+<!-- SNIPPETS START -->
+<div class="mobile-visible mobile-buttons uk-sticky">
+	<ul>
+		<li><a href="tel:5405148725"><button class="button-left">Call Now <br>(540) 514-8725</button></a></li>
+		<li><a href="https://potrosconstruction.com/contact-us/"><button class="button-right">Build Your Dream Space Now!</button></a></li>
+	</ul>
+</div>
+<style>
+.mobile-buttons{display:none}
+@media (max-width:860px){
+  .mobile-buttons{display:block;position:fixed;left:0;right:0;bottom:0;z-index:90;padding-bottom:env(safe-area-inset-bottom);background:#0a0a0a;border-top:1px solid rgba(255,255,255,.14)}
+  .mobile-buttons ul{list-style:none;margin:0;padding:0;display:flex}
+  .mobile-buttons li{flex:1;margin:0}
+  .mobile-buttons a{display:block}
+  .mobile-buttons button{width:100%;min-height:54px;border:0;margin:0;padding:8px 6px;font:600 13px/1.25 system-ui,sans-serif;color:#fff;cursor:pointer}
+  .mobile-buttons .button-left{background:#1a1a1a}
+  .mobile-buttons .button-right{background:#b00000}
+  body{padding-bottom:54px}
+}
+</style>
+<!-- SNIPPETS END -->
+</main>
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand"><img class="footer__emblem" src="https://techteamseolvit-cell.github.io/potros-construction/docs/assets/emblem.png" alt="" width="84" height="93"><p class="footer__note">Custom hardscapes and outdoor living in Winchester, VA and surrounding communities.</p></div>
+    <div><h3>Services</h3><a href="https://potrosconstruction.com/hardscapes-winchester-va/">Hardscapes</a><a href="https://potrosconstruction.com/patios-winchester-va/">Patios</a><a href="https://potrosconstruction.com/decks-winchester-va/">Decks</a><a href="https://potrosconstruction.com/porches-winchester-va/">Porches</a><a href="https://potrosconstruction.com/landscaping-winchester-va/">Landscaping</a><a href="https://potrosconstruction.com/fireplaces-winchester-va/">Fireplaces</a><a href="https://potrosconstruction.com/pools-winchester-va/">Pools</a></div>
+    <div><h3>Company</h3><a href="https://potrosconstruction.com/about-us/">About us</a><a href="https://potrosconstruction.com/portfolio/">Portfolio</a><a href="https://potrosconstruction.com/reviews/">Reviews</a><a href="https://potrosconstruction.com/service-area/">Service area</a><a href="https://potrosconstruction.com/faq/">FAQ</a><a href="https://potrosconstruction.com/blog/">Blog</a><a href="https://potrosconstruction.com/contact-us/">Contact us</a></div>
+    <div><h3>Visit</h3><address>704 Baker Ln, Suite 5<br>Winchester, VA 22603</address><a href="tel:+15405148725">(540) 514-8725</a><p>Mon–Sat · 8:00 AM – 6:00 PM<br>Sunday closed</p></div>
+  </div>
+  <div class="wrap footer__bar"><span>© 2026 Potros Construction LLC</span><span><a href="https://potrosconstruction.com/privacy-policy/">Privacy</a> · <a href="https://potrosconstruction.com/terms-and-conditions/">Terms</a></span></div>
+</footer>
+<div class="lb" id="lb" hidden><button class="lb__x" id="lbX" aria-label="Close">×</button><button class="lb__n lb__n--p" id="lbP" aria-label="Previous">←</button><img id="lbImg" alt=""><button class="lb__n" id="lbN" aria-label="Next">→</button></div>
+<script src="https://techteamseolvit-cell.github.io/potros-construction/docs/js/service.js?v=20261111e"></script>
+</body>
+</html>

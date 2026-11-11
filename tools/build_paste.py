@@ -21,7 +21,7 @@ def read(rel):
     return open(os.path.join(DOCS, rel), encoding='utf-8').read()
 
 
-def build(name):
+def build(name, linked=False):
     src = 'index.html' if name == 'home' else f'{name}/index.html'
     t = read(src); path = '/' if name == 'home' else f'/{name}/'; base = SITE + path
     css_dir = '' if name == 'home' else '../'
@@ -30,20 +30,24 @@ def build(name):
         c = read('css/' + m.group(1))
         c = re.sub(r'url\((?![\'"]?(?:https?:|data:))([^)]+)\)', lambda x: 'url(' + absolutize(x.group(1).strip('\'"'), SITE + '/css/x.css') + ')', c)
         return f'<style>\n{c}\n</style>'
-    t = re.sub(r'<link rel="stylesheet" href="(?:\.\./)?css/([a-z]+\.css)(?:\?[^"]*)?">', css, t)
-    t = re.sub(r'<script src="(?:\.\./)?js/([a-z0-9]+\.js)(?:\?[^"]*)?"></script>', lambda m: f'<script>\n{read("js/" + m.group(1))}\n</script>', t)
+    if not linked:
+        t = re.sub(r'<link rel="stylesheet" href="(?:\.\./)?css/([a-z]+\.css)(?:\?[^"]*)?">', css, t)
+        t = re.sub(r'<script src="(?:\.\./)?js/([a-z0-9]+\.js)(?:\?[^"]*)?"></script>', lambda m: f'<script>\n{read("js/" + m.group(1))}\n</script>', t)
+    else:
+        t = re.sub(r'(href|src)="(?:\.\./)?((?:css|js)/[a-z0-9]+\.(?:css|js))(\?[^"]*)?"', lambda m: f'{m.group(1)}="{ASSETS[:-len("assets/")]}{m.group(2)}{m.group(3) or ""}"', t)
     t = re.sub(r'(?<=\s)(src|href|poster)="([^"]+)"', lambda m: f'{m.group(1)}="{absolutize(m.group(2), base)}"', t)
     t = t.replace(SITE + '/assets/', ASSETS)
     t = t.replace('<meta name="robots" content="noindex,nofollow">', '<meta name="robots" content="index,follow,max-image-preview:large">')
     t = re.sub(r'<!-- PREVIEW[^>]*-->\n?', '', t)
-    os.makedirs(OUT, exist_ok=True)
-    open(os.path.join(OUT, name + '.html'), 'w', encoding='utf-8').write(t)
+    outdir = os.path.join(OUT, 'linked') if linked else OUT
+    os.makedirs(outdir, exist_ok=True)
+    open(os.path.join(outdir, name + '.html'), 'w', encoding='utf-8').write(t)
     return len(t)
 
 
 if __name__ == '__main__':
     for n in PAGES:
-        print(n.ljust(34), build(n) // 1024, 'KB')
+        print(n.ljust(34), build(n) // 1024, 'KB', build(n, True) // 1024, 'KB linked')
 
 
 def index():
@@ -65,6 +69,7 @@ button,.btn{{min-height:44px;min-width:130px;border:0;border-radius:8px;backgrou
 .g{{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-top:16px}}figure{{margin:0;border:1px solid var(--ln);border-radius:12px;overflow:hidden;display:grid}}figure img{{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}}figcaption{{padding:8px 12px 0;font-size:14px}}figure a{{padding:6px 12px 12px;font-size:14px}}</style></head><body><main>
 <h1>HTML y recursos</h1><p>Cada página es un archivo completo y autocontenido (CSS y JavaScript dentro; imágenes y videos por dirección absoluta). Pulsa <b>Copiar HTML</b>, pega en tu editor y se ve todo. Con <b>Ver código</b> lees el HTML en el navegador; con <b>Descargar</b> bajas el archivo.</p>
 <p><a class="btn" href="potros-paginas-html.zip" download>Descargar las 18 páginas (.zip)</a></p>
+<p>¿La página se queda en “0 %” o el editor altera el código? Usa la <b>versión ligera</b> (<a href="linked/home.html">ejemplo: home</a>): el CSS y el JavaScript se cargan por enlace en vez de ir dentro del HTML. Misma ruta con <code>linked/NOMBRE.html</code> para cada página.</p>
 <table>{rows}</table>
 <h2>Imágenes nuevas</h2><p>Descárgalas una por una.</p><div class="g">{imgs}</div></main>
 <script>document.addEventListener('click',function(e){{var b=e.target.closest('button[data-f]');if(!b)return;b.textContent='Copiando…';fetch(b.dataset.f).then(function(r){{return r.text()}}).then(function(t){{return navigator.clipboard.writeText(t)}}).then(function(){{b.textContent='¡Copiado!';b.classList.add('ok');setTimeout(function(){{b.textContent='Copiar HTML';b.classList.remove('ok')}},1800)}}).catch(function(){{b.textContent='Error: usa Descargar'}})}});</script></body></html>'''
