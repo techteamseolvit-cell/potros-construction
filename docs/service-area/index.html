@@ -14,8 +14,8 @@
 <link rel="icon" href="../assets/icon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="../assets/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="../css/styles.css?v=20261111b">
-<link rel="stylesheet" href="../css/service.css?v=20261111b">
+<link rel="stylesheet" href="../css/styles.css?v=20261111c">
+<link rel="stylesheet" href="../css/service.css?v=20261111c">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -73,6 +73,7 @@
  ]
 }
 </script>
+<!-- SNIPPETS HEAD START --><!-- SNIPPETS HEAD END -->
 </head>
 <body class="sp pg-areapage">
 <a class="skip" href="#main">Skip to content</a>
@@ -126,6 +127,27 @@
     <div class="cta__row"><a class="btn" href="../contact-us/">Ask us</a><a class="cta__tel" href="tel:+15405148725">Call (540) 514-8725</a></div>
   </div>
 </section>
+<!-- SNIPPETS START -->
+<div class="mobile-visible mobile-buttons uk-sticky">
+	<ul>
+		<li><a href="tel:5405148725"><button class="button-left">Call Now <br>(540) 514-8725</button></a></li>
+		<li><a href="../contact-us/"><button class="button-right">Build Your Dream Space Now!</button></a></li>
+	</ul>
+</div>
+<style>
+.mobile-buttons{display:none}
+@media (max-width:860px){
+  .mobile-buttons{display:block;position:fixed;left:0;right:0;bottom:0;z-index:90;padding-bottom:env(safe-area-inset-bottom);background:#0a0a0a;border-top:1px solid rgba(255,255,255,.14)}
+  .mobile-buttons ul{list-style:none;margin:0;padding:0;display:flex}
+  .mobile-buttons li{flex:1;margin:0}
+  .mobile-buttons a{display:block}
+  .mobile-buttons button{width:100%;min-height:54px;border:0;margin:0;padding:8px 6px;font:600 13px/1.25 system-ui,sans-serif;color:#fff;cursor:pointer}
+  .mobile-buttons .button-left{background:#1a1a1a}
+  .mobile-buttons .button-right{background:#b00000}
+  body{padding-bottom:54px}
+}
+</style>
+<!-- SNIPPETS END -->
 </main>
 <footer class="footer">
   <div class="wrap footer__grid">
@@ -137,6 +159,6 @@
   <div class="wrap footer__bar"><span>© 2026 Potros Construction LLC</span><span><a href="../privacy-policy/">Privacy</a> · <a href="../terms-and-conditions/">Terms</a></span></div>
 </footer>
 <div class="lb" id="lb" hidden><button class="lb__x" id="lbX" aria-label="Close">×</button><button class="lb__n lb__n--p" id="lbP" aria-label="Previous">←</button><img id="lbImg" alt=""><button class="lb__n" id="lbN" aria-label="Next">→</button></div>
-<script src="../js/service.js?v=20261111b"></script>
+<script src="../js/service.js?v=20261111c"></script>
 </body>
 </html>

@@ -63,6 +63,7 @@ def page(title, desc, url, og, schema, body, cls, current):
 {nav(current)}
 <main id="main">
 {body}
+{bs.snippets_body()}
 </main>
 {footer()}
 {LB}

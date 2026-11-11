@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261111b'          # cache-busting for css/js
+VERSION = '20261111c'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -98,6 +98,34 @@ SERVICES = {
 e = html.escape
 
 
+SNIPPETS_HEAD = ''   # paste third-party <head> code here (analytics, pixels...)
+
+
+def snippets_body(prefix='../'):
+    """Client snippets live INSIDE <main>, so they survive when the header and footer are replaced."""
+    return f'''<!-- SNIPPETS START -->
+<div class="mobile-visible mobile-buttons uk-sticky">
+	<ul>
+		<li><a href="tel:5405148725"><button class="button-left">Call Now <br>(540) 514-8725</button></a></li>
+		<li><a href="{prefix}contact-us/"><button class="button-right">Build Your Dream Space Now!</button></a></li>
+	</ul>
+</div>
+<style>
+.mobile-buttons{{display:none}}
+@media (max-width:860px){{
+  .mobile-buttons{{display:block;position:fixed;left:0;right:0;bottom:0;z-index:90;padding-bottom:env(safe-area-inset-bottom);background:#0a0a0a;border-top:1px solid rgba(255,255,255,.14)}}
+  .mobile-buttons ul{{list-style:none;margin:0;padding:0;display:flex}}
+  .mobile-buttons li{{flex:1;margin:0}}
+  .mobile-buttons a{{display:block}}
+  .mobile-buttons button{{width:100%;min-height:54px;border:0;margin:0;padding:8px 6px;font:600 13px/1.25 system-ui,sans-serif;color:#fff;cursor:pointer}}
+  .mobile-buttons .button-left{{background:#1a1a1a}}
+  .mobile-buttons .button-right{{background:#b00000}}
+  body{{padding-bottom:54px}}
+}}
+</style>
+<!-- SNIPPETS END -->'''
+
+
 def img_path(name):
     return f'../assets/{name}.webp' if '/' in name else f'../assets/hardscapes/{name}.webp'
 
@@ -169,6 +197,7 @@ def head(title, description, canonical, og_image, schema_json):
 <script type="application/ld+json">
 {schema_json}
 </script>
+<!-- SNIPPETS HEAD START -->{SNIPPETS_HEAD}<!-- SNIPPETS HEAD END -->
 </head>'''
 
 
@@ -277,6 +306,7 @@ def render(s):
 <script type="application/ld+json">
 {schema(s)}
 </script>
+<!-- SNIPPETS HEAD START -->{SNIPPETS_HEAD}<!-- SNIPPETS HEAD END -->
 </head>
 <body class="sp">
 <a class="skip" href="#main">Skip to content</a>
@@ -393,6 +423,7 @@ def render(s):
   </div>
 </section>
 
+{snippets_body()}
 </main>
 {footer()}
 <div class="lb" id="lb" hidden><button class="lb__x" id="lbX" aria-label="Close">×</button><button class="lb__n lb__n--p" id="lbP" aria-label="Previous">←</button><img id="lbImg" alt=""><button class="lb__n" id="lbN" aria-label="Next">→</button></div>
