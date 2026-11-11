@@ -132,6 +132,14 @@ def about():
   </div>
 </section>
 
+<section class="pg-welcome" aria-labelledby="welcome-h2">
+  <div class="wrap">
+    <p class="eyebrow rv"><span class="dot"></span> Welcome</p>
+    <h2 id="welcome-h2" class="h2 rv">Welcome to the <em>Potros family.</em></h2>
+    <p class="lede rv">Every client who works with us becomes part of our story. We build each project the way we would build it for our own family.</p>
+  </div>
+</section>
+
 <section class="pg-team" aria-labelledby="team-h2">
   <div class="wrap">
     <div class="pg-center rv"><p class="eyebrow"><span class="dot"></span> Meet the team</p><h2 id="team-h2" class="h2">The people <em>behind your project.</em></h2></div>

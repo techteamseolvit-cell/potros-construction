@@ -505,6 +505,26 @@ body:has(.potros-page){background:#0a0a0a!important}
 .drawer__sub a{font-size:clamp(20px,5.4vw,26px);color:rgba(255,255,255,.85)}
 .drawer__sub a{padding:5px 0}.drawer>a{padding:2px 0}
 
+/* team + video testimonial blocks on the home */
+.pg-center{text-align:center;max-width:760px;margin:0 auto clamp(34px,4.5vw,64px)}
+.pg-center .eyebrow{display:flex;justify-content:center;width:100%}
+.pg-team{padding:var(--sec) 0}
+.pg-team__list{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(18px,3vw,36px);max-width:1100px;margin:0 auto}
+.pg-member{grid-column:span 2;display:grid;gap:4px}
+.pg-member:nth-child(4){grid-column:2 / span 2}.pg-member:nth-child(5){grid-column:4 / span 2}
+.pg-member figure{margin:0 0 14px;border-radius:16px;overflow:hidden;background:#000;aspect-ratio:4/5;outline:1px solid rgba(255,255,255,.1);outline-offset:-1px}
+.pg-member img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.pg-member b{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.3vw,32px);line-height:1.1}
+.pg-member span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.home-team__more{text-align:center;margin-top:clamp(28px,4vw,48px)}
+@media (max-width:899px){.pg-team__list{grid-template-columns:repeat(2,1fr);gap:14px}.pg-member,.pg-member:nth-child(4),.pg-member:nth-child(5){grid-column:auto}.pg-member:last-child:nth-child(odd){grid-column:1 / -1;max-width:50%;justify-self:center}.pg-member b{font-size:22px}}
+.sp-video{padding:var(--sec) 0;border-top:1px solid var(--line);background:linear-gradient(180deg,var(--ink),#120000 60%,var(--ink))}
+.sp-video__head{text-align:center;max-width:760px;margin:0 auto clamp(30px,4vw,54px)}
+.sp-video__head .eyebrow{justify-content:center;display:flex;width:100%}
+.sp-video__head .lede{margin:14px auto 0}
+.sp-video__frame{max-width:1040px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 90px -40px rgba(176,0,0,.55);background:#000;aspect-ratio:16/9}
+.sp-video__frame video{width:100%;height:100%;display:block;object-fit:cover}
+
 </style>
 <style>
 /* Service pages (template). Same tokens/components as the home (styles.css), different layouts. */
@@ -880,6 +900,8 @@ p,li,figcaption{text-wrap:pretty}
 .sp-reel__frame{width:min(340px,80vw);aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 90px -40px rgba(176,0,0,.55)}
 .sp-reel__frame video{width:100%;height:100%;display:block;object-fit:cover}
 @media (max-width:760px){.sp-reel__grid{grid-template-columns:1fr;justify-items:center;text-align:center}.sp-reel__copy .eyebrow{justify-content:center}}
+
+.pg-welcome{padding:var(--sec) 0 0;text-align:center}.pg-welcome .eyebrow{justify-content:center;display:flex}.pg-welcome .h2{font-size:clamp(38px,5.2vw,78px);line-height:1.02}.pg-welcome .lede{max-width:56ch;margin:18px auto 0}
 
 </style>
 <script type="application/ld+json">
