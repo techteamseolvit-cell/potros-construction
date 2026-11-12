@@ -80,12 +80,12 @@ def crumbs_schema(name, url):
 
 
 # ───────────────────────── ABOUT ─────────────────────────
-TEAM = [('Hugo Perez', 'Founder', 'hugo-perez'), ('Jesús Trejo', 'CEO', 'jesus-trejo'), ('Eduardo Peguero', 'Project Manager', 'eduardo-peguero'), ('Leydy Arteaga', 'Office Manager', 'leydy-arteaga'), ('Cris Reséndiz', 'Sales Representative', 'cris-resendiz')]   # add (name, role, photo slug) here
+TEAM = [('Hugo Perez', 'Founder', 'hugo-perez'), ('Jesús Trejo', 'CEO', 'jesus-trejo'), ('Eduardo Peguero', 'Project Manager', 'eduardo-peguero'), ('Leydy Arteaga', 'Office Manager', 'leydy-arteaga'), ('Cris Reséndiz', 'Sales Representative', 'cris-resendiz'), ('Alex Estrada', '', 'alex-estrada')]   # add (name, role, photo slug) here
 
 
 def about():
     url = SITE + '/about-us/'
-    team_cards = ''.join(f'<li class="pg-member rv"><figure><img src="../assets/team/{sl}.webp" alt="{e(n)}, {e(r)} at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>{e(n)}</b><span>{e(r)}</span></li>' for n, r, sl in TEAM)
+    team_cards = ''.join(f'<li class="pg-member rv"><figure><img src="../assets/team/{sl}.webp" alt="{e(n)}{(", " + e(r)) if r else ""} at Potros Construction" loading="lazy" decoding="async" width="1086" height="1388"></figure><b>{e(n)}</b>{("<span>" + e(r) + "</span>") if r else ""}</li>' for n, r, sl in TEAM)
     values = [('Work honestly', 'Clear scopes, straight answers and a written schedule before work begins. No surprises on the site or on the invoice.'),
               ('Treat others with respect', 'Your home, your time and your budget come first. Our crew leaves every property as clean as it was found.'),
               ('Take pride in everything we do', 'From the base under a paver to the last cap on a wall, the details nobody sees are the ones we care about most.')]
@@ -208,7 +208,7 @@ def about():
   </div>
 </section>'''
     schema = {'@context': 'https://schema.org', '@graph': [
-        *[{'@type': 'Person', 'name': n, 'jobTitle': r, 'image': f'{SITE}/assets/team/{sl}.webp', 'worksFor': {'@id': SITE + '/#business'}} for n, r, sl in TEAM],
+        *[{'@type': 'Person', 'name': n, **({'jobTitle': r} if r else {}), 'image': f'{SITE}/assets/team/{sl}.webp', 'worksFor': {'@id': SITE + '/#business'}} for n, r, sl in TEAM],
         {'@type': 'AboutPage', '@id': url + '#page', 'url': url, 'name': 'About Potros Construction',
          'about': {'@type': 'GeneralContractor', '@id': SITE + '/#business', 'name': 'Potros Construction LLC', 'telephone': '+1-540-514-8725'}},
         crumbs_schema('About Us', url)]}
