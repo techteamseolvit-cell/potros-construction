@@ -404,3 +404,6 @@ p,li,figcaption{text-wrap:pretty}
 .ig-btn{display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:11px 22px;border:1px solid rgba(255,255,255,.28);border-radius:99px;font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--ivory,#fff);transition:background .25s,border-color .25s}
 .ig-btn:hover{background:var(--red,#c0100f);border-color:var(--red,#c0100f);color:#fff}
 @media (max-width:520px){.ig-card .ig-frame{max-width:320px}}
+
+/* centered headers: lede box centered too */
+.pg-center .lede{margin-left:auto;margin-right:auto;text-align:center}
