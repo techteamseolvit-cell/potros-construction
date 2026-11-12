@@ -533,3 +533,10 @@ body:has(.potros-page){background:#0a0a0a!important}
 .award__h em{color:var(--red-hot)}
 .award__p{color:var(--muted);max-width:56ch}
 @media (max-width:640px){.award{grid-template-columns:110px 1fr;gap:16px}.award__h{font-size:24px}.award__p{font-size:14px}}
+
+/* Instagram reels: video only (Instagram header/footer cropped out) + button below */
+.ig-card .ig-frame{position:relative;width:100%;max-width:340px;aspect-ratio:9/16;overflow:hidden;border-radius:16px;background:#000;border:1px solid rgba(255,255,255,.12)}
+.ig-card .ig-frame iframe{position:absolute;left:0;top:-58px;width:100%;max-width:none;height:calc(100% + 58px + 260px);border:0;border-radius:0;background:#000}
+.ig-btn{display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:11px 22px;border:1px solid rgba(255,255,255,.28);border-radius:99px;font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--ivory,#fff);transition:background .25s,border-color .25s}
+.ig-btn:hover{background:var(--red,#c0100f);border-color:var(--red,#c0100f);color:#fff}
+@media (max-width:520px){.ig-card .ig-frame{max-width:320px}}

@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261111z'          # cache-busting for css/js
+VERSION = '20261112a'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -113,7 +113,7 @@ IG_TESTIMONIALS = ['DWO9QV5EX1A', 'DeCVOlVIFWH', 'DduH-x7I1Jj', 'DZIRU42RSGa', '
 
 def ig_grid(ids, label):
     """Instagram reel embeds (lazy iframes). Reels must be public and embeddable."""
-    cards = ''.join(f'<div class="ig-card rv"><iframe src="https://www.instagram.com/reel/{i}/embed" title="{label} {n + 1} on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe><a class="ig-link" href="https://www.instagram.com/reel/{i}/" target="_blank" rel="noopener">Watch on Instagram</a></div>' for n, i in enumerate(ids))
+    cards = ''.join(f'<div class="ig-card rv"><div class="ig-frame"><iframe src="https://www.instagram.com/reel/{i}/embed" title="{label} {n + 1} on Instagram" loading="lazy" allowtransparency="true" scrolling="no" frameborder="0" allowfullscreen></iframe></div><a class="ig-btn" href="https://www.instagram.com/reel/{i}/" target="_blank" rel="noopener">View on Instagram <span aria-hidden="true">↗</span></a></div>' for n, i in enumerate(ids))
     return f'<div class="ig-grid">{cards}</div>'
 
 
