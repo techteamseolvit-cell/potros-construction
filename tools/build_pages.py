@@ -179,14 +179,6 @@ def about():
   </div>
 </section>
 
-<section class="sp-process" aria-labelledby="proc-h2">
-  <div class="wrap">
-    <p class="eyebrow rv"><span class="dot"></span> How we work</p>
-    <h2 id="proc-h2" class="h2 rv">From first visit to <em>finished space.</em></h2>
-    {steps([('In-Person Estimate', 'We visit your home, discuss your project, and take measurements.'), ('3D Virtual Design', 'See your project in a realistic 3D virtual tour before we start.'), ('Build & Enjoy', 'Our team brings your approved design to life with quality craftsmanship.')])}
-  </div>
-</section>
-
 <section class="pg-svcs" aria-labelledby="svc-h2">
   <div class="pg-svcs__bg" aria-hidden="true"><img src="{img_path('house-deck-stone-landscape')}" alt="" loading="lazy" decoding="async"></div>
   <div class="wrap sp-intro__grid pg-svcs__in">
