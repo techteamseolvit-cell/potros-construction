@@ -134,7 +134,7 @@ def about():
 
 <section class="pg-award" aria-labelledby="award-h2">
   <div class="wrap pg-award__in rv">
-    <figure class="pg-award__img"><img src="{img_path('award-businessrate-2026')}" alt="BusinessRate Best of 2026 award plaque for Potros Construction LLC, Deck Builder, Winchester, Virginia" loading="lazy" decoding="async" width="1100" height="1100"></figure>
+    <figure class="pg-award__img"><img src="{('../assets/award-businessrate-2026.webp')}" alt="BusinessRate Best of 2026 award plaque for Potros Construction LLC, Deck Builder, Winchester, Virginia" loading="lazy" decoding="async" width="1100" height="1100"></figure>
     <div class="pg-award__copy">
       <p class="eyebrow"><span class="dot"></span> Award winner</p>
       <h2 id="award-h2" class="h2">Best of 2026: <em>Deck Builder, Winchester VA</em></h2>
