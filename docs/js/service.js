@@ -96,7 +96,7 @@
       if (bad) { note.textContent = 'Please complete the highlighted fields.'; return; }
       var body = 'Name: ' + f.name.value + '\nPhone: ' + f.phone.value + '\nEmail: ' + f.email.value + '\nCommunity: ' + f.city.value + '\nService: ' + (f.service.value || 'Not sure yet') + '\n\n' + f.message.value;
       note.textContent = 'Thank you! Your email app is opening with your request. If nothing opens, call us at (540) 514-8725.';
-      w.location.href = 'mailto:potrosconstruction@gmail.com?subject=' + encodeURIComponent('Free estimate request – ' + f.name.value) + '&body=' + encodeURIComponent(body);
+      w.location.href = 'mailto:info@potrosconstruction.com?subject=' + encodeURIComponent('Free estimate request – ' + f.name.value) + '&body=' + encodeURIComponent(body);
     });
   }
 })();

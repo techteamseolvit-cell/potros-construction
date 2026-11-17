@@ -411,3 +411,5 @@ p,li,figcaption{text-wrap:pretty}
 /* text selection: brand red instead of the theme yellow */
 ::selection,.potros-page ::selection,.potros-page::selection{background:rgba(224,16,15,.55)!important;color:#fff!important;text-shadow:none!important}
 ::-moz-selection,.potros-page ::-moz-selection{background:rgba(224,16,15,.55)!important;color:#fff!important}
+
+@media (min-width:900px){.pg-team__list>.pg-member:last-child:nth-child(3n+1){grid-column:3 / span 2}}

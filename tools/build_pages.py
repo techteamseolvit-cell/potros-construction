@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_service as bs
 from build_service import e, img_path, nav, footer, head, SITE, PHONE, PHONE_HREF, TI_ID, CITIES, VERSION, LIVE_SERVICES, DOCS
 
-EMAIL = 'potrosconstruction@gmail.com'
+EMAIL = 'info@potrosconstruction.com'
 MAPS = 'https://www.google.com/maps/search/?api=1&query=704+Baker+Ln+Ste+5+Winchester+VA+22603'
 
 LB = '<div class="lb" id="lb" hidden><button class="lb__x" id="lbX" aria-label="Close">×</button><button class="lb__n lb__n--p" id="lbP" aria-label="Previous">←</button><img id="lbImg" alt=""><button class="lb__n" id="lbN" aria-label="Next">→</button></div>'
@@ -80,7 +80,7 @@ def crumbs_schema(name, url):
 
 
 # ───────────────────────── ABOUT ─────────────────────────
-TEAM = [('Hugo Perez', 'Founder', 'hugo-perez'), ('Jesús Trejo', 'CEO', 'jesus-trejo'), ('Eduardo Peguero', 'Project Manager', 'eduardo-peguero'), ('Leydy Arteaga', 'Office Manager', 'leydy-arteaga'), ('Cris Reséndiz', 'Sales Representative', 'cris-resendiz'), ('Alex Estrada', 'Phone Receptionist', 'alex-estrada')]   # add (name, role, photo slug) here
+TEAM = [('Hugo Perez', 'Founder & Owner', 'hugo-perez'), ('Priscilla Pérez', 'Owner', 'priscilla-perez'), ('Jesús Trejo', 'CEO', 'jesus-trejo'), ('Eduardo Peguero', 'Project Manager', 'eduardo-peguero'), ('Leydy Arteaga', 'Office Manager', 'leydy-arteaga'), ('Cris Reséndiz', 'Sales Representative', 'cris-resendiz'), ('Alex Estrada', 'Phone Receptionist', 'alex-estrada')]   # add (name, role, photo slug) here
 
 
 def about():

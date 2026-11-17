@@ -572,6 +572,8 @@ body:has(.potros-page){background:#0a0a0a!important}
 ::selection,.potros-page ::selection,.potros-page::selection{background:rgba(224,16,15,.55)!important;color:#fff!important;text-shadow:none!important}
 ::-moz-selection,.potros-page ::-moz-selection{background:rgba(224,16,15,.55)!important;color:#fff!important}
 
+@media (min-width:900px){.pg-team__list>.pg-member:last-child:nth-child(3n+1){grid-column:3 / span 2}}
+
 </style>
 <script type="application/ld+json">
 {
