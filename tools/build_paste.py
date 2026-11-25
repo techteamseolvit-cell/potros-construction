@@ -50,6 +50,10 @@ def wrap_page(t):
     t = t.replace('</body>', '</div></body>', 1)
     names = ','.join('"%s"' % c for c in cls.split() if c)
     shim = f'<script>(function(){{var b=document.body;[{names}].forEach(function(c){{b.classList.add(c)}});}})();</script>'
+    fav = ('(function(){var h=document.head,u="' + ASSETS + '",v="?v=3";'
+           'Array.prototype.slice.call(h.querySelectorAll("link[rel~=icon],link[rel=apple-touch-icon]")).forEach(function(l){l.parentNode.removeChild(l)});'
+           '[["icon","favicon-32.png","32x32"],["icon","favicon-48.png","48x48"],["icon","favicon-512.png","512x512"],["apple-touch-icon","favicon-180.png","180x180"]].forEach(function(a){var l=document.createElement("link");l.rel=a[0];l.type="image/png";l.sizes=a[2];l.href=u+a[1]+v;h.appendChild(l)});})();')
+    shim += '<script>' + fav + '</script>'
     return t.replace('<div class="potros-page">', '<div class="potros-page">' + shim, 1)
 
 
