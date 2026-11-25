@@ -33,6 +33,7 @@ def encode_scripts(t):
     return re.sub(r'<script>(.*?)</script>', enc, t, flags=re.S)
 
 
+FAVICON = 'https://potrosconstruction.com/wp-content/uploads/favicon.png.png'   # uploaded to the site's media library
 SHORTCODE = '[trustindex no-registration=google]'
 
 
@@ -50,9 +51,9 @@ def wrap_page(t):
     t = t.replace('</body>', '</div></body>', 1)
     names = ','.join('"%s"' % c for c in cls.split() if c)
     shim = f'<script>(function(){{var b=document.body;[{names}].forEach(function(c){{b.classList.add(c)}});}})();</script>'
-    fav = ('(function(){var h=document.head,u="' + ASSETS + '",v="?v=3";'
+    fav = ('(function(){var h=document.head,u="' + FAVICON + '";'
            'Array.prototype.slice.call(h.querySelectorAll("link[rel~=icon],link[rel=apple-touch-icon]")).forEach(function(l){l.parentNode.removeChild(l)});'
-           '[["icon","favicon-32.png","32x32"],["icon","favicon-48.png","48x48"],["icon","favicon-512.png","512x512"],["apple-touch-icon","favicon-180.png","180x180"]].forEach(function(a){var l=document.createElement("link");l.rel=a[0];l.type="image/png";l.sizes=a[2];l.href=u+a[1]+v;h.appendChild(l)});})();')
+           '["icon","apple-touch-icon"].forEach(function(r){var l=document.createElement("link");l.rel=r;l.type="image/png";l.href=u;h.appendChild(l)});})();')
     shim += '<script>' + fav + '</script>'
     return t.replace('<div class="potros-page">', '<div class="potros-page">' + shim, 1)
 
