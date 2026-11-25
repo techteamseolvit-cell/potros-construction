@@ -143,6 +143,7 @@ def about():
 <section class="pg-team" aria-label="Meet the Potros team">
   <div class="wrap">
     <ul class="pg-team__list">{team_cards}</ul>
+    <figure class="pg-group rv"><img src="../assets/team/team-group.webp" alt="The Potros Construction team together at the office in Winchester, Virginia" loading="lazy" decoding="async" width="910" height="604"><figcaption>The Potros team at our office in Winchester.</figcaption></figure>
   </div>
 </section>
 
