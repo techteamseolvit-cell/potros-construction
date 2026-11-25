@@ -16,7 +16,7 @@ def hero(h1, lead, photo, alt, crumb, chips, cta=True, trail=None):
     lis = ''.join(f'<li><b>0{i + 1}</b>{e(c)}</li>' for i, c in enumerate(chips))
     strip = f'<div class="sp-hero__strip"><ul class="wrap" style="--cols:{len(chips)}" aria-label="At a glance">{lis}</ul></div>' if chips else ''
     lead_html = f'<p class="sp-hero__lead">{e(lead)}</p>' if lead else ''
-    btns = f'<div class="sp-hero__cta"><a class="btn" href="../contact-us/">Get a free estimate</a><a class="sp-call" href="tel:{PHONE_HREF}">Call {PHONE}</a></div>' if cta else ''
+    btns = f'<div class="sp-hero__cta"><a class="btn" href="../contact-us/">Get a Free Consultation</a><a class="sp-call" href="tel:{PHONE_HREF}">Call {PHONE}</a></div>' if cta else ''
     return f'''<section class="sp-hero pg-hero" aria-labelledby="sp-h1">
   <div class="sp-hero__bg" aria-hidden="true"><img src="{photo if photo.startswith('../') else img_path(photo)}" alt="" width="1800" height="750" fetchpriority="high" decoding="async"></div>
   <div class="sp-hero__shade" aria-hidden="true"></div>
@@ -195,7 +195,7 @@ def about():
   <div class="wrap cta__in">
     <p class="eyebrow"><span class="dot"></span> Let’s build together</p>
     <h2 id="cta-title" class="cta__title">Let’s talk about <em>your outdoor space.</em></h2>
-    <div class="cta__row"><a class="btn" href="../contact-us/">Get your free estimate</a><a class="cta__tel" href="tel:{PHONE_HREF}">Call {PHONE}</a></div>
+    <div class="cta__row"><a class="btn" href="../contact-us/">Get a Free Consultation</a><a class="cta__tel" href="tel:{PHONE_HREF}">Call {PHONE}</a></div>
   </div>
 </section>'''
     schema = {'@context': 'https://schema.org', '@graph': [

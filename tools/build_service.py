@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261125a'          # cache-busting for css/js
+VERSION = '20261125b'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -178,7 +178,7 @@ def nav(current=None, prefix='../'):
     {links}
   </nav>
   <a class="nav__phone" href="tel:{PHONE_HREF}">{PHONE}</a>
-  <a class="btn btn--sm" href="{prefix}contact-us/">Free Estimate</a>
+  <a class="btn btn--sm" href="{prefix}contact-us/">Get a Free Consultation</a>
   <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
 </header>
 <div class="drawer" id="drawer">

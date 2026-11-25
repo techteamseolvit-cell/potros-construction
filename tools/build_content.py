@@ -13,7 +13,7 @@ O = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dat
 GBUSINESS = {'@type': 'GeneralContractor', '@id': SITE + '/#business', 'name': 'Potros Construction LLC', 'telephone': '+1-540-514-8725'}
 
 
-def cta(title, eyebrow='Let’s build together', photo='patio-firepit-chairs', button='Get your free estimate'):
+def cta(title, eyebrow='Let’s build together', photo='patio-firepit-chairs', button='Get a Free Consultation'):
     return f'''<section class="cta" aria-labelledby="cta-title">
   <div class="cta__bg" aria-hidden="true"><img src="{img_path(photo)}" alt="" loading="lazy" decoding="async"></div>
   <div class="wrap cta__in">
