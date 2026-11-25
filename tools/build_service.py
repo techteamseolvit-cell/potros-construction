@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-VERSION = '20261117a'          # cache-busting for css/js
+VERSION = '20261125a'          # cache-busting for css/js
 SITE = 'https://potrosconstruction.com'
 PHONE, PHONE_HREF = '(540) 514-8725', '+15405148725'
 TI_ID = '585d188595d53198d00608bfd4f'   # Trustindex widget used on the current site
@@ -165,13 +165,12 @@ def nav(current=None, prefix='../'):
     home = prefix or './'
     svc_cur = ' aria-current="page"' if current in {s for s, _ in ALL_SERVICES} else ''
     sub = ''.join(f'<a href="{prefix}{s}-winchester-va/"{cur(s)}>{l}</a>' for s, l in ALL_SERVICES)
-    links = ''.join(f'<a href="{prefix}{u}"{cur(k)}>{l}</a>' for k, l, u in MENU)
+    links = ''.join(f'<a href="{prefix}{u}"{cur(k)}>{l}</a>' for k, l, u in MENU if k != 'contact')
     drawer_svc = ''.join(f'<a href="{prefix}{s}-winchester-va/">{l}</a>' for s, l in ALL_SERVICES)
     drawer_main = ''.join(f'<a href="{prefix}{u}">{l}</a>' for k, l, u in MENU)
     return f'''<header class="nav" id="nav">
   <a class="nav__logo" href="{home}" aria-label="Potros Construction, home"><img src="{prefix}assets/logo.png" alt="Potros Construction LLC" width="170" height="50"></a>
   <nav class="nav__links" aria-label="Primary">
-    <a href="{home}"{cur('home')}>Home</a>
     <div class="nav__dd">
       <a href="{prefix}#services"{svc_cur} aria-haspopup="true">Services <i class="nav__caret" aria-hidden="true"></i></a>
       <div class="nav__menu">{sub}</div>
