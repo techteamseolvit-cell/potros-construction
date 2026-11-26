@@ -236,7 +236,7 @@ def contact():
       </dl>
     </div>
     <form class="pg-form rv" id="estimateForm" novalidate>
-      <h3 class="pg-form__t">Request a free estimate</h3>
+      <h3 class="pg-form__t">Request a Free Consultation</h3>
       <div class="pg-row">
         <label><span>Name</span><input name="name" autocomplete="name" required></label>
         <label><span>Phone</span><input name="phone" type="tel" autocomplete="tel" required></label>
